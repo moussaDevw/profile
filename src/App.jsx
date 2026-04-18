@@ -7,10 +7,11 @@ import Expertise from './components/Expertise';
 import Experience from './components/Experience';
 import CareerLogs from './components/CareerLogs';
 import Contact from './components/Contact';
-
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <>
+      <Analytics />
       <Navbar />
       <main>
         <Hero />
