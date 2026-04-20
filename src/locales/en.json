@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "work": "Works",
+    "expertise": "Expertise",
+    "experience": "Career",
+    "contact": "Contact me →"
+  },
+  "hero": {
+    "location": "Based in",
+    "city": "Dakar, Senegal 🇸🇳",
+    "available": "Available",
+    "status": "New projects 2026",
+    "specialty": "Specialty",
+    "frontend_fullstack": "Frontend · Fullstack",
+    "bio": "Front-end developer specializing in <0>complex web platforms</0> — teleconsultation, EdTech, marketplaces. I builds <1>real-time</1> interfaces with React, Next.js and TypeScript, designed for performance, UX and maintainability.",
+    "years_xp": "Years of XP",
+    "projects_delivered": "Projects delivered",
+    "marketplaces": "Marketplaces"
+  },
+  "sections": {
+    "about": "About",
+    "work": "Works",
+    "expertise": "Expertise",
+    "experience": "Career",
+    "logs": "Career Logs",
+    "contact": "Contact me",
+    "work_title": "Recent <0>projects</0> & <1>in progress</1>",
+    "work_desc": "A selection of platforms I've worked on — from double-sided marketplaces to critical real-time applications. Each project, a different business context."
+  },
+  "about": {
+    "text": "<0>I</0> am interested in <1>useful</1> products, <2>ambitious</2> startups and <3>demanding</3> technical environments. Co-founder of <4>Tàgg Group</4>, I work on React / Next.js / TypeScript architectures with advanced state management and special attention to performance, UX and maintainability.",
+    "quote": "Building interfaces that respect both <0>the end user</0> and <1>the next developer</1>."
+  },
+  "contact": {
+    "title": "A project <0>in mind</0>?<1 />Let's talk.",
+    "availability_title": "Availability",
+    "availability_text": "Open to freelance missions, ambitious startup collaborations and demanding technical environments. Remote or in Dakar.",
+    "networks": "Networks",
+    "linkedin": "LinkedIn",
+    "tagg": "Tàgg Group",
+    "email_label": "Email",
+    "phone": "Phone",
+    "rights": "© 2026 Moussa Diagne — All rights reserved",
+    "made_in": "Designed & developed in Dakar 🇸🇳"
+  },
+  "projects": {
+    "in_progress": "In progress",
+    "marketplace": "Marketplace",
+    "mentoring": "Mentoring",
+    "freelance": "Freelance",
+    "healthtech": "HealthTech",
+    "data": "Data",
+    "research": "Scientific Research",
+    "dashboard": "Dashboard",
+    "call_center": "Call Center",
+    "p2p": "P2P",
+    "client_labels": {
+      "yello": "Interactive learning platform",
+      "sapiow": "Knowledge seekers × experts",
+      "edaktarii": "Medical teleconsultation",
+      "soveur": "Remote or in-person services",
+      "betech": "Data exploration platform",
+      "casacloud": "Real-time supervision",
+      "medteck": "Bartering, buying & negotiation"
+    },
+    "bodies": {
+      "yello": "Transforming raw content into interactive and measurable learning paths. Content player with block splitting, integrated quizzes with immediate validation, learner/trainer dashboard, and native HTML5 multimedia player for a lightweight and high-performance solution.",
+      "sapiow": "Marketplace where knowledge seekers and experts connect for paid mentoring sessions. Advanced search with dynamic filters, seamless booking and payment tunnel, secure messaging via GetStream.io for pre/post-session exchanges and document sharing.",
+      "edaktarii": "Teleconsultation platform democratizing access to specialized care for patients in Africa, by connecting them to a network of European-based doctors. Robust low-latency videoconferencing, secure patient/doctor messaging, Core Web Vitals optimization and WCAG accessibility.",
+      "soveur": "B2C marketplace to find and book local services (gardening, electricity, lessons). Dual booking system: remote via auto-generated Google Meet, or in-person with logistics management. Geolocation search, availability calendar, payment tunnel.",
+      "betech": "Interface allowing researchers to explore, filter and consult a voluminous scientific database. Search engine with autocompletion, combinable complex filters, interactive visualizations. Aggressive caching and virtual pagination for responsiveness on large volumes.",
+      "casacloud": "Centralized administrative dashboard for customer and operational data of a call center. Customizable dashboards, visualizations with Chart.js/Recharts, real-time centralization of active calls, queues, agent performance and KPIs.",
+      "medteck": "P2P marketplace combining three transactional modes: item exchange (barter), classic purchase, and purchase with real-time price negotiation. Redux store orchestrating catalog, cart, negotiation sessions, messages and notifications. Pure CSS interface without component library."
+    }
+  },
+  "expertise_titles": {
+    "frameworks": "Framework & Language",
+    "state": "State & Data",
+    "ui": "UI, Real-time & Integrations"
+  },
+  "roles": {
+    "frontend": "Front-end Developer",
+    "frontend_freelance": "Front-end Developer · Freelance",
+    "fullstack": "Fullstack Developer — banking sector",
+    "web": "Web Developer",
+    "web_mobile": "Web/mobile Developer",
+    "stage": "Web Developer (internship)"
+  },
+  "terminal": {
+    "starting": "Starting career analysis segment...",
+    "initializing": "Initializing background checks for 11 roles found.",
+    "loaded": "Loaded node: ",
+    "ready": "Ready to eject career history module...",
+    "header": "SYSTEM LOGS / OUTPUT"
+  },
+  "levels": {
+    "expert": "Expert",
+    "solid": "Solid"
+  }
+}

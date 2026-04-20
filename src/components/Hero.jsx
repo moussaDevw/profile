@@ -1,14 +1,17 @@
+import { useTranslation, Trans } from 'react-i18next';
 import { Reveal } from './Reveal';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="hero">
       <div>
         <Reveal>
           <div className="hero-meta">
-            <div>Basé à<strong>Dakar, Sénégal 🇸🇳</strong></div>
-            <div>Disponible<strong className="live">Nouveaux projets 2026</strong></div>
-            <div>Spécialité<strong>Frontend · Fullstack</strong></div>
+            <div>{t('hero.location')}<strong>{t('hero.city')}</strong></div>
+            <div>{t('hero.available')}<strong className="live">{t('hero.status')}</strong></div>
+            <div>{t('hero.specialty')}<strong>{t('hero.frontend_fullstack')}</strong></div>
           </div>
         </Reveal>
 
@@ -23,7 +26,9 @@ const Hero = () => {
       <div className="hero-bottom">
         <Reveal delay={0.2}>
           <p className="hero-bio">
-            Développeur front-end spécialisé dans les <em>plateformes web complexes</em> — téléconsultation, EdTech, marketplaces. Je construis des interfaces <em>temps réel</em> avec React, Next.js et TypeScript, pensées pour la performance, l'UX et la maintenabilité.
+            <Trans i18nKey="hero.bio">
+              Développeur front-end spécialisé dans les <em>plateformes web complexes</em> — téléconsultation, EdTech, marketplaces. Je construis des interfaces <em>temps réel</em> avec React, Next.js et TypeScript, pensées pour la performance, l'UX et la maintenabilité.
+            </Trans>
           </p>
         </Reveal>
 
@@ -31,15 +36,15 @@ const Hero = () => {
           <div className="hero-stats">
             <div>
               <div className="stat-num">7<sup>+</sup></div>
-              <div className="stat-label">Années d'XP</div>
+              <div className="stat-label">{t('hero.years_xp')}</div>
             </div>
             <div>
               <div className="stat-num">12<sup>+</sup></div>
-              <div className="stat-label">Projets livrés</div>
+              <div className="stat-label">{t('hero.projects_delivered')}</div>
             </div>
             <div>
               <div className="stat-num">4</div>
-              <div className="stat-label">Marketplaces</div>
+              <div className="stat-label">{t('hero.marketplaces')}</div>
             </div>
           </div>
         </Reveal>

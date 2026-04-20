@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -14,12 +17,15 @@ const Navbar = () => {
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="logo">Moussa<span>.</span>D</div>
-      <ul>
-        <li><a href="#work">Travaux</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#experience">Parcours</a></li>
-        <li><a href="#contact" className="contact-btn">Me contacter →</a></li>
-      </ul>
+      <div className="nav-right">
+        <ul>
+          <li><a href="#work">{t('nav.work')}</a></li>
+          <li><a href="#expertise">{t('nav.expertise')}</a></li>
+          <li><a href="#experience">{t('nav.experience')}</a></li>
+          <li><a href="#contact" className="contact-btn">{t('nav.contact')}</a></li>
+        </ul>
+        <LanguageSwitcher />
+      </div>
     </nav>
   );
 };

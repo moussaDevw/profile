@@ -93,6 +93,11 @@ nav .logo span {
   color: var(--accent);
 }
 
+nav .nav-right {
+  display: flex;
+  align-items: center;
+}
+
 nav ul {
   display: flex;
   gap: 2rem;
@@ -819,6 +824,11 @@ footer {
     display: none;
   }
 
+  .nav-right .lang-switcher {
+    margin-left: 0;
+    padding: 0.3rem 0.6rem;
+  }
+
   .hero {
     padding-top: 7rem;
   }
@@ -1011,4 +1021,36 @@ footer {
     padding: 1rem;
     font-size: 0.75rem;
   }
+}
+
+/* Language Switcher */
+.lang-switcher {
+  background: none;
+  border: 1px solid rgba(26, 23, 20, 0.15);
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  margin-left: 1.5rem;
+}
+
+.lang-switcher:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.lang-switcher span.active {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.lang-switcher .separator {
+  opacity: 0.3;
 }

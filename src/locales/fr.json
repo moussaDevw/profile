@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "work": "Travaux",
+    "expertise": "Expertise",
+    "experience": "Parcours",
+    "contact": "Me contacter →"
+  },
+  "hero": {
+    "location": "Basé à",
+    "city": "Dakar, Sénégal 🇸🇳",
+    "available": "Disponible",
+    "status": "Nouveaux projets 2026",
+    "specialty": "Spécialité",
+    "frontend_fullstack": "Frontend · Fullstack",
+    "bio": "Développeur front-end spécialisé dans les <0>plateformes web complexes</0> — téléconsultation, EdTech, marketplaces. Je construis des interfaces <1>temps réel</1> avec React, Next.js et TypeScript, pensées pour la performance, l'UX et la maintenabilité.",
+    "years_xp": "Années d'XP",
+    "projects_delivered": "Projets livrés",
+    "marketplaces": "Marketplaces"
+  },
+  "sections": {
+    "about": "À propos",
+    "work": "Travaux",
+    "expertise": "Expertise",
+    "experience": "Parcours",
+    "logs": "Journal de bord",
+    "contact": "Me contacter",
+    "work_title": "Projets <0>récents</0> & <1>en cours</1>",
+    "work_desc": "Une sélection des plateformes sur lesquelles j'ai travaillé — des marketplaces double-sided aux applications temps réel critiques. Chaque projet, un contexte métier différent."
+  },
+  "about": {
+    "text": "<0>I</0>ntéressé par les produits <1>utiles</1>, les startups <2>ambitieuses</2> et les environnements techniques <3>exigeants</3>. Co-fondateur de <4>Tàgg Group</4>, j'interviens sur des architectures React / Next.js / TypeScript avec une gestion d'état avancée et une attention particulière portée à la performance, l'UX et la maintenabilité.",
+    "quote": "Construire des interfaces qui respectent à la fois <0>l'utilisateur final</0> et <1>le développeur suivant</1>."
+  },
+  "contact": {
+    "title": "Un projet <0>en tête</0>?<1 />Parlons-en.",
+    "availability_title": "Disponibilité",
+    "availability_text": "Ouvert aux missions freelance, collaborations startups ambitieuses et environnements techniques exigeants. Remote ou sur Dakar.",
+    "networks": "Réseaux",
+    "linkedin": "LinkedIn",
+    "tagg": "Tàgg Group",
+    "email_label": "Email",
+    "phone": "Téléphone",
+    "rights": "© 2026 Moussa Diagne — Tous droits réservés",
+    "made_in": "Conçu & développé à Dakar 🇸🇳"
+  },
+  "projects": {
+    "in_progress": "En cours",
+    "marketplace": "Marketplace",
+    "mentoring": "Mentoring",
+    "freelance": "Freelance",
+    "healthtech": "HealthTech",
+    "data": "Data",
+    "research": "Recherche scientifique",
+    "dashboard": "Dashboard",
+    "call_center": "Centre d'appels",
+    "p2p": "P2P",
+    "client_labels": {
+      "yello": "Plateforme d'apprentissage interactif",
+      "sapiow": "Chercheurs de savoir × experts",
+      "edaktarii": "Téléconsultation médicale",
+      "soveur": "Services à distance ou en présentiel",
+      "betech": "Plateforme d'exploration de données",
+      "casacloud": "Supervision temps réel",
+      "medteck": "Troc, achat & négociation"
+    },
+    "bodies": {
+      "yello": "Transformation de contenu brut en parcours d'apprentissage interactif et mesurable. Lecteur de contenu avec découpage en blocs, quiz intégrés à validation immédiate, tableau de bord apprenant/formateur, et lecteur multimédia natif HTML5 pour une solution légère et performante.",
+      "sapiow": "Marketplace où chercheurs de savoir et experts se connectent pour des sessions de mentoring payantes. Recherche avancée avec filtres dynamiques, tunnel de réservation et paiement fluide, messagerie sécurisée GetStream.io pour les échanges pré/post-session et le partage de documents.",
+      "edaktarii": "Plateforme de téléconsultation démocratisant l'accès aux soins spécialisés pour les patients en Afrique, en les connectant à un réseau de médecins basés en Europe. Visioconférence robuste à faible latence, messagerie sécurisée patient/médecin, optimisation Core Web Vitals et accessibilité WCAG.",
+      "soveur": "Marketplace B2C pour trouver et réserver des services locaux (jardinage, électricité, cours). Système de réservation dual : à distance via Google Meet auto-généré, ou en présentiel avec gestion logistique. Recherche géolocalisée, calendrier de disponibilités, tunnel de paiement.",
+      "betech": "Interface permettant aux chercheurs d'explorer, filtrer et consulter une volumineuse base de données scientifiques. Moteur de recherche avec autocomplétion, filtres complexes combinables, visualisations interactives. Cache agressif et pagination virtuelle pour maintenir la réactivité sur de gros volumes.",
+      "casacloud": "Dashboard administratif centralisant les données clients et opérationnelles d'un centre d'appels. Tableaux de bord personnalisables, visualisations avec Chart.js/Recharts, centralisation temps réel des appels actifs, files d'attente, performances agents et KPIs.",
+      "medteck": "Marketplace P2P combinant trois modes transactionnels : échange d'articles (troc), achat classique, et achat avec négociation de prix en temps réel. Store Redux orchestrant catalogue, panier, sessions de négociation, messages et notifications. Interface CSS pur sans librairie de composants."
+    }
+  },
+  "expertise_titles": {
+    "frameworks": "Framework & Langage",
+    "state": "État & Données",
+    "ui": "UI, Temps réel & Intégrations"
+  },
+  "roles": {
+    "frontend": "Développeur front-end",
+    "frontend_freelance": "Développeur front-end · Freelance",
+    "fullstack": "Développeur fullstack — secteur bancaire",
+    "web": "Développeur web",
+    "web_mobile": "Développeur web/mobile",
+    "covoiturage": "Développeur web — app covoiturage",
+    "stage": "Développeur web (stage)"
+  },
+  "terminal": {
+    "starting": "Démarrage de l'analyse segmentée du parcours...",
+    "initializing": "Initialisation des vérifications pour 11 postes identifiés.",
+    "loaded": "Nœud chargé : ",
+    "ready": "Module d'historique de carrière prêt à l'éjection...",
+    "header": "LOGS SYSTÈME / OUTPUT"
+  },
+  "levels": {
+    "expert": "Expert",
+    "solid": "Solide"
+  }
+}
