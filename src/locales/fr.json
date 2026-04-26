@@ -61,16 +61,82 @@
       "soveur": "Services à distance ou en présentiel",
       "betech": "Plateforme d'exploration de données",
       "casacloud": "Supervision temps réel",
-      "medteck": "Troc, achat & négociation"
+      "medteck": "Troc, achat & négociation",
+      "istamco": "CRM métier dédié au transport"
+    },
+    "detail_labels": {
+      "context": "Contexte",
+      "goal": "Objectif du projet",
+      "role": "Mon rôle",
+      "achievements": "Réalisations principales",
+      "challenges": "Défis techniques",
+      "impact": "Résultats & impact"
     },
     "bodies": {
-      "yello": "Transformation de contenu brut en parcours d'apprentissage interactif et mesurable. Lecteur de contenu avec découpage en blocs, quiz intégrés à validation immédiate, tableau de bord apprenant/formateur, et lecteur multimédia natif HTML5 pour une solution légère et performante.",
-      "sapiow": "Marketplace où chercheurs de savoir et experts se connectent pour des sessions de mentoring payantes. Recherche avancée avec filtres dynamiques, tunnel de réservation et paiement fluide, messagerie sécurisée GetStream.io pour les échanges pré/post-session et le partage de documents.",
-      "edaktarii": "Plateforme de téléconsultation démocratisant l'accès aux soins spécialisés pour les patients en Afrique, en les connectant à un réseau de médecins basés en Europe. Visioconférence robuste à faible latence, messagerie sécurisée patient/médecin, optimisation Core Web Vitals et accessibilité WCAG.",
-      "soveur": "Marketplace B2C pour trouver et réserver des services locaux (jardinage, électricité, cours). Système de réservation dual : à distance via Google Meet auto-généré, ou en présentiel avec gestion logistique. Recherche géolocalisée, calendrier de disponibilités, tunnel de paiement.",
-      "betech": "Interface permettant aux chercheurs d'explorer, filtrer et consulter une volumineuse base de données scientifiques. Moteur de recherche avec autocomplétion, filtres complexes combinables, visualisations interactives. Cache agressif et pagination virtuelle pour maintenir la réactivité sur de gros volumes.",
-      "casacloud": "Dashboard administratif centralisant les données clients et opérationnelles d'un centre d'appels. Tableaux de bord personnalisables, visualisations avec Chart.js/Recharts, centralisation temps réel des appels actifs, files d'attente, performances agents et KPIs.",
-      "medteck": "Marketplace P2P combinant trois modes transactionnels : échange d'articles (troc), achat classique, et achat avec négociation de prix en temps réel. Store Redux orchestrant catalogue, panier, sessions de négociation, messages et notifications. Interface CSS pur sans librairie de composants."
+      "yello": {
+        "context": "Yello est une plateforme EdTech permettant de transformer des contenus éducatifs (PDF, vidéos, audios) en modules d’apprentissage interactifs. L’objectif est de rendre l’apprentissage plus accessible, structuré et engageant grâce à l’intelligence artificielle. La plateforme est utilisée à grande échelle par des milliers d’apprenants.",
+        "goal": "• Simplifier la création de contenu éducatif\n• Améliorer l’engagement des apprenants\n• Permettre un apprentissage rapide via des formats interactifs (microlearning)\n• Offrir une expérience personnalisée basée sur le contenu utilisateur",
+        "role": "Senior Frontend Developer\n\nParticipation active à la conception et au développement de l’interface utilisateur ainsi qu’à l’implémentation de fonctionnalités clés orientées produit.",
+        "achievements": "• Développement d’interfaces dynamiques avec React / Next.js pour des parcours d’apprentissage interactifs\n• Implémentation de fonctionnalités intelligentes : génération automatique de quiz, création de flashcards, résumés de contenu\n• Développement d’un chatbot pédagogique permettant aux utilisateurs d’interagir avec leurs contenus\n• Mise en place de dashboards de suivi de progression des apprenants\n• Intégration d’API pour la gestion des contenus et des données utilisateurs\n• Gestion des états complexes et optimisation des performances frontend",
+        "challenges": "• Gestion de contenus générés dynamiquement par l’IA\n• Maintien de bonnes performances malgré une forte volumétrie de données\n• Conception d’une UX fluide pour des parcours d’apprentissage complexes\n• Synchronisation des données entre plusieurs modules interactifs",
+        "impact": "• Plateforme utilisée par +200 000 apprenants\n• Contribution à une solution classée parmi les meilleures applications éducatives au Sénégal\n• Amélioration de l’engagement utilisateur grâce aux formats interactifs\n• Réduction du temps de création de contenu éducatif"
+      },
+      "sapiow": {
+        "context": "Marketplace mettant en relation chercheurs de savoir et experts pour des sessions de mentoring payantes.",
+        "goal": "Faciliter le partage de connaissances via une plateforme fluide connectant experts et apprenants du monde entier.",
+        "role": "Lead Front-end. Mise en place de l'architecture Next.js et intégration des services tiers critiques.",
+        "achievements": "Tunnel de réservation optimisé, messagerie temps réel via GetStream.io, et intégration complète du flux de paiement Stripe.",
+        "challenges": "Synchronisation complexe des disponibilités multi-fuseaux horaires et sécurisation des échanges pré-session.",
+        "impact": "Lancement réussi avec une croissance constante du nombre de sessions réservées mensuellement."
+      },
+      "edaktarii": {
+        "context": "eDaktarii est une plateforme de télémédecine permettant de connecter des patients et des médecins à distance via des consultations vidéo. Elle vise à faciliter l’accès aux soins, notamment entre l’Afrique et la diaspora.",
+        "goal": "• Permettre la consultation médicale à distance\n• Simplifier la prise de rendez-vous avec des professionnels de santé\n• Assurer un suivi patient accessible en ligne\n• Offrir une expérience fluide et sécurisée",
+        "role": "Frontend Developer\n\nParticipation au développement de l’interface utilisateur et des flux critiques liés à la téléconsultation.",
+        "achievements": "• Développement d’interfaces pour la téléconsultation vidéo\n• Implémentation d’un système de prise de rendez-vous avec gestion des créneaux\n• Intégration des flux de paiement sécurisé pour les consultations\n• Développement des interfaces de suivi patient et consultation\n• Gestion des états complexes liés aux sessions et interactions utilisateur\n• Optimisation de l’expérience utilisateur sur web et mobile",
+        "challenges": "• Gestion de flux temps réel (consultation, rendez-vous)\n• Conception d’interfaces simples pour un contexte médical\n• Gestion de données sensibles (confidentialité et sécurité)\n• Expérience fluide sur différents types d’appareils",
+        "impact": "• Mise en place d’une solution de santé accessible à distance\n• Amélioration de l’accès aux soins pour des utilisateurs internationaux\n• Plateforme disponible 24/7 pour consultations médicales"
+      },
+      "soveur": {
+        "context": "Soveur est une plateforme marketplace permettant de connecter des clients avec des prestataires de services (coiffure, plomberie, etc.) avec réservation en ligne et géolocalisation.",
+        "goal": "• Faciliter la mise en relation client ↔ prestataire\n• Permettre la réservation rapide de services\n• Offrir une gestion simple des disponibilités et des services\n• Optimiser l’expérience utilisateur sur des services à la demande",
+        "role": "Frontend / Fullstack Developer\n\nContribution au développement des fonctionnalités principales de la plateforme.",
+        "achievements": "• Développement d’une interface marketplace pour la gestion des services\n• Implémentation du système de réservation avec gestion des disponibilités\n• Intégration de la géolocalisation des prestataires\n• Développement des flux de paiement en ligne\n• Gestion des interactions utilisateurs (recherche, sélection, booking)\n• Optimisation des performances et de l’expérience utilisateur",
+        "challenges": "• Gestion de flux complexes de réservation\n• Synchronisation des disponibilités en temps réel\n• Expérience utilisateur fluide sur un parcours multi-étapes\n• Gestion de données liées aux services et utilisateurs",
+        "impact": "• Mise en place d’une marketplace fonctionnelle multi-services\n• Simplification de l’accès aux services à domicile\n• Amélioration de l’expérience de réservation utilisateur"
+      },
+      "betech": {
+        "context": "Interface d'exploration de données permettant aux chercheurs de consulter une vaste base de données scientifiques.",
+        "goal": "Rendre l'exploration de datasets volumineux intuitive et performante pour la recherche scientifique.",
+        "role": "Développeur Front-end. Optimisation du moteur de recherche et des visualisations de données.",
+        "achievements": "Moteur de recherche à filtres complexes, pagination virtuelle performante et visualisations interactives.",
+        "challenges": "Gestion de la fluidité de l'interface lors du filtrage en temps réel sur des millions d'entrées.",
+        "impact": "Gain de productivité majeur pour les équipes de recherche dans leur phase d'exploration de données."
+      },
+      "casacloud": {
+        "context": "Dashboard administratif centralisant les données opérationnelles d'un centre d'appels en temps réel.",
+        "goal": "Fournir aux superviseurs une vision claire et immédiate des performances et KPIs du centre.",
+        "role": "Développeur Front-end. Création des composants de visualisation et gestion des flux de données live.",
+        "achievements": "Tableaux de bord personnalisables, intégration de Chart.js pour le reporting et monitoring des files d'attente.",
+        "challenges": "Synchronisation en temps réel de volumes importants d'événements sans dégradation des performances.",
+        "impact": "• Amélioration notable de l'engagement des apprenants et réduction du temps de création de contenu pour les formateurs."
+      },
+      "istamco": {
+        "context": "Développement d’un CRM métier dédié au transport international (freight forwarding), permettant de gérer les opérations logistiques, les clients et les flux de données liés aux expéditions.",
+        "goal": "• Digitaliser les processus logistiques\n• Centraliser la gestion des expéditions et des clients\n• Offrir des outils de reporting et d’analyse\n• Améliorer l’efficacité opérationnelle",
+        "role": "Fullstack Developer (Consultant)\n\nConception et développement de l’application avec focus sur l’architecture frontend et la gestion des données.",
+        "achievements": "• Développement d’un CRM logistique avec Angular et TypeScript\n• Mise en place d’une architecture scalable avec gestion d’état et RxJS\n• Développement de dashboards analytiques (Chart.js, ECharts)\n• Création d’interfaces avancées pour la gestion des expéditions et des données\n• Implémentation de systèmes d’export (Excel, PDF) pour reporting métier\n• Intégration de composants complexes (calendriers, tables dynamiques)",
+        "challenges": "• Gestion de volumes importants de données logistiques\n• Conception d’interfaces adaptées à des workflows métiers complexes\n• Optimisation des performances sur des dashboards interactifs\n• Structuration d’une architecture scalable",
+        "impact": "• Digitalisation des processus métier logistiques\n• Amélioration du suivi des opérations et de la productivité\n• Mise en place d’outils analytiques pour la prise de décision"
+      },
+      "medteck": {
+        "context": "Marketplace P2P combinant troc, achat classique et négociation de prix en temps réel.",
+        "goal": "Créer une plateforme d'échange flexible favorisant l'économie circulaire et la négociation directe.",
+        "role": "Développeur Front-end. Implémentation de la logique de négociation et du module de troc.",
+        "achievements": "Moteur de négociation temps réel, gestion complexe des états de transaction et interface sans librairie externe.",
+        "challenges": "Orchestration d'états Redux complexes pour gérer les multiples modes de transaction simultanés.",
+        "impact": "Adoption rapide par une communauté d'utilisateurs engagés dans le troc et la négociation."
+      }
     }
   },
   "expertise_titles": {
@@ -95,7 +161,10 @@
     "header": "LOGS SYSTÈME / OUTPUT"
   },
   "levels": {
-    "expert": "Expert",
     "solid": "Solide"
+  },
+  "common": {
+    "show_more": "Détails du projet →",
+    "show_less": "Réduire ←"
   }
 }
