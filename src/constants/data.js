@@ -4,8 +4,16 @@ export const PROJECTS = [
     type: "EdTech · En cours",
     name: "Yello",
     client: "Plateforme d'apprentissage interactif",
-    body: "Transformation de contenu brut en parcours d'apprentissage interactif et mesurable. Lecteur de contenu avec découpage en blocs, quiz intégrés à validation immédiate, tableau de bord apprenant/formateur, et lecteur multimédia natif HTML5 pour une solution légère et performante.",
+    body: "Yello est une plateforme EdTech permettant de transformer des contenus éducatifs (PDF, vidéos, audios) en modules d’apprentissage interactifs. L’objectif est de rendre l’apprentissage plus accessible, structuré et engageant grâce à l’intelligence artificielle. La plateforme est utilisée à grande échelle par des milliers d’apprenants.",
     tags: ["React", "Zustand", "TanStack Query", "Tailwind", "shadcn/ui"]
+  },
+  {
+    year: "2024—26",
+    type: "CRM · Logistique · Consultant",
+    name: "Istamco",
+    client: "CRM métier dédié au transport",
+    body: "Développement d’un CRM métier dédié au transport international (freight forwarding), permettant de gérer les opérations logistiques, les clients et les flux de données liés aux expéditions.",
+    tags: ["Angular", "TypeScript", "RxJS", "Chart.js", "ECharts"]
   },
   {
     year: "2025—26",

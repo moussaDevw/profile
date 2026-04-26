@@ -61,16 +61,82 @@
       "soveur": "Remote or in-person services",
       "betech": "Data exploration platform",
       "casacloud": "Real-time supervision",
-      "medteck": "Bartering, buying & negotiation"
+      "medteck": "Bartering, buying & negotiation",
+      "istamco": "Business CRM dedicated to transport"
+    },
+    "detail_labels": {
+      "context": "Context",
+      "goal": "Project Goal",
+      "role": "My Role",
+      "achievements": "Main Achievements",
+      "challenges": "Technical Challenges",
+      "impact": "Results & Impact"
     },
     "bodies": {
-      "yello": "Transforming raw content into interactive and measurable learning paths. Content player with block splitting, integrated quizzes with immediate validation, learner/trainer dashboard, and native HTML5 multimedia player for a lightweight and high-performance solution.",
-      "sapiow": "Marketplace where knowledge seekers and experts connect for paid mentoring sessions. Advanced search with dynamic filters, seamless booking and payment tunnel, secure messaging via GetStream.io for pre/post-session exchanges and document sharing.",
-      "edaktarii": "Teleconsultation platform democratizing access to specialized care for patients in Africa, by connecting them to a network of European-based doctors. Robust low-latency videoconferencing, secure patient/doctor messaging, Core Web Vitals optimization and WCAG accessibility.",
-      "soveur": "B2C marketplace to find and book local services (gardening, electricity, lessons). Dual booking system: remote via auto-generated Google Meet, or in-person with logistics management. Geolocation search, availability calendar, payment tunnel.",
-      "betech": "Interface allowing researchers to explore, filter and consult a voluminous scientific database. Search engine with autocompletion, combinable complex filters, interactive visualizations. Aggressive caching and virtual pagination for responsiveness on large volumes.",
-      "casacloud": "Centralized administrative dashboard for customer and operational data of a call center. Customizable dashboards, visualizations with Chart.js/Recharts, real-time centralization of active calls, queues, agent performance and KPIs.",
-      "medteck": "P2P marketplace combining three transactional modes: item exchange (barter), classic purchase, and purchase with real-time price negotiation. Redux store orchestrating catalog, cart, negotiation sessions, messages and notifications. Pure CSS interface without component library."
+      "yello": {
+        "context": "Yello is an EdTech platform that transforms educational content (PDFs, videos, audios) into interactive learning modules. The goal is to make learning more accessible, structured, and engaging through artificial intelligence. The platform is used at scale by thousands of learners.",
+        "goal": "• Simplify educational content creation\n• Improve learner engagement\n• Enable fast learning via interactive formats (microlearning)\n• Offer a personalized experience based on user content",
+        "role": "Senior Frontend Developer\n\nActive participation in the design and development of the user interface and the implementation of key product-oriented features.",
+        "achievements": "• Development of dynamic interfaces with React / Next.js for interactive learning paths\n• Implementation of intelligent features: automatic quiz generation, flashcard creation, content summaries\n• Development of an educational chatbot allowing users to interact with their content\n• Setup of progress tracking dashboards for learners\n• API integration for content and user data management\n• Management of complex states and frontend performance optimization",
+        "challenges": "• Management of AI-generated dynamic content\n• Maintaining high performance despite large data volumes\n• Designing a smooth UX for complex learning paths\n• Data synchronization across multiple interactive modules",
+        "impact": "• Platform used by +200,000 learners\n• Contribution to a solution ranked among the best educational apps in Senegal\n• Improved user engagement through interactive formats\n• Reduced educational content creation time"
+      },
+      "sapiow": {
+        "context": "Marketplace connecting knowledge seekers and experts for paid mentoring sessions.",
+        "goal": "Facilitate knowledge sharing through a seamless platform connecting experts and learners worldwide.",
+        "role": "Lead Front-end. Next.js architecture setup and integration of critical third-party services.",
+        "achievements": "Optimized booking tunnel, real-time messaging via GetStream.io, and full Stripe payment flow integration.",
+        "challenges": "Complex multi-timezone availability synchronization and securing pre-session exchanges.",
+        "impact": "Successful launch with steady monthly growth in booked sessions."
+      },
+      "edaktarii": {
+        "context": "eDaktarii is a telemedicine platform connecting patients and doctors remotely via video consultations. It aims to facilitate access to care, particularly between Africa and the diaspora.",
+        "goal": "• Enable remote medical consultation\n• Simplify appointment booking with healthcare professionals\n• Ensure online accessible patient follow-up\n• Offer a smooth and secure experience",
+        "role": "Frontend Developer\n\nParticipation in the development of the user interface and critical flows related to teleconsultation.",
+        "achievements": "• Development of video teleconsultation interfaces\n• Implementation of an appointment booking system with slot management\n• Integration of secure payment flows for consultations\n• Development of patient follow-up and consultation interfaces\n• Management of complex states related to sessions and user interactions\n• Optimization of user experience on web and mobile",
+        "challenges": "• Management of real-time flows (consultation, appointments)\n• Designing simple interfaces for a medical context\n• Management of sensitive data (confidentiality and security)\n• Smooth experience across different types of devices",
+        "impact": "• Implementation of a remotely accessible health solution\n• Improved access to care for international users\n• Platform available 24/7 for medical consultations"
+      },
+      "soveur": {
+        "context": "Soveur is a marketplace platform connecting clients with service providers (hairdressing, plumbing, etc.) with online booking and geolocation.",
+        "goal": "• Facilitate client ↔ provider matching\n• Enable fast service booking\n• Offer simple management of availability and services\n• Optimize user experience for on-demand services",
+        "role": "Frontend / Fullstack Developer\n\nContribution to the development of the platform's core features.",
+        "achievements": "• Development of a marketplace interface for service management\n• Implementation of the booking system with availability management\n• Integration of provider geolocation\n• Development of online payment flows\n• Management of user interactions (search, selection, booking)\n• Optimization of performance and user experience",
+        "challenges": "• Management of complex booking flows\n• Real-time availability synchronization\n• Smooth user experience on a multi-step journey\n• Management of data related to services and users",
+        "impact": "• Implementation of a functional multi-service marketplace\n• Simplification of access to home services\n• Improvement of user booking experience"
+      },
+      "betech": {
+        "context": "Data exploration interface allowing researchers to consult a vast scientific database.",
+        "goal": "Make exploration of large datasets intuitive and performant for scientific research.",
+        "role": "Front-end Developer. Optimization of the search engine and data visualizations.",
+        "achievements": "Advanced complex filters search engine, high-performance virtual pagination, and interactive visualizations.",
+        "challenges": "Managing UI fluidity during real-time filtering across millions of entries.",
+        "impact": "Major productivity gain for research teams in their data exploration phase."
+      },
+      "casacloud": {
+        "context": "Administrative dashboard centralizing real-time operational data for a call center.",
+        "goal": "Provide supervisors with a clear and immediate view of call center performance and KPIs.",
+        "role": "Front-end Developer. Creation of visualization components and live data stream management.",
+        "achievements": "Customizable dashboards, Chart.js integration for reporting, and queue monitoring.",
+        "challenges": "Real-time synchronization of large event volumes without performance degradation.",
+        "impact": "• Significant improvement in learner engagement and reduced content creation time for trainers."
+      },
+      "istamco": {
+        "context": "Development of a business CRM dedicated to international transport (freight forwarding), allowing for the management of logistical operations, clients, and data flows related to shipments.",
+        "goal": "• Digitalize logistical processes\n• Centralize shipment and client management\n• Offer reporting and analysis tools\n• Improve operational efficiency",
+        "role": "Fullstack Developer (Consultant)\n\nDesign and development of the application with a focus on frontend architecture and data management.",
+        "achievements": "• Development of a logistics CRM with Angular and TypeScript\n• Implementation of a scalable architecture with state management and RxJS\n• Development of analytical dashboards (Chart.js, ECharts)\n• Creation of advanced interfaces for shipment and data management\n• Implementation of export systems (Excel, PDF) for business reporting\n• Integration of complex components (calendars, dynamic tables)",
+        "challenges": "• Management of large volumes of logistical data\n• Designing interfaces adapted to complex business workflows\n• Optimization of performance on interactive dashboards\n• Structuring a scalable architecture",
+        "impact": "• Digitalization of logistical business processes\n• Improved operational tracking and productivity\n• Implementation of analytical tools for decision-making"
+      },
+      "medteck": {
+        "context": "P2P marketplace combining bartering, classic purchase, and real-time price negotiation.",
+        "goal": "Create a flexible exchange platform promoting circular economy and direct negotiation.",
+        "role": "Front-end Developer. Implementation of negotiation logic and the bartering module.",
+        "achievements": "Real-time negotiation engine, complex transaction state management, and pure CSS interface.",
+        "challenges": "Orchestrating complex Redux states to handle multiple transaction modes simultaneously.",
+        "impact": "Rapid adoption by a community of users engaged in bartering and negotiation."
+      }
     }
   },
   "expertise_titles": {
@@ -94,7 +160,10 @@
     "header": "SYSTEM LOGS / OUTPUT"
   },
   "levels": {
-    "expert": "Expert",
     "solid": "Solid"
+  },
+  "common": {
+    "show_more": "Project details →",
+    "show_less": "Show less ←"
   }
 }
