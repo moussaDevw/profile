@@ -48,7 +48,7 @@ const Work = () => {
                       <span key={i}>
                         {part.replace('En cours', t('projects.in_progress'))
                             .replace('Marketplace', t('projects.marketplace'))
-                            .replace('Freelance', t('projects.freelance'))
+                            .replace('Consultant', t('projects.consultant'))
                             .replace('HealthTech', t('projects.healthtech'))
                             .replace('Data', t('projects.data'))
                             .replace('Recherche scientifique', t('projects.research'))

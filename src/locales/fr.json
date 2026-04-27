@@ -47,7 +47,7 @@
     "in_progress": "En cours",
     "marketplace": "Marketplace",
     "mentoring": "Mentoring",
-    "freelance": "Freelance",
+    "consultant": "Consultant",
     "healthtech": "HealthTech",
     "data": "Data",
     "research": "Recherche scientifique",
@@ -59,9 +59,9 @@
       "sapiow": "Chercheurs de savoir × experts",
       "edaktarii": "Téléconsultation médicale",
       "soveur": "Services à distance ou en présentiel",
-      "betech": "Plateforme d'exploration de données",
-      "casacloud": "Supervision temps réel",
-      "medteck": "Troc, achat & négociation",
+      "exploration de données": "Base scientifique",
+      "dashboard administratif": "Centre d'appels — Temps réel",
+      "marketplace p2p": "Troc, achat & négociation",
       "istamco": "CRM métier dédié au transport"
     },
     "detail_labels": {
@@ -105,21 +105,21 @@
         "challenges": "• Gestion de flux complexes de réservation\n• Synchronisation des disponibilités en temps réel\n• Expérience utilisateur fluide sur un parcours multi-étapes\n• Gestion de données liées aux services et utilisateurs",
         "impact": "• Mise en place d’une marketplace fonctionnelle multi-services\n• Simplification de l’accès aux services à domicile\n• Amélioration de l’expérience de réservation utilisateur"
       },
-      "betech": {
-        "context": "Interface d'exploration de données permettant aux chercheurs de consulter une vaste base de données scientifiques.",
-        "goal": "Rendre l'exploration de datasets volumineux intuitive et performante pour la recherche scientifique.",
-        "role": "Développeur Front-end. Optimisation du moteur de recherche et des visualisations de données.",
-        "achievements": "Moteur de recherche à filtres complexes, pagination virtuelle performante et visualisations interactives.",
-        "challenges": "Gestion de la fluidité de l'interface lors du filtrage en temps réel sur des millions d'entrées.",
-        "impact": "Gain de productivité majeur pour les équipes de recherche dans leur phase d'exploration de données."
+      "exploration de données": {
+        "context": "Développement d’une interface web permettant aux chercheurs d’explorer, filtrer et analyser une vaste base de données scientifiques. L’outil facilite l’accès à l’information et améliore l’efficacité des recherches grâce à une navigation optimisée dans des volumes importants de données.",
+        "goal": "• Simplifier l’accès à des données scientifiques complexes\n• Permettre une recherche rapide et précise\n• Offrir des outils d’exploration avancés (filtres, tri, navigation)\n• Améliorer l’expérience utilisateur pour des profils experts (chercheurs)",
+        "role": "Frontend / Fullstack Developer\n\nConception et développement de l’interface d’exploration et des fonctionnalités de recherche avancée.",
+        "achievements": "• Développement d’une interface d’exploration de données avec navigation fluide sur de grands volumes\n• Implémentation de systèmes de recherche avancée (filtres dynamiques, tri, pagination)\n• Conception de tables de données interactives et performantes\n• Intégration d’API pour la récupération et la gestion des données scientifiques\n• Optimisation des performances pour garantir une expérience fluide malgré la volumétrie\n• Amélioration de l’UX pour faciliter l’analyse et la lecture des données",
+        "challenges": "• Gestion de grandes quantités de données (data-intensive)\n• Optimisation du rendu et des performances côté frontend\n• Conception d’une interface intuitive pour des utilisateurs experts\n• Structuration et affichage de données complexes",
+        "impact": "• Amélioration significative de l’accès et de l’exploration des données scientifiques\n• Gain de temps pour les chercheurs dans leurs analyses\n• Interface plus intuitive pour naviguer dans des datasets complexes\n• Meilleure exploitation des données disponibles"
       },
-      "casacloud": {
-        "context": "Dashboard administratif centralisant les données opérationnelles d'un centre d'appels en temps réel.",
-        "goal": "Fournir aux superviseurs une vision claire et immédiate des performances et KPIs du centre.",
-        "role": "Développeur Front-end. Création des composants de visualisation et gestion des flux de données live.",
-        "achievements": "Tableaux de bord personnalisables, intégration de Chart.js pour le reporting et monitoring des files d'attente.",
-        "challenges": "Synchronisation en temps réel de volumes importants d'événements sans dégradation des performances.",
-        "impact": "• Amélioration notable de l'engagement des apprenants et réduction du temps de création de contenu pour les formateurs."
+      "dashboard administratif": {
+        "context": "Développement d’un dashboard administratif permettant de centraliser et visualiser en temps réel les données opérationnelles d’un centre d’appels. L’outil est destiné aux équipes de supervision pour suivre l’activité, analyser les performances et prendre des décisions rapides.",
+        "goal": "• Centraliser les données opérationnelles en un seul outil\n• Offrir une visibilité en temps réel sur les performances du centre\n• Faciliter le pilotage des équipes et des activités\n• Améliorer la réactivité face aux incidents ou variations de charge",
+        "role": "Frontend / Fullstack Developer\n\nConception et développement des interfaces de visualisation et des fonctionnalités de suivi en temps réel.",
+        "achievements": "• Développement d’un dashboard interactif pour le suivi en temps réel des indicateurs clés (appels, agents, performance)\n• Intégration de flux de données dynamiques pour une mise à jour continue des informations\n• Conception de graphiques et visualisations pour faciliter l’analyse des données opérationnelles\n• Développement d’interfaces de supervision permettant le suivi des agents et des activités\n• Optimisation de l’expérience utilisateur pour une lecture rapide des données critiques\n• Gestion des états et synchronisation des données en temps réel",
+        "challenges": "• Gestion de flux de données en temps réel\n• Optimisation des performances avec des données en constante mise à jour\n• Conception d’interfaces lisibles pour des volumes importants d’informations\n• Synchronisation entre différentes sources de données",
+        "impact": "• Amélioration de la visibilité sur les performances du centre d’appels\n• Aide à la prise de décision rapide grâce aux données en temps réel\n• Optimisation du suivi des agents et des opérations\n• Réduction du temps de réaction face aux incidents"
       },
       "istamco": {
         "context": "Développement d’un CRM métier dédié au transport international (freight forwarding), permettant de gérer les opérations logistiques, les clients et les flux de données liés aux expéditions.",
@@ -129,13 +129,13 @@
         "challenges": "• Gestion de volumes importants de données logistiques\n• Conception d’interfaces adaptées à des workflows métiers complexes\n• Optimisation des performances sur des dashboards interactifs\n• Structuration d’une architecture scalable",
         "impact": "• Digitalisation des processus métier logistiques\n• Amélioration du suivi des opérations et de la productivité\n• Mise en place d’outils analytiques pour la prise de décision"
       },
-      "medteck": {
-        "context": "Marketplace P2P combinant troc, achat classique et négociation de prix en temps réel.",
-        "goal": "Créer une plateforme d'échange flexible favorisant l'économie circulaire et la négociation directe.",
-        "role": "Développeur Front-end. Implémentation de la logique de négociation et du module de troc.",
-        "achievements": "Moteur de négociation temps réel, gestion complexe des états de transaction et interface sans librairie externe.",
-        "challenges": "Orchestration d'états Redux complexes pour gérer les multiples modes de transaction simultanés.",
-        "impact": "Adoption rapide par une communauté d'utilisateurs engagés dans le troc et la négociation."
+      "marketplace p2p": {
+        "context": "Développement d’une marketplace peer-to-peer (P2P) permettant aux utilisateurs d’échanger des biens via différents modes : troc, achat direct ou négociation de prix en temps réel. La plateforme vise à offrir une alternative flexible aux marketplaces classiques en intégrant plusieurs modes de transaction dans une seule expérience.",
+        "goal": "• Permettre aux utilisateurs d’acheter, vendre ou échanger des produits\n• Introduire un système de négociation en temps réel\n• Offrir une expérience fluide sur des parcours transactionnels complexes\n• Créer une plateforme flexible adaptée à différents comportements utilisateurs",
+        "role": "Frontend / Fullstack Developer\n\nParticipation à la conception et au développement des fonctionnalités principales de la plateforme.",
+        "achievements": "• Développement d’une interface marketplace multi-modes (achat, troc, négociation)\n• Implémentation d’un système de négociation en temps réel entre utilisateurs\n• Conception des flux utilisateurs pour les transactions (publication, offre, acceptation)\n• Développement des interfaces de gestion des annonces et des interactions\n• Intégration d’API pour la gestion des produits, utilisateurs et transactions\n• Optimisation de l’expérience utilisateur sur des parcours multi-étapes",
+        "challenges": "• Gestion de flux transactionnels complexes (achat vs troc vs négociation)\n• Synchronisation des échanges en temps réel entre utilisateurs\n• Conception d’une UX claire malgré la complexité des options\n• Gestion des états multiples liés aux transactions",
+        "impact": "• Mise en place d’une marketplace innovante multi-modes\n• Expérience utilisateur enrichie avec la négociation en temps réel\n• Flexibilité accrue dans les transactions entre utilisateurs\n• Amélioration de l’engagement grâce à des interactions dynamiques"
       }
     }
   },
@@ -146,7 +146,7 @@
   },
   "roles": {
     "frontend": "Développeur front-end",
-    "frontend_freelance": "Développeur front-end · Freelance",
+    "frontend_consultant": "Développeur front-end · Consultant",
     "fullstack": "Développeur fullstack — secteur bancaire",
     "web": "Développeur web",
     "web_mobile": "Développeur web/mobile",
