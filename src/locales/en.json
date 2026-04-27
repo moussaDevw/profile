@@ -47,7 +47,7 @@
     "in_progress": "In progress",
     "marketplace": "Marketplace",
     "mentoring": "Mentoring",
-    "freelance": "Freelance",
+    "consultant": "Consultant",
     "healthtech": "HealthTech",
     "data": "Data",
     "research": "Scientific Research",
@@ -59,9 +59,9 @@
       "sapiow": "Knowledge seekers × experts",
       "edaktarii": "Medical teleconsultation",
       "soveur": "Remote or in-person services",
-      "betech": "Data exploration platform",
-      "casacloud": "Real-time supervision",
-      "medteck": "Bartering, buying & negotiation",
+      "exploration de données": "Scientific Database",
+      "dashboard administratif": "Call Center — Real-time",
+      "marketplace p2p": "Bartering, buying & negotiation",
       "istamco": "Business CRM dedicated to transport"
     },
     "detail_labels": {
@@ -105,21 +105,21 @@
         "challenges": "• Management of complex booking flows\n• Real-time availability synchronization\n• Smooth user experience on a multi-step journey\n• Management of data related to services and users",
         "impact": "• Implementation of a functional multi-service marketplace\n• Simplification of access to home services\n• Improvement of user booking experience"
       },
-      "betech": {
-        "context": "Data exploration interface allowing researchers to consult a vast scientific database.",
-        "goal": "Make exploration of large datasets intuitive and performant for scientific research.",
-        "role": "Front-end Developer. Optimization of the search engine and data visualizations.",
-        "achievements": "Advanced complex filters search engine, high-performance virtual pagination, and interactive visualizations.",
-        "challenges": "Managing UI fluidity during real-time filtering across millions of entries.",
-        "impact": "Major productivity gain for research teams in their data exploration phase."
+      "exploration de données": {
+        "context": "Development of a web interface allowing researchers to explore, filter, and analyze a vast scientific database. The tool facilitates access to information and improves research efficiency through optimized navigation in large data volumes.",
+        "goal": "• Simplify access to complex scientific data\n• Enable fast and accurate searching\n• Offer advanced exploration tools (filters, sorting, navigation)\n• Improve the user experience for expert profiles (researchers)",
+        "role": "Frontend / Fullstack Developer\n\nDesign and development of the exploration interface and advanced search features.",
+        "achievements": "• Development of a data exploration interface with smooth navigation over large volumes\n• Implementation of advanced search systems (dynamic filters, sorting, pagination)\n• Design of high-performance interactive data tables\n• API integration for retrieval and management of scientific data\n• Performance optimization to ensure a smooth experience despite high volume\n• UX improvement to facilitate data analysis and reading",
+        "challenges": "• Management of large amounts of data (data-intensive)\n• Rendering and performance optimization on the frontend\n• Design of an intuitive interface for expert users\n• Structuring and displaying complex data",
+        "impact": "• Significant improvement in scientific data access and exploration\n• Time savings for researchers in their analyses\n• More intuitive interface for navigating complex datasets\n• Better exploitation of available data"
       },
-      "casacloud": {
-        "context": "Administrative dashboard centralizing real-time operational data for a call center.",
-        "goal": "Provide supervisors with a clear and immediate view of call center performance and KPIs.",
-        "role": "Front-end Developer. Creation of visualization components and live data stream management.",
-        "achievements": "Customizable dashboards, Chart.js integration for reporting, and queue monitoring.",
-        "challenges": "Real-time synchronization of large event volumes without performance degradation.",
-        "impact": "• Significant improvement in learner engagement and reduced content creation time for trainers."
+      "dashboard administratif": {
+        "context": "Development of an administrative dashboard for centralizing and visualizing real-time operational data for a call center. The tool is designed for supervision teams to monitor activity, analyze performance, and make quick decisions.",
+        "goal": "• Centralize operational data in a single tool\n• Provide real-time visibility into call center performance\n• Facilitate team and activity management\n• Improve responsiveness to incidents or workload variations",
+        "role": "Frontend / Fullstack Developer\n\nDesign and development of visualization interfaces and real-time monitoring features.",
+        "achievements": "• Development of an interactive dashboard for real-time monitoring of key indicators (calls, agents, performance)\n• Integration of dynamic data streams for continuous information updates\n• Design of graphs and visualizations to facilitate operational data analysis\n• Development of supervision interfaces for agent and activity tracking\n• Optimization of the user experience for quick reading of critical data\n• State management and real-time data synchronization",
+        "challenges": "• Real-time data stream management\n• Performance optimization with constantly updated data\n• Design of readable interfaces for large volumes of information\n• Synchronization between different data sources",
+        "impact": "• Improved visibility into call center performance\n• Support for quick decision-making through real-time data\n• Optimization of agent and operation monitoring\n• Reduced reaction time to incidents"
       },
       "istamco": {
         "context": "Development of a business CRM dedicated to international transport (freight forwarding), allowing for the management of logistical operations, clients, and data flows related to shipments.",
@@ -129,13 +129,13 @@
         "challenges": "• Management of large volumes of logistical data\n• Designing interfaces adapted to complex business workflows\n• Optimization of performance on interactive dashboards\n• Structuring a scalable architecture",
         "impact": "• Digitalization of logistical business processes\n• Improved operational tracking and productivity\n• Implementation of analytical tools for decision-making"
       },
-      "medteck": {
-        "context": "P2P marketplace combining bartering, classic purchase, and real-time price negotiation.",
-        "goal": "Create a flexible exchange platform promoting circular economy and direct negotiation.",
-        "role": "Front-end Developer. Implementation of negotiation logic and the bartering module.",
-        "achievements": "Real-time negotiation engine, complex transaction state management, and pure CSS interface.",
-        "challenges": "Orchestrating complex Redux states to handle multiple transaction modes simultaneously.",
-        "impact": "Rapid adoption by a community of users engaged in bartering and negotiation."
+      "marketplace p2p": {
+        "context": "Development of a peer-to-peer (P2P) marketplace allowing users to exchange goods via different modes: bartering, direct purchase, or real-time price negotiation. The platform aims to offer a flexible alternative to classic marketplaces by integrating multiple transaction modes into a single experience.",
+        "goal": "• Allow users to buy, sell, or exchange products\n• Introduce a real-time negotiation system\n• Offer a smooth experience on complex transactional paths\n• Create a flexible platform adapted to different user behaviors",
+        "role": "Frontend / Fullstack Developer\n\nParticipation in the design and development of the platform's core features.",
+        "achievements": "• Development of a multi-mode marketplace interface (purchase, bartering, negotiation)\n• Implementation of a real-time negotiation system between users\n• Design of user flows for transactions (posting, offering, accepting)\n• Development of ad management and interaction interfaces\n• API integration for product, user, and transaction management\n• Optimization of the user experience on multi-step paths",
+        "challenges": "• Management of complex transactional flows (purchase vs bartering vs negotiation)\n• Real-time exchange synchronization between users\n• Design of a clear UX despite the complexity of options\n• Management of multiple transaction-related states",
+        "impact": "• Implementation of an innovative multi-mode marketplace\n• Enriched user experience with real-time negotiation\n• Increased flexibility in peer-to-peer transactions\n• Improved engagement through dynamic interactions"
       }
     }
   },
@@ -146,7 +146,7 @@
   },
   "roles": {
     "frontend": "Front-end Developer",
-    "frontend_freelance": "Front-end Developer · Freelance",
+    "frontend_consultant": "Front-end Developer · Consultant",
     "fullstack": "Fullstack Developer — banking sector",
     "web": "Web Developer",
     "web_mobile": "Web/mobile Developer",

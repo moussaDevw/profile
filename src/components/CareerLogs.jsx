@@ -6,7 +6,7 @@ const CareerLogs = () => {
   const [visibleLines, setVisibleLines] = useState([]);
 
   const getRoleKey = (role) => {
-    if (role.toLowerCase().includes('front-end') && role.toLowerCase().includes('freelance')) return 'roles.frontend_freelance';
+    if (role.toLowerCase().includes('front-end') && role.toLowerCase().includes('consultant')) return 'roles.frontend_consultant';
     if (role.toLowerCase().includes('front-end')) return 'roles.frontend';
     if (role.toLowerCase().includes('fullstack')) return 'roles.fullstack';
     if (role.toLowerCase().includes('web/mobile')) return 'roles.web_mobile';
@@ -19,9 +19,9 @@ const CareerLogs = () => {
     { text: t('terminal.starting'), type: "system" },
     { text: t('terminal.initializing'), type: "system" },
     { text: "[2024 — 2026] Loaded node: Yello - Développeur front-end", type: "entry", company: "Yello", year: "2024 — 2026", role: "Développeur front-end" },
-    { text: "[2025 — 2026] Loaded node: Sapiow - Développeur front-end · Freelance", type: "entry", company: "Sapiow", year: "2025 — 2026", role: "Développeur front-end · Freelance" },
-    { text: "[2025 — 2026] Loaded node: Soveur - Développeur front-end · Freelance", type: "entry", company: "Soveur", year: "2025 — 2026", role: "Développeur front-end · Freelance" },
-    { text: "[2025] Loaded node: eDaktarii - Développeur front-end · Freelance", type: "entry", company: "eDaktarii", year: "2025", role: "Développeur front-end · Freelance" },
+    { text: "[2025 — 2026] Loaded node: Sapiow - Développeur front-end · Consultant", type: "entry", company: "Sapiow", year: "2025 — 2026", role: "Développeur front-end · Consultant" },
+    { text: "[2025 — 2026] Loaded node: Soveur - Développeur front-end · Consultant", type: "entry", company: "Soveur", year: "2025 — 2026", role: "Développeur front-end · Consultant" },
+    { text: "[2025] Loaded node: eDaktarii - Développeur front-end · Consultant", type: "entry", company: "eDaktarii", year: "2025", role: "Développeur front-end · Consultant" },
     { text: t('terminal.ready'), type: "system", cursor: true },
   ];
 
