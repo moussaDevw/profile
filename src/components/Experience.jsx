@@ -1,4 +1,6 @@
-import { useTranslation } from 'react-i18next';
+﻿import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { Briefcase, Calendar, Sparkles } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 import { TIMELINE } from '../constants/data';
 
@@ -16,26 +18,38 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience">
+    <section id="experience" className="experience-section">
       <SectionLabel number="04" label={t('sections.experience')} />
 
       <Reveal>
-        <h2 className="work-title" style={{ marginBottom: '1rem' }}>
-          {t('sections.experience')}
+        <h2 className="work-title">
+          Parcours <em>Professionnel</em> &amp; Expériences.
         </h2>
       </Reveal>
 
-      <div className="timeline">
+      <div className="timeline-container">
         {TIMELINE.map((item, index) => {
           const roleKey = getRoleKey(item.role);
           return (
-            <Reveal key={index} delay={index * 0.05}>
-              <div className="timeline-row">
-                <div className="tl-year">{item.year}</div>
-                <div className="tl-company">{item.company}</div>
-                <div className="tl-role">{roleKey ? t(roleKey) : item.role}</div>
-                <div className="tl-stack">{item.stack}</div>
-              </div>
+            <Reveal key={index} delay={index * 0.04}>
+              <motion.div 
+                className="timeline-row-card"
+                whileHover={{ x: 4, backgroundColor: 'var(--paper)' }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="tl-year-col">
+                  <span className="year-pill">{item.year}</span>
+                </div>
+                <div className="tl-company-col">
+                  <span className="company-name">{item.company}</span>
+                </div>
+                <div className="tl-role-col">
+                  <span className="role-title">{roleKey ? t(roleKey) : item.role}</span>
+                </div>
+                <div className="tl-stack-col">
+                  <span className="stack-text">{item.stack}</span>
+                </div>
+              </motion.div>
             </Reveal>
           );
         })}

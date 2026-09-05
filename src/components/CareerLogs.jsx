@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Terminal as TerminalIcon, RotateCcw, Play } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 const CareerLogs = () => {
   const { t } = useTranslation();
   const [visibleLines, setVisibleLines] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
 
   const getRoleKey = (role) => {
     if (role.toLowerCase().includes('front-end') && role.toLowerCase().includes('consultant')) return 'roles.frontend_consultant';
@@ -25,48 +28,77 @@ const CareerLogs = () => {
     { text: t('terminal.ready'), type: "system", cursor: true },
   ];
 
-  useEffect(() => {
-    let timeout;
-    const addLine = (index) => {
+  const startTypingSequence = () => {
+    setVisibleLines([]);
+    setIsTyping(true);
+    let index = 0;
+    const interval = setInterval(() => {
       if (index < logs.length) {
-        setVisibleLines((prev) => [...prev, logs[index]]);
-        timeout = setTimeout(() => addLine(index + 1), 150 + Math.random() * 200);
+        const currentLog = logs[index];
+        setVisibleLines((prev) => [...prev, currentLog]);
+        index++;
+      } else {
+        clearInterval(interval);
+        setIsTyping(false);
       }
-    };
-    addLine(0);
-    return () => clearTimeout(timeout);
+    }, 180);
+  };
+
+  useEffect(() => {
+    startTypingSequence();
   }, [t]);
 
   return (
     <section className="terminal-section">
-      <div className="terminal-container">
-        <div className="terminal-header">
-          <span>{t('terminal.header')}</span>
-        </div>
-        <div className="terminal-body">
-          {visibleLines.map((log, i) => (
-            <div key={i} className={`log-line ${log.type}`}>
-              <span className="prompt">{'>'}</span>
-              <span className="content">
-                {log.type === 'entry' ? (
-                  <>
-                    <span className="dim">[{log.year}]</span>
-                    <span> {t('terminal.loaded')}</span>
-                    <span className="highlight-blue">{log.company}</span>
-                    <span> - </span>
-                    <span className="highlight-yellow">
-                      {getRoleKey(log.role) ? t(getRoleKey(log.role)) : log.role}
-                    </span>
-                  </>
-                ) : (
-                  <span>{log.text}</span>
-                )}
-                {log.cursor && <span className="cursor">_</span>}
-              </span>
+      <Reveal>
+        <div className="terminal-container">
+          {/* macOS Style Window Bar */}
+          <div className="terminal-header">
+            <div className="window-dots">
+              <span className="dot dot-red"></span>
+              <span className="dot dot-yellow"></span>
+              <span className="dot dot-green"></span>
             </div>
-          ))}
+            <div className="terminal-title">
+              <TerminalIcon size={14} className="term-icon" />
+              <span>{t('terminal.header')}</span>
+            </div>
+            <button 
+              className="replay-btn" 
+              onClick={startTypingSequence} 
+              disabled={isTyping}
+              title="Rejouer la séquence"
+            >
+              <RotateCcw size={14} className={isTyping ? 'spin' : ''} />
+              <span>Replay</span>
+            </button>
+          </div>
+
+          <div className="terminal-body">
+            {visibleLines.map((log, i) => (
+              <div key={i} className={`log-line ${log.type}`}>
+                <span className="prompt">{'>'}</span>
+                <span className="content">
+                  {log.type === 'entry' ? (
+                    <>
+                      <span className="dim">[{log.year}]</span>
+                      <span> {t('terminal.loaded')}</span>
+                      <span className="highlight-blue">{log.company}</span>
+                      <span> - </span>
+                      <span className="highlight-yellow">
+                        {getRoleKey(log.role) ? t(getRoleKey(log.role)) : log.role}
+                      </span>
+                    </>
+                  ) : (
+                    <span>{log.text}</span>
+                  )}
+                  {log.cursor && <span className="cursor">_</span>}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };

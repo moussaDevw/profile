@@ -1,4 +1,6 @@
-import { useTranslation } from 'react-i18next';
+﻿import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { Cpu, Database, Layout, Sparkles } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 import { EXPERTISE } from '../constants/data';
 
@@ -12,33 +14,66 @@ const Expertise = () => {
     return title;
   };
 
+  const getCategoryIcon = (index) => {
+    if (index === 0) return <Cpu size={22} className="cat-icon-svg" />;
+    if (index === 1) return <Database size={22} className="cat-icon-svg" />;
+    return <Layout size={22} className="cat-icon-svg" />;
+  };
+
   return (
-    <section id="expertise" style={{ marginTop: '4rem' }}>
+    <section id="expertise" className="expertise-section">
       <SectionLabel number="03" label={t('sections.expertise')} />
 
       <Reveal>
-        <h2 className="work-title" style={{ marginBottom: '1rem' }}>
-          {t('nav.expertise')}.
+        <h2 className="work-title">
+          Stack Technique &amp; <em>Compétences Clés</em>.
         </h2>
       </Reveal>
 
       <div className="expertise-grid">
         {EXPERTISE.map((block, index) => (
           <Reveal key={index} delay={index * 0.1}>
-            <div className="expertise-block">
-              <div className="num">{block.id}</div>
-              <h3>{t(getTitleKey(block.title), block.title)}</h3>
-              <ul>
-                {block.skills.map((skill, i) => (
-                  <li key={i}>
-                    {skill.name}{' '}
-                    <span className="level">
-                      {skill.level === 'Expert' ? t('levels.expert') : t('levels.solid')}
-                    </span>
-                  </li>
-                ))}
+            <motion.div 
+              className="expertise-card"
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.25 }}
+            >
+              <div className="expertise-card-header">
+                <div className={`expertise-icon-badge badge-cat-${index}`}>
+                  {getCategoryIcon(index)}
+                </div>
+                <div className="num-tag">{block.id}</div>
+              </div>
+
+              <h3 className="expertise-card-title">
+                {t(getTitleKey(block.title), block.title)}
+              </h3>
+
+              <ul className="expertise-skills-list">
+                {block.skills.map((skill, i) => {
+                  const isExpert = skill.level === 'Expert';
+                  return (
+                    <li key={i} className="skill-item">
+                      <div className="skill-name-row">
+                        <span className="skill-name">{skill.name}</span>
+                        <span className={`skill-level-badge ${isExpert ? 'is-expert' : 'is-solid'}`}>
+                          {isExpert ? t('levels.expert') : t('levels.solid')}
+                        </span>
+                      </div>
+                      <div className="skill-progress-bar">
+                        <motion.div 
+                          className={`progress-fill ${isExpert ? 'fill-expert' : 'fill-solid'}`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: isExpert ? '92%' : '78%' }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.2 + i * 0.05 }}
+                        />
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
-            </div>
+            </motion.div>
           </Reveal>
         ))}
       </div>
