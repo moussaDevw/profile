@@ -13,7 +13,7 @@ export const PROJECTS = [
     name: "Istamco",
     client: "CRM métier dédié au transport",
     body: "Développement d’un CRM métier dédié au transport international (freight forwarding), permettant de gérer les opérations logistiques, les clients et les flux de données liés aux expéditions.",
-    tags: ["Angular", "TypeScript", "RxJS", "Chart.js", "ECharts"]
+    tags: ["React", "Next.js", "TypeScript", "Chart.js", "ECharts"]
   },
   {
     year: "2025—26",
@@ -73,7 +73,7 @@ export const EXPERTISE = [
       { name: "React.js", level: "Expert" },
       { name: "Next.js (App Router)", level: "Expert" },
       { name: "TypeScript", level: "Expert" },
-      { name: "Angular", level: "Solide" },
+      { name: "React Server Components", level: "Expert" },
       { name: "NestJS", level: "Solide" },
       { name: "Node.js / Express", level: "Solide" }
     ]
