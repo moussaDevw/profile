@@ -1,4 +1,4 @@
-﻿import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, Sparkles, Code2, Rocket, Layers } from 'lucide-react';
 import { Reveal } from './Reveal';
@@ -7,13 +7,13 @@ const Hero = () => {
   const { t } = useTranslation();
 
   const techBadges = [
-    { name: 'React 19', color: '#46507e' },
-    { name: 'Next.js 15', color: '#232220' },
-    { name: 'React Native / Expo 56', color: '#b8324f' },
-    { name: 'TypeScript', color: '#46507e' },
-    { name: 'Zustand', color: '#d97724' },
-    { name: 'TanStack Query', color: '#f2784f' },
-    { name: 'NestJS', color: '#b35a33' },
+    { name: 'NestJS (Backend)', color: '#ea2845', isNest: true },
+    { name: 'Node.js', color: '#68a063' },
+    { name: 'PostgreSQL', color: '#336791' },
+    { name: 'React 19 & Next.js 15', color: '#232220' },
+    { name: 'React Native', color: '#b8324f' },
+    { name: 'TypeScript', color: '#3178c6' },
+    { name: 'Docker / Redis', color: '#d97724' },
   ];
 
   return (
@@ -48,7 +48,7 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
             >
               <Sparkles size={14} className="badge-icon" />
-              <span>Front-End Architect & Product Builder</span>
+              <span>{t('hero.badge')}</span>
             </motion.div>
             <h1 className="hero-title">
               <span className="line">Moussa</span>
@@ -65,9 +65,10 @@ const Hero = () => {
         <Reveal delay={0.2}>
           <div className="hero-bio-container">
             <p className="hero-bio">
-              <Trans i18nKey="hero.bio">
-                Développeur front-end spécialisé dans les <em>plateformes web complexes</em> — téléconsultation, EdTech, marketplaces. Je construis des interfaces <em>temps réel</em> avec React, Next.js et TypeScript, pensées pour la performance, l'UX et la maintenabilité.
-              </Trans>
+              <Trans
+                i18nKey="hero.bio"
+                components={[<em key="0" />, <em key="1" />]}
+              />
             </p>
 
             {/* Quick Action CTAs */}
@@ -78,7 +79,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <span>Explorer mes projets</span>
+                <span>{t('hero.explore_projects')}</span>
                 <ArrowDown size={16} />
               </motion.a>
 
@@ -88,7 +89,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <span>Discuter d'un projet</span>
+                <span>{t('hero.discuss_project')}</span>
                 <ArrowUpRight size={16} />
               </motion.a>
             </div>
@@ -98,7 +99,7 @@ const Hero = () => {
               {techBadges.map((tech, idx) => (
                 <motion.span 
                   key={tech.name}
-                  className="tech-pill"
+                  className={`tech-pill ${tech.isNest ? 'highlight-nest' : ''}`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + idx * 0.05 }}

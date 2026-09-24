@@ -11,8 +11,11 @@
     "available": "Disponible",
     "status": "Nouveaux projets 2026",
     "specialty": "Spécialité",
-    "frontend_fullstack": "Frontend · Fullstack",
-    "bio": "Développeur front-end spécialisé dans les <0>plateformes web complexes</0> — téléconsultation, EdTech, marketplaces. Je construis des interfaces <1>temps réel</1> avec React, Next.js et TypeScript, pensées pour la performance, l'UX et la maintenabilité.",
+    "frontend_fullstack": "Fullstack (NestJS · React.js · TS)",
+    "badge": "Développeur Full Stack — Backend Node.js / NestJS & React/Next.js",
+    "bio": "Développeur Full Stack avec plusieurs années d'expérience dans la conception et le développement d'<0>applications web, mobiles et de systèmes métier complexes</0>. Expert en <1>Node.js, NestJS, PostgreSQL et APIs REST</1>, combiné à React, Next.js et React Native. Habitué à concevoir des architectures scalables, documentées (Swagger), testées (Jest) et des plateformes intégrant paiements, géolocalisation et règles métier exigeantes.",
+    "explore_projects": "Explorer mes projets",
+    "discuss_project": "Discuter d'un projet",
     "years_xp": "Années d'XP",
     "projects_delivered": "Projets livrés",
     "marketplaces": "Marketplaces"
@@ -28,7 +31,7 @@
     "work_desc": "Une sélection des plateformes sur lesquelles j'ai travaillé — des marketplaces double-sided aux applications temps réel critiques. Chaque projet, un contexte métier différent."
   },
   "about": {
-    "text": "<0>I</0>ntéressé par les produits <1>utiles</1>, les startups <2>ambitieuses</2> et les environnements techniques <3>exigeants</3>. Co-fondateur de <4>Tàgg Group</4>, j'interviens sur des architectures React / Next.js / TypeScript avec une gestion d'état avancée et une attention particulière portée à la performance, l'UX et la maintenabilité.",
+    "text": "<0>I</0>ntéressé par les produits <1>utiles</1>, les startups <2>ambitieuses</2> et les environnements techniques <3>exigeants</3>. Co-fondateur de <4>Tàgg Group</4>, j'interviens sur des architectures complètes combinant des back-ends robustes en NestJS et des interfaces modernes React / Next.js / TypeScript, avec une attention particulière portée à la performance, l'UX et la maintenabilité.",
     "quote": "Construire des interfaces qui respectent à la fois <0>l'utilisateur final</0> et <1>le développeur suivant</1>."
   },
   "contact": {
@@ -55,14 +58,17 @@
     "call_center": "Centre d'appels",
     "p2p": "P2P",
     "client_labels": {
+      "assure express": "Application mobile d'assurance automobile",
       "yello": "Plateforme d'apprentissage interactif",
-      "sapiow": "Chercheurs de savoir × experts",
+      "istamco": "CRM métier dédié au transport international",
+      "sapiow": "Marketplace de services à domicile & géolocalisation",
       "edaktarii": "Téléconsultation médicale",
+      "casacloud": "Supervision opérationnelle temps réel",
+      "medteck consulting": "Troc, achat & négociation",
       "soveur": "Services à distance ou en présentiel",
       "exploration de données": "Base scientifique",
       "dashboard administratif": "Centre d'appels — Temps réel",
-      "marketplace p2p": "Troc, achat & négociation",
-      "istamco": "CRM métier dédié au transport"
+      "marketplace p2p": "Troc, achat & négociation"
     },
     "detail_labels": {
       "context": "Contexte",
@@ -73,6 +79,14 @@
       "impact": "Résultats & impact"
     },
     "bodies": {
+      "assure express": {
+        "context": "Assure Express est une application mobile iOS & Android dédiée à la souscription et à la gestion d’assurances pour véhicules (voitures, motos, utilitaires). Le système repose sur une architecture backend modulaire développée sous NestJS exposant des APIs sécurisées et hautement performantes.",
+        "goal": "• Simplifier les parcours de souscription d'assurance sur mobile\n• Structurer la logique métier autour des produits d'assurance, véhicules et polices\n• Exposer des APIs REST documentées sous Swagger / OpenAPI\n• Sécuriser les services et les flux de données avec des tests automatisés Jest\n• Utiliser Redis pour la mise en cache et l'optimisation des performances",
+        "role": "Lead Développeur Full Stack (Mobile & Backend)\n\nConception intégrale de l'application mobile et de l'architecture backend NestJS.",
+        "achievements": "• Développement de l'application mobile multiplateforme avec React Native\n• Conception et développement d'APIs REST modulaires avec NestJS & TypeScript\n• Modélisation et gestion de données relationnelles avec PostgreSQL\n• Documentation interactive des endpoints avec Swagger / OpenAPI\n• Mise en place d'une suite de tests automatisés avec Jest pour sécuriser la logique métier\n• Utilisation de Redis pour les données temporaires et l'accélération applicative\n• Gestion de l'authentification et des interactions sécurisées mobile/backend",
+        "challenges": "• Modélisation de règles métier d'assurance complexes et modulaires\n• Synchronisation fluide des états entre l'application mobile et le backend\n• Garantir une couverture de test stricte sur les calculs de cotisations et souscriptions",
+        "impact": "• Parcours de souscription simplifié et intuitif sur iOS et Android\n• Architecture backend robuste, testée et documentée prête pour la mise en production\n• Code source ouvert disponible sur GitHub (moussaDevw/assure-express)"
+      },
       "yello": {
         "context": "Yello est une plateforme EdTech permettant de transformer des contenus éducatifs (PDF, vidéos, audios) en modules d’apprentissage interactifs. L’objectif est de rendre l’apprentissage plus accessible, structuré et engageant grâce à l’intelligence artificielle. La plateforme est utilisée à grande échelle par des milliers d’apprenants.",
         "goal": "• Simplifier la création de contenu éducatif\n• Améliorer l’engagement des apprenants\n• Permettre un apprentissage rapide via des formats interactifs (microlearning)\n• Offrir une expérience personnalisée basée sur le contenu utilisateur",
@@ -82,12 +96,12 @@
         "impact": "• Plateforme utilisée par +200 000 apprenants\n• Contribution à une solution classée parmi les meilleures applications éducatives au Sénégal\n• Amélioration de l’engagement utilisateur grâce aux formats interactifs\n• Réduction du temps de création de contenu éducatif"
       },
       "sapiow": {
-        "context": "Marketplace mettant en relation chercheurs de savoir et experts pour des sessions de mentoring payantes.",
-        "goal": "Faciliter le partage de connaissances via une plateforme fluide connectant experts et apprenants du monde entier.",
-        "role": "Lead Front-end. Mise en place de l'architecture Next.js et intégration des services tiers critiques.",
-        "achievements": "Tunnel de réservation optimisé, messagerie temps réel via GetStream.io, et intégration complète du flux de paiement Stripe.",
-        "challenges": "Synchronisation complexe des disponibilités multi-fuseaux horaires et sécurisation des échanges pré-session.",
-        "impact": "Lancement réussi avec une croissance constante du nombre de sessions réservées mensuellement."
+        "context": "Sapiow est une marketplace de mise en relation entre clients et professionnels des services à domicile (bricolage, assistance, bien-être), avec réservation en direct et géolocalisation.",
+        "goal": "• Développer une marketplace fluide de mise en relation client ↔ prestataire\n• Offrir un système de réservation avec calendriers et disponibilités en temps réel\n• Intégrer un système de géolocalisation des professionnels à proximité\n• Sécuriser le paiement en ligne et la gestion complète des transactions",
+        "role": "Consultant Développeur Full Stack\n\nConception et développement de la plateforme, gestion des calendriers temps réel, géolocalisation et intégrations d'APIs critiques.",
+        "achievements": "• Développement de fonctionnalités de réservation avec gestion des créneaux et disponibilités en temps réel\n• Participation au développement du système de géolocalisation des professionnels\n• Intégration complète de la solution de paiement en ligne et gestion des transactions sécurisées\n• Contribution à un système de gestion de services intégrant catalogue, rendez-vous et suivi utilisateurs\n• Intégration des APIs tierces nécessaires au fonctionnement de la plateforme\n• Optimisation de l'expérience utilisateur sur une plateforme multi-services à forte interaction",
+        "challenges": "• Synchronisation des disponibilités en temps réel évitant les surréservations\n• Calculs de distance et géolocalisation fluide côté client\n• Gestion des états transactionnels et des webhooks de paiement",
+        "impact": "• Parcours de réservation fluide de la découverte du prestataire jusqu'au paiement\n• Plateforme évolutive et réactive accueillant de multiples catégories de services"
       },
       "edaktarii": {
         "context": "eDaktarii est une plateforme de télémédecine permettant de connecter des patients et des médecins à distance via des consultations vidéo. Elle vise à faciliter l’accès aux soins, notamment entre l’Afrique et la diaspora.",
@@ -136,16 +150,33 @@
         "achievements": "• Développement d’une interface marketplace multi-modes (achat, troc, négociation)\n• Implémentation d’un système de négociation en temps réel entre utilisateurs\n• Conception des flux utilisateurs pour les transactions (publication, offre, acceptation)\n• Développement des interfaces de gestion des annonces et des interactions\n• Intégration d’API pour la gestion des produits, utilisateurs et transactions\n• Optimisation de l’expérience utilisateur sur des parcours multi-étapes",
         "challenges": "• Gestion de flux transactionnels complexes (achat vs troc vs négociation)\n• Synchronisation des échanges en temps réel entre utilisateurs\n• Conception d’une UX claire malgré la complexité des options\n• Gestion des états multiples liés aux transactions",
         "impact": "• Mise en place d’une marketplace innovante multi-modes\n• Expérience utilisateur enrichie avec la négociation en temps réel\n• Flexibilité accrue dans les transactions entre utilisateurs\n• Amélioration de l’engagement grâce à des interactions dynamiques"
+      },
+      "casacloud": {
+        "context": "Développement d’un dashboard administratif React centralisant les données clients et opérationnelles d’un centre d’appels à Dakar.",
+        "goal": "• Centraliser les données clients et opérationnelles en un seul outil\n• Offrir une visibilité en temps réel sur les performances du centre\n• Faciliter le pilotage des équipes et le suivi des agents\n• Améliorer la réactivité face aux incidents ou variations de charge d'appels",
+        "role": "Freelance Développeur Front-end\n\nConception du design system modulaire en SCSS et développement des interfaces de supervision temps réel.",
+        "achievements": "• Développement d’un dashboard interactif pour le suivi en temps réel (appels actifs, files d’attente, performances agents, historique client)\n• Conception de graphiques et visualisations dynamiques avec Chart.js et Recharts\n• Intégration d’APIs REST pour la consultation des données et l’exécution d’actions métier\n• Développement d’un design system modulaire et responsive avec SCSS\n• Optimisation de l’expérience utilisateur pour une lecture rapide des données critiques",
+        "challenges": "• Exploitation en temps réel de flux d'appels à haute fréquence\n• Optimisation des performances avec des métriques en constante mise à jour\n• Conception d’interfaces denses mais hautement lisibles pour les superviseurs",
+        "impact": "• Visibilité temps réel sur les performances et files d'appels du centre\n• Aide à la prise de décision rapide et réduction du temps de réaction face aux pics de charge"
+      },
+      "medteck consulting": {
+        "context": "Développement d’une marketplace P2P combinant échange d’articles (troc), achat classique et négociation de prix en temps réel.",
+        "goal": "• Permettre l'échange (troc), l'achat ou la négociation de biens entre particuliers\n• Optimiser le référencement naturel (SEO) et la rapidité de chargement du catalogue\n• Proposer une interface de négociation fluide en temps réel avec messagerie intégrée",
+        "role": "Développeur Front-end\n\nDéveloppement Next.js (SSR/SSG), gestion d'état centralisée Redux et interfaces transactionnelles.",
+        "achievements": "• Développement d’une application Next.js exploitant SSR/SSG pour les pages catalogue\n• Mise en place d’un store Redux centralisé pour gérer catalogue, panier, négociations, messages et notifications\n• Développement des pages catalogue, fiches produits, profils utilisateurs et tunnels de transaction\n• Développement d’une interface de négociation en temps réel avec chat intégré\n• Optimisation du référencement et des performances d'affichage",
+        "challenges": "• Gestion de flux transactionnels complexes combinant troc, achat direct et négociation\n• Synchronisation des offres de prix en direct dans la messagerie\n• Conception d'une expérience utilisateur fluide sur des parcours multi-étapes",
+        "impact": "• Expérience utilisateur enrichie avec négociation instantanée\n• Flexibilité accrue dans les transactions entre utilisateurs et indexation SEO performante"
       }
     }
   },
   "expertise_titles": {
-    "frameworks": "Framework & Langage",
-    "state": "État & Données",
-    "ui": "UI, Temps réel & Intégrations"
+    "frameworks": "Front-End & Mobile",
+    "backend": "Back-End & Architecture NestJS",
+    "ui": "Données, Temps réel & Intégrations"
   },
   "roles": {
     "frontend": "Développeur front-end",
+    "frontend_freelance": "Freelance Développeur Front-end",
     "frontend_consultant": "Développeur front-end · Consultant",
     "fullstack": "Développeur fullstack — secteur bancaire",
     "web": "Développeur web",
@@ -161,6 +192,7 @@
     "header": "LOGS SYSTÈME / OUTPUT"
   },
   "levels": {
+    "expert": "Expert",
     "solid": "Solide"
   },
   "common": {

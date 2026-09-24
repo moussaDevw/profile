@@ -1,6 +1,6 @@
-﻿import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Cpu, Database, Layout, Sparkles } from 'lucide-react';
+import { Layout, Server, Database, Sparkles } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 import { EXPERTISE } from '../constants/data';
 
@@ -8,16 +8,16 @@ const Expertise = () => {
   const { t } = useTranslation();
 
   const getTitleKey = (title) => {
-    if (title.includes('Framework')) return 'expertise_titles.frameworks';
-    if (title.includes('Données')) return 'expertise_titles.state';
-    if (title.includes('UI')) return 'expertise_titles.ui';
+    if (title.includes('Back-End') || title.includes('NestJS')) return 'expertise_titles.backend';
+    if (title.includes('Front-End') || title.includes('Mobile')) return 'expertise_titles.frameworks';
+    if (title.includes('DevOps') || title.includes('Cloud') || title.includes('Données')) return 'expertise_titles.ui';
     return title;
   };
 
   const getCategoryIcon = (index) => {
-    if (index === 0) return <Cpu size={22} className="cat-icon-svg" />;
-    if (index === 1) return <Database size={22} className="cat-icon-svg" />;
-    return <Layout size={22} className="cat-icon-svg" />;
+    if (index === 0) return <Server size={22} className="cat-icon-svg" />;
+    if (index === 1) return <Layout size={22} className="cat-icon-svg" />;
+    return <Database size={22} className="cat-icon-svg" />;
   };
 
   return (
@@ -53,16 +53,16 @@ const Expertise = () => {
                 {block.skills.map((skill, i) => {
                   const isExpert = skill.level === 'Expert';
                   return (
-                    <li key={i} className="skill-item">
+                    <li key={i} className={`skill-item ${skill.highlight ? 'skill-highlight' : ''}`}>
                       <div className="skill-name-row">
                         <span className="skill-name">{skill.name}</span>
-                        <span className={`skill-level-badge ${isExpert ? 'is-expert' : 'is-solid'}`}>
-                          {isExpert ? t('levels.expert') : t('levels.solid')}
+                        <span className={`skill-level-badge ${isExpert ? 'is-expert' : 'is-solid'} ${skill.highlight ? 'badge-highlight-nest' : ''}`}>
+                          {isExpert ? t('levels.expert', 'Expert') : t('levels.solid', 'Solide')}
                         </span>
                       </div>
                       <div className="skill-progress-bar">
                         <motion.div 
-                          className={`progress-fill ${isExpert ? 'fill-expert' : 'fill-solid'}`}
+                          className={`progress-fill ${skill.highlight ? 'fill-nest' : isExpert ? 'fill-expert' : 'fill-solid'}`}
                           initial={{ width: 0 }}
                           whileInView={{ width: isExpert ? '92%' : '78%' }}
                           viewport={{ once: true }}

@@ -1,4 +1,4 @@
-﻿import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { ShieldCheck, Cpu, Smartphone, Compass, Sparkles, Zap } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 
@@ -50,7 +50,7 @@ export const About = () => {
                   <Zap size={18} className="stat-icon" />
                   <div className="stat-info">
                     <span className="stat-val">Architecte</span>
-                    <span className="stat-lbl">React &amp; Next.js</span>
+                    <span className="stat-lbl">NestJS &amp; Next.js</span>
                   </div>
                 </div>
               </div>
@@ -68,8 +68,8 @@ export const About = () => {
               <span className="bento-card-type">Entrepreneurship</span>
             </div>
             <div className="bento-card-body">
-              <h4>Co-fondateur Tegg Group</h4>
-              <p>Conception d'ecosystemes digitaux scalables, systemes de paiement complexes et applications haute disponibilite.</p>
+              <h4>Co-fondateur Tàgg Group</h4>
+              <p>Conception d'écosystèmes digitaux scalables, architectures backend NestJS et plateformes haute disponibilité.</p>
             </div>
             <div className="bento-card-footer">
               <span className="bento-tag-pill">Product Leadership</span>
@@ -87,30 +87,30 @@ export const About = () => {
               <span className="bento-card-type">Engineering</span>
             </div>
             <div className="bento-card-body">
-              <h4>Mobile Native &amp; Web Modernism</h4>
-              <p>Expertise pointue sur React Native, Expo SDK 56 (SwiftUI / Jetpack Compose) et Next.js 15 App Router.</p>
+              <h4>Mobile &amp; Écosystème Connecté</h4>
+              <p>Applications mobiles React Native / Expo connectées à des back-ends NestJS modulaires (ex. Assure Express), documentation Swagger et données temps réel.</p>
             </div>
             <div className="bento-card-footer">
-              <span className="bento-tag-pill">Expo SDK 56 &amp; React 19</span>
+              <span className="bento-tag-pill">React Native &amp; NestJS</span>
             </div>
           </div>
         </Reveal>
 
-        {/* Card 4: Craft */}
+        {/* Card 4: Standards & Tests */}
         <Reveal delay={0.25} className="bento-card-wrapper">
           <div className="bento-card bento-sub-card">
             <div className="bento-card-header">
               <div className="bento-icon-box accent-teranga">
                 <Cpu size={22} />
               </div>
-              <span className="bento-card-type">Philosophy</span>
+              <span className="bento-card-type">Standards</span>
             </div>
             <div className="bento-card-body">
-              <h4>Craft &amp; Maintenabilite</h4>
-              <p>Architecture propre, tests rigoureux, modularite et soucis meticuleux du detail visuel.</p>
+              <h4>Rigueur &amp; Culture Engineering</h4>
+              <p>Clean Architecture, tests automatisés avec Jest, documentation d'API OpenAPI/Swagger, conteneurisation Docker et pratiques CI/CD.</p>
             </div>
             <div className="bento-card-footer">
-              <span className="bento-tag-pill">Clean Architecture</span>
+              <span className="bento-tag-pill">Jest · Docker · Swagger</span>
             </div>
           </div>
         </Reveal>
