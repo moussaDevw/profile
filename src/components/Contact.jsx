@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Copy, Check, ArrowUpRight, Mail, Phone, Globe, Sparkles } from 'lucide-react';
@@ -8,7 +8,7 @@ const Contact = () => {
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
-  const email = 'musadevweb@gmail.com';
+  const email = 'musadev27@gmail.com';
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -73,6 +73,10 @@ const Contact = () => {
           <Reveal delay={0.3}>
             <div className="col">
               <h4>{t('contact.networks')}</h4>
+              <a href="https://github.com/moussaDevw" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span>
+                <ArrowUpRight size={14} />
+              </a>
               <a href="https://www.linkedin.com/in/moussa-diagne-b81226107/" target="_blank" rel="noopener noreferrer">
                 <span>{t('contact.linkedin')}</span>
                 <ArrowUpRight size={14} />

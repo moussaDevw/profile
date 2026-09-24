@@ -2039,6 +2039,29 @@ footer {
   background: rgba(184, 50, 79, 0.03);
 }
 
+.project-github-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(35, 34, 32, 0.06);
+  border: 1px solid rgba(35, 34, 32, 0.22);
+  border-radius: 100px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-github-pill:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
 .project-details-drawer {
   overflow: hidden;
 }
@@ -2246,12 +2269,12 @@ footer {
   border-bottom: 1px solid var(--rule);
 }
 
-.cat-icon-svg {
-  color: var(--accent);
+.expertise-card:nth-child(1) .cat-icon-svg {
+  color: #ea2845;
 }
 
 .expertise-card:nth-child(2) .cat-icon-svg {
-  color: var(--color-ocre-saloum);
+  color: var(--accent);
 }
 
 .expertise-card:nth-child(3) .cat-icon-svg {
@@ -2275,6 +2298,27 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  transition: all 0.25s ease;
+}
+
+.skill-item.skill-highlight {
+  background: rgba(234, 40, 69, 0.05);
+  border: 1px solid rgba(234, 40, 69, 0.22);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  margin: 0.1rem -0.75rem;
+  box-shadow: 0 2px 8px rgba(234, 40, 69, 0.06);
+}
+
+.skill-item.skill-highlight .skill-name {
+  color: #c91f3b;
+  font-weight: 600;
+}
+
+.badge-highlight-nest {
+  background: #ea2845 !important;
+  color: #ffffff !important;
+  font-weight: 600;
 }
 
 .skill-name-row {
@@ -2302,9 +2346,10 @@ footer {
   border-radius: 100px;
 }
 
-.expertise-card:nth-child(1) .progress-fill { background: var(--accent); }
-.expertise-card:nth-child(2) .progress-fill { background: var(--color-ocre-saloum); }
+.expertise-card:nth-child(1) .progress-fill { background: #ea2845; }
+.expertise-card:nth-child(2) .progress-fill { background: var(--accent); }
 .expertise-card:nth-child(3) .progress-fill { background: var(--color-indigo-wolof); }
+.progress-fill.fill-nest { background: #ea2845 !important; }
 
 
 /* ==========================================
@@ -2747,6 +2792,19 @@ footer {
   color: var(--ink);
   background: rgba(250, 246, 240, 0.95);
   transform: translateY(-1px);
+}
+
+.tech-pill.highlight-nest {
+  background: linear-gradient(135deg, rgba(234, 40, 69, 0.08) 0%, var(--paper) 100%);
+  border-color: rgba(234, 40, 69, 0.4);
+  color: #c91f3b;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(234, 40, 69, 0.12);
+}
+
+.tech-pill.highlight-nest:hover {
+  border-color: #ea2845;
+  box-shadow: 0 4px 14px rgba(234, 40, 69, 0.22);
 }
 
 .pill-dot {

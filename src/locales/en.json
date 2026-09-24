@@ -11,8 +11,11 @@
     "available": "Available",
     "status": "New projects 2026",
     "specialty": "Specialty",
-    "frontend_fullstack": "Frontend · Fullstack",
-    "bio": "Front-end developer specializing in <0>complex web platforms</0> — teleconsultation, EdTech, marketplaces. I builds <1>real-time</1> interfaces with React, Next.js and TypeScript, designed for performance, UX and maintainability.",
+    "frontend_fullstack": "Fullstack (NestJS · React.js · TS)",
+    "badge": "Full Stack Developer — Backend Node.js / NestJS & React/Next.js",
+    "bio": "Full Stack Developer with several years of experience designing and developing <0>complex business systems, web & mobile applications</0>. Expert in <1>Node.js, NestJS, PostgreSQL & REST APIs</1>, combined with React, Next.js & React Native. Skilled in designing scalable, Swagger-documented, Jest-tested architectures integrating payments, geolocation, and intricate business logic.",
+    "explore_projects": "Explore my projects",
+    "discuss_project": "Discuss a project",
     "years_xp": "Years of XP",
     "projects_delivered": "Projects delivered",
     "marketplaces": "Marketplaces"
@@ -28,7 +31,7 @@
     "work_desc": "A selection of platforms I've worked on — from double-sided marketplaces to critical real-time applications. Each project, a different business context."
   },
   "about": {
-    "text": "<0>I</0> am interested in <1>useful</1> products, <2>ambitious</2> startups and <3>demanding</3> technical environments. Co-founder of <4>Tàgg Group</4>, I work on React / Next.js / TypeScript architectures with advanced state management and special attention to performance, UX and maintainability.",
+    "text": "<0>I</0> am interested in <1>useful</1> products, <2>ambitious</2> startups and <3>demanding</3> technical environments. Co-founder of <4>Tàgg Group</4>, I work on end-to-end architectures combining robust NestJS back-ends with modern React / Next.js / TypeScript interfaces, focused on performance, UX and maintainability.",
     "quote": "Building interfaces that respect both <0>the end user</0> and <1>the next developer</1>."
   },
   "contact": {
@@ -55,14 +58,17 @@
     "call_center": "Call Center",
     "p2p": "P2P",
     "client_labels": {
+      "assure express": "Auto insurance mobile application",
       "yello": "Interactive learning platform",
-      "sapiow": "Knowledge seekers × experts",
+      "istamco": "Business CRM dedicated to international transport",
+      "sapiow": "Home services marketplace & geolocation",
       "edaktarii": "Medical teleconsultation",
+      "casacloud": "Real-time operational supervision",
+      "medteck consulting": "Bartering, buying & negotiation",
       "soveur": "Remote or in-person services",
       "exploration de données": "Scientific Database",
       "dashboard administratif": "Call Center — Real-time",
-      "marketplace p2p": "Bartering, buying & negotiation",
-      "istamco": "Business CRM dedicated to transport"
+      "marketplace p2p": "Bartering, buying & negotiation"
     },
     "detail_labels": {
       "context": "Context",
@@ -73,6 +79,14 @@
       "impact": "Results & Impact"
     },
     "bodies": {
+      "assure express": {
+        "context": "Assure Express is an iOS & Android mobile application dedicated to underwriting and managing vehicle insurance (cars, motorcycles, utility vehicles). The system is powered by a modular NestJS backend exposing secure, high-performance APIs.",
+        "goal": "• Simplify mobile insurance subscription and policy management\n• Structure domain business logic around insurance products, vehicles, and policies\n• Expose REST APIs documented with Swagger / OpenAPI\n• Secure services and data flows with comprehensive Jest automated tests\n• Leverage Redis caching for quick data retrieval and app acceleration",
+        "role": "Lead Full Stack Developer (Mobile & Backend)\n\nFull end-to-end design and implementation of the React Native mobile app and the NestJS backend architecture.",
+        "achievements": "• Development of the cross-platform mobile application with React Native\n• Design and development of modular REST APIs with NestJS & TypeScript\n• Relational data modeling and management with PostgreSQL\n• Interactive API documentation using Swagger / OpenAPI\n• Automated test suite implementation using Jest covering critical business logic\n• Caching with Redis for temporary data and performance boost\n• Secure mobile/backend authentication, token management, and data contracts",
+        "challenges": "• Modeling intricate, modular insurance policy and rate calculation rules\n• Seamless state synchronization between the mobile app and backend\n• Ensuring high test coverage over quotes and policy underwriting flows",
+        "impact": "• Streamlined, intuitive mobile insurance onboarding experience on iOS and Android\n• Production-ready, modular, tested, and fully documented NestJS backend\n• Open source codebase available on GitHub (moussaDevw/assure-express)"
+      },
       "yello": {
         "context": "Yello is an EdTech platform that transforms educational content (PDFs, videos, audios) into interactive learning modules. The goal is to make learning more accessible, structured, and engaging through artificial intelligence. The platform is used at scale by thousands of learners.",
         "goal": "• Simplify educational content creation\n• Improve learner engagement\n• Enable fast learning via interactive formats (microlearning)\n• Offer a personalized experience based on user content",
@@ -82,12 +96,12 @@
         "impact": "• Platform used by +200,000 learners\n• Contribution to a solution ranked among the best educational apps in Senegal\n• Improved user engagement through interactive formats\n• Reduced educational content creation time"
       },
       "sapiow": {
-        "context": "Marketplace connecting knowledge seekers and experts for paid mentoring sessions.",
-        "goal": "Facilitate knowledge sharing through a seamless platform connecting experts and learners worldwide.",
-        "role": "Lead Front-end. Next.js architecture setup and integration of critical third-party services.",
-        "achievements": "Optimized booking tunnel, real-time messaging via GetStream.io, and full Stripe payment flow integration.",
-        "challenges": "Complex multi-timezone availability synchronization and securing pre-session exchanges.",
-        "impact": "Successful launch with steady monthly growth in booked sessions."
+        "context": "Sapiow is a marketplace connecting clients with home service professionals (repairs, assistance, wellness) featuring real-time booking and provider geolocation.",
+        "goal": "• Build a seamless client ↔ service professional marketplace\n• Provide booking capabilities with real-time calendars and provider availability\n• Implement geolocation mapping to locate nearby professionals\n• Secure online payments and manage transaction lifecycles",
+        "role": "Consultant Full Stack Developer\n\nPlatform design and development, real-time availability calendar management, geolocation, and critical API integrations.",
+        "achievements": "• Development of booking workflows with real-time slot and availability tracking\n• Participation in the development of the provider geolocation system\n• Full integration of online payments and secure transaction tracking\n• Contribution to the service management system integrating catalog, bookings, and user monitoring\n• Integration of third-party APIs vital to platform operations\n• User experience optimization across a high-interaction, multi-service platform",
+        "challenges": "• Real-time availability sync preventing overbooking across timezones\n• Distance calculations and smooth client-side geolocation mapping\n• Resilient payment webhook processing and transaction state consistency",
+        "impact": "• Frictionless booking path from service discovery to secure payment\n• Highly scalable and reactive platform supporting multiple service verticals"
       },
       "edaktarii": {
         "context": "eDaktarii is a telemedicine platform connecting patients and doctors remotely via video consultations. It aims to facilitate access to care, particularly between Africa and the diaspora.",
@@ -136,16 +150,33 @@
         "achievements": "• Development of a multi-mode marketplace interface (purchase, bartering, negotiation)\n• Implementation of a real-time negotiation system between users\n• Design of user flows for transactions (posting, offering, accepting)\n• Development of ad management and interaction interfaces\n• API integration for product, user, and transaction management\n• Optimization of the user experience on multi-step paths",
         "challenges": "• Management of complex transactional flows (purchase vs bartering vs negotiation)\n• Real-time exchange synchronization between users\n• Design of a clear UX despite the complexity of options\n• Management of multiple transaction-related states",
         "impact": "• Implementation of an innovative multi-mode marketplace\n• Enriched user experience with real-time negotiation\n• Increased flexibility in peer-to-peer transactions\n• Improved engagement through dynamic interactions"
+      },
+      "casacloud": {
+        "context": "Development of a React administrative dashboard centralizing client and operational data for a call center in Dakar.",
+        "goal": "• Centralize operational and customer data in a single management tool\n• Provide real-time visibility into call center metrics and queues\n• Facilitate team supervision and agent performance tracking\n• Enhance responsiveness during call traffic surges and operational incidents",
+        "role": "Freelance Front-End Developer\n\nDesign system creation in SCSS and development of real-time monitoring and reporting interfaces.",
+        "achievements": "• Interactive real-time dashboard tracking active calls, queues, agent performance, and customer history\n• Configurable tables, advanced filters, and dynamic charts with Chart.js and Recharts\n• REST API integration for real-time data retrieval and operational business actions\n• Responsive, modular SCSS design system implementation\n• Frontend performance optimization for high-frequency live data updates",
+        "challenges": "• Real-time processing of high-frequency telephony metrics\n• UI rendering performance optimization under non-stop data streams",
+        "impact": "• Full real-time operational clarity across call center teams\n• Reduced supervisor response time during peak call volumes"
+      },
+      "medteck consulting": {
+        "context": "Development of a peer-to-peer (P2P) marketplace combining item bartering, direct purchasing, and real-time price negotiation.",
+        "goal": "• Enable user bartering, direct buying, and real-time negotiation\n• Optimize search engine discovery (SEO) and catalog page load speeds\n• Deliver a responsive real-time messaging interface for price negotiation",
+        "role": "Front-End Developer\n\nNext.js development (SSR/SSG), centralized Redux store architecture, and real-time transactional interfaces.",
+        "achievements": "• Next.js application leveraging SSR/SSG for rapid, SEO-optimized catalog rendering\n• Centralized Redux store managing catalog items, cart, active negotiations, and notifications\n• Full transactional user journeys: product listings, detailed specs, user profiles, checkout\n• Real-time price negotiation interface with integrated live chat\n• Performance tuning and Core Web Vitals optimization",
+        "challenges": "• Complex tri-modal transaction state management (barter, buy, negotiate)\n• Real-time offer synchronization within live chat sessions",
+        "impact": "• Dynamic and differentiating user experience in the P2P commerce space\n• Optimal SEO indexing and high-speed catalog browsing"
       }
     }
   },
   "expertise_titles": {
-    "frameworks": "Framework & Language",
-    "state": "State & Data",
-    "ui": "UI, Real-time & Integrations"
+    "frameworks": "Front-End & Mobile",
+    "backend": "Back-End & NestJS Architecture",
+    "ui": "Data, Real-time & Integrations"
   },
   "roles": {
     "frontend": "Front-end Developer",
+    "frontend_freelance": "Freelance Front-End Developer",
     "frontend_consultant": "Front-end Developer · Consultant",
     "fullstack": "Fullstack Developer — banking sector",
     "web": "Web Developer",
@@ -160,6 +191,7 @@
     "header": "SYSTEM LOGS / OUTPUT"
   },
   "levels": {
+    "expert": "Expert",
     "solid": "Solid"
   },
   "common": {

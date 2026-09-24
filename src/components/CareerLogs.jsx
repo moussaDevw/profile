@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Terminal as TerminalIcon, RotateCcw, Play } from 'lucide-react';
 import { Reveal } from './Reveal';
@@ -21,10 +21,11 @@ const CareerLogs = () => {
   const logs = [
     { text: t('terminal.starting'), type: "system" },
     { text: t('terminal.initializing'), type: "system" },
-    { text: "[2024 — 2026] Loaded node: Yello - Développeur front-end", type: "entry", company: "Yello", year: "2024 — 2026", role: "Développeur front-end" },
-    { text: "[2025 — 2026] Loaded node: Sapiow - Développeur front-end · Consultant", type: "entry", company: "Sapiow", year: "2025 — 2026", role: "Développeur front-end · Consultant" },
-    { text: "[2025 — 2026] Loaded node: Soveur - Développeur front-end · Consultant", type: "entry", company: "Soveur", year: "2025 — 2026", role: "Développeur front-end · Consultant" },
-    { text: "[2025] Loaded node: eDaktarii - Développeur front-end · Consultant", type: "entry", company: "eDaktarii", year: "2025", role: "Développeur front-end · Consultant" },
+    { text: "[2024 — 2026] Loaded node: Yello - Senior Frontend Developer", type: "entry", company: "Yello", year: "2024 — 2026", role: "Senior Frontend Developer" },
+    { text: "[2025 — 2026] Loaded node: Sapiow - Consultant Développeur Full Stack", type: "entry", company: "Sapiow", year: "2025 — 2026", role: "Consultant Développeur Full Stack" },
+    { text: "[2024 — 2026] Loaded node: Istamco - Consultant Développeur Full Stack", type: "entry", company: "Istamco", year: "2024 — 2026", role: "Consultant Développeur Full Stack" },
+    { text: "[2025] Loaded node: eDaktarii - Consultant Software Engineer", type: "entry", company: "eDaktarii", year: "2025", role: "Consultant Software Engineer" },
+    { text: "[2025] Loaded node: Assure Express - Full Stack Engine (NestJS / React Native)", type: "entry", company: "Assure Express", year: "2025", role: "Full Stack (NestJS / React Native)" },
     { text: t('terminal.ready'), type: "system", cursor: true },
   ];
 
