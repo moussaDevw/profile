@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Copy, Check, ArrowUpRight, Mail, Phone, Globe, Sparkles } from 'lucide-react';
+import { Copy, Check, ArrowUpRight, Phone } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 
 const Contact = () => {

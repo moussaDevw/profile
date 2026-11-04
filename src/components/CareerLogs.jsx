@@ -1,53 +1,87 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Terminal as TerminalIcon, RotateCcw, Play } from 'lucide-react';
+import { Terminal as TerminalIcon, RotateCcw } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const CareerLogs = () => {
   const { t } = useTranslation();
-  const [visibleLines, setVisibleLines] = useState([]);
-  const [isTyping, setIsTyping] = useState(false);
+  const [displayedCount, setDisplayedCount] = useState(0);
 
   const getRoleKey = (role) => {
-    if (role.toLowerCase().includes('front-end') && role.toLowerCase().includes('consultant')) return 'roles.frontend_consultant';
-    if (role.toLowerCase().includes('front-end')) return 'roles.frontend';
-    if (role.toLowerCase().includes('fullstack')) return 'roles.fullstack';
-    if (role.toLowerCase().includes('web/mobile')) return 'roles.web_mobile';
-    if (role.toLowerCase().includes('web') && role.toLowerCase().includes('stage')) return 'roles.stage';
-    if (role.toLowerCase().includes('web')) return 'roles.web';
+    const r = role.toLowerCase();
+    if (r.includes('covoiturage')) return 'roles.covoiturage';
+    if (r.includes('stage')) return 'roles.stage';
+    if (r.includes('web/mobile')) return 'roles.web_mobile';
+    if (r.includes('freelance')) return 'roles.frontend_freelance';
+    if (r.includes('front-end') && r.includes('consultant')) return 'roles.frontend_consultant';
+    if (r.includes('front-end')) return 'roles.frontend';
+    if (r.includes('fullstack')) return 'roles.fullstack';
+    if (r.includes('web')) return 'roles.web';
     return null;
   };
 
-  const logs = [
-    { text: t('terminal.starting'), type: "system" },
-    { text: t('terminal.initializing'), type: "system" },
-    { text: "[2024 — 2026] Loaded node: Yello - Senior Frontend Developer", type: "entry", company: "Yello", year: "2024 — 2026", role: "Senior Frontend Developer" },
-    { text: "[2025 — 2026] Loaded node: Sapiow - Consultant Développeur Full Stack", type: "entry", company: "Sapiow", year: "2025 — 2026", role: "Consultant Développeur Full Stack" },
-    { text: "[2024 — 2026] Loaded node: Istamco - Consultant Développeur Full Stack", type: "entry", company: "Istamco", year: "2024 — 2026", role: "Consultant Développeur Full Stack" },
-    { text: "[2025] Loaded node: eDaktarii - Consultant Software Engineer", type: "entry", company: "eDaktarii", year: "2025", role: "Consultant Software Engineer" },
-    { text: "[2025] Loaded node: Assure Express - Full Stack Engine (NestJS / React Native)", type: "entry", company: "Assure Express", year: "2025", role: "Full Stack (NestJS / React Native)" },
-    { text: t('terminal.ready'), type: "system", cursor: true },
-  ];
+  const logs = useMemo(
+    () => [
+      { text: t('terminal.starting'), type: 'system' },
+      { text: t('terminal.initializing'), type: 'system' },
+      {
+        text: '[2024 — 2026] Loaded node: Yello - Senior Frontend Developer',
+        type: 'entry',
+        company: 'Yello',
+        year: '2024 — 2026',
+        role: 'Senior Frontend Developer',
+      },
+      {
+        text: '[2025 — 2026] Loaded node: Sapiow - Consultant Développeur Full Stack',
+        type: 'entry',
+        company: 'Sapiow',
+        year: '2025 — 2026',
+        role: 'Consultant Développeur Full Stack',
+      },
+      {
+        text: '[2024 — 2026] Loaded node: Istamco - Consultant Développeur Full Stack',
+        type: 'entry',
+        company: 'Istamco',
+        year: '2024 — 2026',
+        role: 'Consultant Développeur Full Stack',
+      },
+      {
+        text: '[2025] Loaded node: eDaktarii - Consultant Software Engineer',
+        type: 'entry',
+        company: 'eDaktarii',
+        year: '2025',
+        role: 'Consultant Software Engineer',
+      },
+      {
+        text: '[2025] Loaded node: Assure Express - Full Stack Engine (NestJS / React Native)',
+        type: 'entry',
+        company: 'Assure Express',
+        year: '2025',
+        role: 'Full Stack (NestJS / React Native)',
+      },
+      { text: t('terminal.ready'), type: 'system', cursor: true },
+    ],
+    [t]
+  );
 
-  const startTypingSequence = () => {
-    setVisibleLines([]);
-    setIsTyping(true);
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < logs.length) {
-        const currentLog = logs[index];
-        setVisibleLines((prev) => [...prev, currentLog]);
-        index++;
-      } else {
-        clearInterval(interval);
-        setIsTyping(false);
-      }
-    }, 180);
-  };
+  const isTyping = displayedCount < logs.length;
 
   useEffect(() => {
-    startTypingSequence();
-  }, [t]);
+    if (displayedCount < logs.length) {
+      const timer = setTimeout(() => {
+        setDisplayedCount((c) => c + 1);
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [displayedCount, logs.length]);
+
+  const handleReplay = () => {
+    if (!isTyping) {
+      setDisplayedCount(0);
+    }
+  };
+
+  const visibleLines = logs.slice(0, displayedCount);
 
   return (
     <section className="terminal-section">
@@ -64,9 +98,9 @@ const CareerLogs = () => {
               <TerminalIcon size={14} className="term-icon" />
               <span>{t('terminal.header')}</span>
             </div>
-            <button 
-              className="replay-btn" 
-              onClick={startTypingSequence} 
+            <button
+              className="replay-btn"
+              onClick={handleReplay}
               disabled={isTyping}
               title="Rejouer la séquence"
             >

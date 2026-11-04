@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Layout, Server, Database, Sparkles } from 'lucide-react';
+import { Layout, Server, Database } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 import { EXPERTISE } from '../constants/data';
 
@@ -10,7 +10,7 @@ const Expertise = () => {
   const getTitleKey = (title) => {
     if (title.includes('Back-End') || title.includes('NestJS')) return 'expertise_titles.backend';
     if (title.includes('Front-End') || title.includes('Mobile')) return 'expertise_titles.frameworks';
-    if (title.includes('DevOps') || title.includes('Cloud') || title.includes('Données')) return 'expertise_titles.ui';
+    if (title.includes('DevOps') || title.includes('Cloud') || title.includes('Tests')) return 'expertise_titles.devops';
     return title;
   };
 

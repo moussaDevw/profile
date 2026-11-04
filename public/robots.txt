@@ -1,0 +1,11 @@
+# robots.txt pour MusaTech (https://www.musatech.tech)
+User-agent: *
+Allow: /
+
+# Directives pour l'indexation multilingue
+Allow: /fr/
+Allow: /en/
+
+# Sitemap XML officiel
+Sitemap: https://www.musatech.tech/sitemap.xml
+

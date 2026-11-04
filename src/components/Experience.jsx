@@ -1,6 +1,5 @@
-﻿import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, Sparkles } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 import { TIMELINE } from '../constants/data';
 
@@ -8,12 +7,15 @@ const Experience = () => {
   const { t } = useTranslation();
 
   const getRoleKey = (role) => {
-    if (role.toLowerCase().includes('front-end') && role.toLowerCase().includes('freelance')) return 'roles.frontend_freelance';
-    if (role.toLowerCase().includes('front-end')) return 'roles.frontend';
-    if (role.toLowerCase().includes('fullstack')) return 'roles.fullstack';
-    if (role.toLowerCase().includes('web/mobile')) return 'roles.web_mobile';
-    if (role.toLowerCase().includes('web') && role.toLowerCase().includes('stage')) return 'roles.stage';
-    if (role.toLowerCase().includes('web')) return 'roles.web';
+    const r = role.toLowerCase();
+    if (r.includes('covoiturage')) return 'roles.covoiturage';
+    if (r.includes('stage')) return 'roles.stage';
+    if (r.includes('web/mobile')) return 'roles.web_mobile';
+    if (r.includes('freelance')) return 'roles.frontend_freelance';
+    if (r.includes('front-end') && r.includes('consultant')) return 'roles.frontend_consultant';
+    if (r.includes('front-end')) return 'roles.frontend';
+    if (r.includes('fullstack')) return 'roles.fullstack';
+    if (r.includes('web')) return 'roles.web';
     return null;
   };
 

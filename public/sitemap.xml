@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 1. HOMEPAGE -->
+  <url>
+    <loc>https://www.musatech.tech/fr</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr" />
+  </url>
+
+  <!-- 2. SERVICES HUB -->
+  <url>
+    <loc>https://www.musatech.tech/fr/services</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/services</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services" />
+  </url>
+
+  <!-- 3. SERVICES DETAIL -->
+  <!-- Sites web -->
+  <url>
+    <loc>https://www.musatech.tech/fr/services/sites-web</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/sites-web" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/websites" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/sites-web" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/services/websites</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/sites-web" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/websites" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/sites-web" />
+  </url>
+
+  <!-- E-commerce -->
+  <url>
+    <loc>https://www.musatech.tech/fr/services/e-commerce</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/e-commerce" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/e-commerce" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/e-commerce" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/services/e-commerce</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/e-commerce" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/e-commerce" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/e-commerce" />
+  </url>
+
+  <!-- Logiciels métier -->
+  <url>
+    <loc>https://www.musatech.tech/fr/services/logiciels-metier</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/logiciels-metier" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/business-software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/logiciels-metier" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/services/business-software</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/logiciels-metier" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/business-software" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/logiciels-metier" />
+  </url>
+
+  <!-- Applications mobiles -->
+  <url>
+    <loc>https://www.musatech.tech/fr/services/applications-mobiles</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/applications-mobiles" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/applications-mobiles" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/services/mobile-apps</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/services/applications-mobiles" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/services/applications-mobiles" />
+  </url>
+
+  <!-- 4. SOLUTIONS SECTORIELLES -->
+  <url>
+    <loc>https://www.musatech.tech/fr/solutions</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/solutions</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions" />
+  </url>
+
+  <!-- Solutions detail -->
+  <url>
+    <loc>https://www.musatech.tech/fr/solutions/immobilier</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/immobilier" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/real-estate" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/immobilier" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/solutions/real-estate</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/immobilier" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/real-estate" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/immobilier" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/solutions/education</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/education" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/education" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/education" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/solutions/education</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/education" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/education" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/education" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/solutions/commerce</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/commerce" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/retail" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/commerce" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/solutions/retail</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/commerce" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/retail" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/commerce" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/solutions/logistique</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/logistique" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/logistics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/logistique" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/solutions/logistics</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/solutions/logistique" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/solutions/logistics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/solutions/logistique" />
+  </url>
+
+  <!-- 5. RÉALISATIONS -->
+  <url>
+    <loc>https://www.musatech.tech/fr/realisations</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/case-studies</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations" />
+  </url>
+
+  <!-- Études de cas réelles -->
+  <url>
+    <loc>https://www.musatech.tech/fr/realisations/assure-express</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/assure-express" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/assure-express" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/assure-express" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/case-studies/assure-express</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/assure-express" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/assure-express" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/assure-express" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/realisations/edaktari</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/edaktari" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/edaktari" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/edaktari" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/case-studies/edaktari</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/edaktari" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/edaktari" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/edaktari" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/realisations/yello-edtech</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/yello-edtech" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/yello-edtech" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/yello-edtech" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/case-studies/yello-edtech</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/yello-edtech" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/yello-edtech" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/yello-edtech" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/realisations/istamco</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/istamco" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/istamco" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/istamco" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/case-studies/istamco</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/realisations/istamco" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/case-studies/istamco" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/realisations/istamco" />
+  </url>
+
+  <!-- 6. PAGES DE CONFIANCE & DEVIS -->
+  <url>
+    <loc>https://www.musatech.tech/fr/a-propos</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/a-propos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/a-propos" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/about</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/a-propos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/a-propos" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/contact</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/contact" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/contact</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/contact" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/devis</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/devis" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/quote" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/devis" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/quote</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/devis" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/quote" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/devis" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/mentions-legales</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/legal-notice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/mentions-legales" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/legal-notice</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/legal-notice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/mentions-legales" />
+  </url>
+
+  <url>
+    <loc>https://www.musatech.tech/fr/confidentialite</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/confidentialite" />
+  </url>
+  <url>
+    <loc>https://www.musatech.tech/en/privacy-policy</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.musatech.tech/fr/confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.musatech.tech/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.musatech.tech/fr/confidentialite" />
+  </url>
+</urlset>
+

@@ -120,7 +120,6 @@ export const About = () => {
 };
 
 export const PullQuote = () => {
-  const { t } = useTranslation();
   return (
     <div className="pullquote">
       <Reveal>
