@@ -1,0 +1,387 @@
+/**
+ * MusaTech Design System — CSS Tokens & Base Styles
+ * Palette & Metrics conformes aux spécifications
+ */
+
+:root {
+  /* Palette officielle */
+  --mt-navy: #0B1730;
+  --mt-slate: #172A46;
+  --mt-cyan: #19B8CD;
+  --mt-white: #FFFFFF;
+  --mt-surface: #F4F7FB;
+  --mt-surface-alt: #E9F1F7;
+  --mt-border: #DAE3ED;
+  --mt-muted: #465670;
+
+  /* Typographie */
+  --mt-font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mt-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Échelle & Métriques */
+  --mt-container-max: 1200px;
+  --mt-section-spacing: 96px;
+  --mt-radius-card: 16px;
+  --mt-radius-btn: 10px;
+  --mt-btn-min-height: 48px;
+
+  /* Ombres & Élévation */
+  --mt-shadow-sm: 0 1px 3px rgba(11, 23, 48, 0.04), 0 1px 2px rgba(11, 23, 48, 0.02);
+  --mt-shadow-md: 0 4px 16px -2px rgba(11, 23, 48, 0.06), 0 2px 6px -1px rgba(11, 23, 48, 0.03);
+  --mt-shadow-lg: 0 12px 32px -4px rgba(11, 23, 48, 0.08), 0 4px 12px -2px rgba(11, 23, 48, 0.04);
+  --mt-shadow-cyan: 0 4px 20px rgba(25, 184, 205, 0.25);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --mt-section-spacing: 64px;
+  }
+}
+
+/* Base Typo Classes */
+.mt-font-heading {
+  font-family: var(--mt-font-heading);
+}
+
+.mt-font-body {
+  font-family: var(--mt-font-body);
+}
+
+.mt-h1 {
+  font-family: var(--mt-font-heading);
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--mt-navy);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 769px) {
+  .mt-h1 {
+    font-size: 56px;
+  }
+}
+
+.mt-h2 {
+  font-family: var(--mt-font-heading);
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--mt-navy);
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 769px) {
+  .mt-h2 {
+    font-size: 40px;
+  }
+}
+
+.mt-h3 {
+  font-family: var(--mt-font-heading);
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--mt-slate);
+}
+
+@media (min-width: 769px) {
+  .mt-h3 {
+    font-size: 22px;
+  }
+}
+
+.mt-body {
+  font-family: var(--mt-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--mt-slate);
+}
+
+@media (min-width: 769px) {
+  .mt-body {
+    font-size: 17px;
+  }
+}
+
+.mt-muted {
+  color: var(--mt-muted);
+}
+
+/* Responsive Container */
+.mt-container {
+  width: 100%;
+  max-width: var(--mt-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (min-width: 480px) {
+  .mt-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (min-width: 640px) {
+  .mt-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mt-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Section Spacing */
+.mt-section {
+  padding-top: var(--mt-section-spacing);
+  padding-bottom: var(--mt-section-spacing);
+}
+
+/* Focus Visible Globale */
+:focus-visible {
+  outline: 2px solid var(--mt-cyan) !important;
+  outline-offset: 3px !important;
+}
+
+/* Card Hover States */
+.mt-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.mt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mt-shadow-lg);
+  border-color: rgba(25, 184, 205, 0.4) !important;
+}
+
+/* Button Hover & Active States */
+.mt-btn {
+  user-select: none;
+}
+
+.mt-btn-primary:hover {
+  background-color: var(--mt-slate) !important;
+  border-color: var(--mt-slate) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--mt-shadow-md);
+}
+
+.mt-btn-cyan:hover {
+  background-color: #169EAF !important;
+  border-color: #169EAF !important;
+  transform: translateY(-1px);
+  box-shadow: var(--mt-shadow-cyan);
+}
+
+.mt-btn-secondary:hover {
+  background-color: #DAE3ED !important;
+  color: var(--mt-navy) !important;
+  transform: translateY(-1px);
+}
+
+.mt-btn-outline:hover {
+  background-color: var(--mt-surface-alt) !important;
+  border-color: var(--mt-slate) !important;
+}
+
+.mt-btn-ghost:hover {
+  background-color: var(--mt-surface-alt) !important;
+}
+
+.mt-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Form Controls Interactive States */
+.mt-input:focus,
+.mt-select:focus,
+.mt-textarea:focus {
+  border-color: var(--mt-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(25, 184, 205, 0.2) !important;
+}
+
+.mt-input:hover:not(:disabled),
+.mt-select:hover:not(:disabled),
+.mt-textarea:hover:not(:disabled) {
+  border-color: #b0c2d4;
+}
+
+/* Responsive Grids */
+.mt-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .mt-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mt-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+.mt-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .mt-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+.mt-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .mt-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mt-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .mt-card:hover,
+  .mt-btn:hover {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   Optimisations Ergonomie Mobile & Écrans Étroits (< 768px / < 480px)
+   ============================================================ */
+
+/* Sécurité anti-débordement horizontal sur petits écrans */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Typographie fluide adaptée aux écrans mobiles */
+@media (max-width: 640px) {
+  .mt-h1 {
+    font-size: clamp(28px, 7.5vw, 36px) !important;
+    line-height: 1.18 !important;
+  }
+  .mt-h2 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+  }
+  .mt-h3 {
+    font-size: 19px !important;
+    line-height: 1.35 !important;
+  }
+  .mt-body {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+  .mt-section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  .mt-grid-2,
+  .mt-grid-3,
+  .mt-grid-4 {
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .mt-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .mt-card,
+  .mt-service-card,
+  .mt-project-card,
+  .mt-solution-card,
+  .mt-project-listing-card,
+  .mt-solution-sector-card {
+    padding: 18px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mt-h1 {
+    font-size: clamp(25px, 7vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+  .mt-h2 {
+    font-size: clamp(20px, 5.5vw, 24px) !important;
+    line-height: 1.25 !important;
+  }
+  .mt-container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .mt-card,
+  .mt-service-card,
+  .mt-project-card,
+  .mt-solution-card,
+  .mt-project-listing-card,
+  .mt-solution-sector-card {
+    padding: 16px 10px !important;
+  }
+}
+
+/* Prévention de l'auto-zoom forcé d'iOS Safari sur les champs de formulaire */
+@media (max-width: 768px) {
+  .mt-input,
+  .mt-select,
+  .mt-textarea {
+    font-size: 16px !important;
+    min-height: 48px !important;
+  }
+}
+
+/* Ergonomie des boutons et cibles tactiles mobiles (≥ 44px) */
+@media (max-width: 640px) {
+  .mt-hero-cta-group,
+  .mt-hero-section .mt-btn {
+    width: 100% !important;
+  }
+  .mt-quote-submit-row {
+    flex-direction: column-reverse;
+    align-items: stretch !important;
+  }
+  .mt-quote-submit-btn {
+    width: 100% !important;
+  }
+}
+

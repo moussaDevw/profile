@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ChevronDown, Layers, Sparkles, Code2, Globe } from 'lucide-react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { Reveal, SectionLabel } from './Reveal';
 import { PROJECTS } from '../constants/data';
 
@@ -31,8 +31,8 @@ const Work = () => {
 
   const filteredProjects = PROJECTS.filter(filterProject);
 
-  const toggleProject = (index) => {
-    setExpandedProject(expandedProject === index ? null : index);
+  const toggleProject = (projectName) => {
+    setExpandedProject(expandedProject === projectName ? null : projectName);
   };
 
   return (
@@ -78,7 +78,7 @@ const Work = () => {
       <div className="projects-container">
         {filteredProjects.map((project, index) => {
           const projectKey = project.name.toLowerCase();
-          const isExpanded = expandedProject === index;
+          const isExpanded = expandedProject === project.name;
           const projectBody = t(`projects.bodies.${projectKey}`, { returnObjects: true });
           const hasDetails = typeof projectBody === 'object';
 
@@ -89,7 +89,7 @@ const Work = () => {
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="project-card-header" onClick={() => hasDetails && toggleProject(index)}>
+                <div className="project-card-header" onClick={() => hasDetails && toggleProject(project.name)}>
                   <div className="project-year-badge">{project.year}</div>
                   
                   <div className="project-meta-info">
