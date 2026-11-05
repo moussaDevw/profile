@@ -39,6 +39,7 @@ export const CommercialNavbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [path]);
 
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -49,6 +50,17 @@ export const CommercialNavbar: React.FC = () => {
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
+
+  // Close mobile menu on desktop resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 860) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const navItems = isEn
     ? [
@@ -69,44 +81,70 @@ export const CommercialNavbar: React.FC = () => {
   const handleNavClick = (item: { id: string; href: string }, e: React.MouseEvent) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    navigate(item.href);
+
+    const isHomePage = path === '/' || path === '/fr' || path === '/en';
+    const targetElement = isHomePage ? document.getElementById(item.id) : null;
+
+    if (targetElement) {
+      const headerOffset = 76;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+      setActiveSection(item.id);
+    } else {
+      navigate(item.href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setMobileMenuOpen(false);
     navigate(getLocalizedHref('home', locale));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleCtaClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setMobileMenuOpen(false);
     navigate(getLocalizedHref('quote', locale));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : '#FFFFFF',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid #DAE3ED',
-        transition: 'all 0.25s ease',
-      }}
-    >
-      <div
+    <>
+      <header
+        className="mt-commercial-navbar"
         style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 clamp(10px, 2.5vw, 32px)',
-          height: '72px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          zIndex: 1000,
+          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.96)' : '#FFFFFF',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderBottom: '1px solid #DAE3ED',
+          boxShadow: scrolled ? '0 4px 20px -2px rgba(11, 23, 48, 0.08)' : 'none',
+          transition: 'background-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 clamp(10px, 2.5vw, 32px)',
+            height: '72px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
         {/* Brand Logo & Status */}
         <a
           href={getLocalizedHref('home', locale)}
@@ -262,7 +300,7 @@ export const CommercialNavbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Backdrop & Menu */}
       {mobileMenuOpen && (
         <div
           style={{
@@ -270,7 +308,8 @@ export const CommercialNavbar: React.FC = () => {
             inset: '72px 0 0 0',
             backgroundColor: 'rgba(11, 23, 48, 0.4)',
             backdropFilter: 'blur(8px)',
-            zIndex: 99,
+            WebkitBackdropFilter: 'blur(8px)',
+            zIndex: 999,
             display: 'flex',
             flexDirection: 'column',
           }}
@@ -280,15 +319,13 @@ export const CommercialNavbar: React.FC = () => {
             style={{
               backgroundColor: '#FFFFFF',
               borderBottom: '1px solid #DAE3ED',
-              padding: '20px 12px 28px 12px',
+              padding: '20px 14px 28px 14px',
               boxShadow: '0 12px 32px rgba(11, 23, 48, 0.1)',
+              maxHeight: 'calc(100vh - 72px)',
+              overflowY: 'auto',
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'flex-end' }}>
-              <LanguageSwitcher />
-            </div>
-
             <ul
               style={{
                 listStyle: 'none',
@@ -357,5 +394,8 @@ export const CommercialNavbar: React.FC = () => {
         }
       `}</style>
     </header>
+    {/* Spacer to preserve document flow beneath fixed navbar */}
+    <div className="mt-navbar-spacer" style={{ height: '72px' }} aria-hidden="true" />
+    </>
   );
 };

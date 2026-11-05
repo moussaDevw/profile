@@ -155,141 +155,322 @@ export const HomeHero: React.FC = () => {
 
           {/* Right Column: Platform Visual UI Mockup */}
           <div
+            className="mt-hero-visual-card"
             style={{
               position: 'relative',
               borderRadius: '16px',
-              border: '1px solid #DAE3ED',
+              border: '1.5px solid #1E293B',
               backgroundColor: '#0B1730',
-              boxShadow: '0 20px 48px -12px rgba(11, 23, 48, 0.25)',
+              boxShadow: '0 20px 48px -12px rgba(11, 23, 48, 0.35), 0 0 0 1px rgba(25, 184, 205, 0.1)',
               overflow: 'hidden',
-              padding: 'clamp(16px, 3vw, 28px) clamp(12px, 2.5vw, 24px)',
+              padding: 'clamp(14px, 3vw, 24px) clamp(10px, 2.5vw, 20px)',
               color: '#FFFFFF',
             }}
           >
+            {/* Top subtle neon accent line */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '2px',
+                background: 'linear-gradient(90deg, #19B8CD 0%, #E0A838 50%, #27C93F 100%)',
+                opacity: 0.8,
+              }}
+            />
+
             {/* Window bar */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingBottom: '16px',
-                marginBottom: '20px',
-                borderBottom: '1px solid rgba(218, 227, 237, 0.12)',
+                paddingBottom: '12px',
+                marginBottom: '14px',
+                borderBottom: '1px solid rgba(218, 227, 237, 0.1)',
+                gap: '8px',
               }}
             >
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#FF5F56' }} />
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#FFBD2E' }} />
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#27C93F' }} />
-              </div>
-              <span
-                style={{
-                  fontSize: '12px',
-                  fontFamily: "'Geist Mono', monospace",
-                  color: '#DAE3ED',
-                  opacity: 0.8,
-                }}
-              >
-                musatech-engine.config.ts
-              </span>
-              <span
-                style={{
-                  fontSize: '11px',
-                  backgroundColor: 'rgba(25, 184, 205, 0.2)',
-                  color: '#19B8CD',
-                  padding: '2px 8px',
-                  borderRadius: '4px',
-                  fontWeight: 600,
-                }}
-              >
-                PROD READY
-              </span>
-            </div>
-
-            {/* Architecture Card Preview */}
-            <div
-              style={{
-                backgroundColor: '#172A46',
-                borderRadius: '12px',
-                padding: 'clamp(16px, 3vw, 20px)',
-                marginBottom: '16px',
-                border: '1px solid rgba(25, 184, 205, 0.2)',
-                overflowX: 'auto',
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', minWidth: '260px' }}>
-                <span style={{ fontSize: '13px', color: '#19B8CD', fontWeight: 600 }}>
-                  {isEn ? 'Software Architecture' : 'Architecture Applicative'}
+                <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexShrink: 0 }}>
+                  <span style={{ width: '9px', height: '9px', borderRadius: '50%', backgroundColor: '#FF5F56', display: 'inline-block' }} />
+                  <span style={{ width: '9px', height: '9px', borderRadius: '50%', backgroundColor: '#FFBD2E', display: 'inline-block' }} />
+                  <span style={{ width: '9px', height: '9px', borderRadius: '50%', backgroundColor: '#27C93F', display: 'inline-block' }} />
+                </div>
+                <span
+                  style={{
+                    fontSize: 'clamp(11px, 2.5vw, 12px)',
+                    fontFamily: "'Geist Mono', monospace",
+                    color: '#CBD5E1',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                    maxWidth: '180px',
+                    fontWeight: 500,
+                    opacity: 0.9,
+                  }}
+                >
+                  musatech-engine.config.ts
                 </span>
-                <span style={{ fontSize: '12px', color: '#DAE3ED', opacity: 0.7 }}>
-                  {isEn ? 'Senegal × Global' : 'Dakar × International'}
+                <span
+                  style={{
+                    fontSize: '11px',
+                    backgroundColor: 'rgba(39, 201, 63, 0.12)',
+                    color: '#27C93F',
+                    border: '1px solid rgba(39, 201, 63, 0.25)',
+                    padding: '2px 8px',
+                    borderRadius: '100px',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                    flexShrink: 0,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                  }}
+                >
+                  <span
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      backgroundColor: '#27C93F',
+                      boxShadow: '0 0 6px rgba(39, 201, 63, 0.8)',
+                    }}
+                  />
+                  <span>PROD READY</span>
                 </span>
               </div>
-              <div style={{ fontFamily: "'Geist Mono', monospace", fontSize: 'clamp(11.5px, 2.8vw, 13px)', lineHeight: 1.7, color: '#E9F1F7', minWidth: '260px' }}>
-                <div><span style={{ color: '#19B8CD' }}>const</span> app = <span style={{ color: '#E0A838' }}>new MusaTechSolution</span>({'{'}</div>
-                <div style={{ paddingLeft: '16px' }}>backend: <span style={{ color: '#88C0D0' }}>'NestJS / Node.js'</span>,</div>
-                <div style={{ paddingLeft: '16px' }}>frontend: <span style={{ color: '#88C0D0' }}>'React 19 / Next.js'</span>,</div>
-                <div style={{ paddingLeft: '16px' }}>mobile: <span style={{ color: '#88C0D0' }}>'React Native / Expo'</span>,</div>
-                <div style={{ paddingLeft: '16px' }}>database: <span style={{ color: '#88C0D0' }}>'PostgreSQL / Redis'</span>,</div>
-                <div style={{ paddingLeft: '16px' }}>payments: [<span style={{ color: '#88C0D0' }}>'Wave'</span>, <span style={{ color: '#88C0D0' }}>'Orange Money'</span>, <span style={{ color: '#88C0D0' }}>'Stripe'</span>],</div>
-                <div style={{ paddingLeft: '16px' }}>security: <span style={{ color: '#27C93F' }}>'WCAG AA + SSL + JWT'</span></div>
-                <div>{'}'});</div>
-              </div>
-            </div>
 
-            {/* Verification Stats Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(6px, 2vw, 12px)' }}>
+              {/* Architecture Card Preview */}
               <div
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                  padding: 'clamp(8px, 2vw, 12px)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(218, 227, 237, 0.08)',
+                  backgroundColor: '#111E38',
+                  borderRadius: '12px',
+                  padding: 'clamp(12px, 3vw, 18px)',
+                  marginBottom: '14px',
+                  border: '1px solid rgba(25, 184, 205, 0.2)',
+                  overflowX: 'auto',
+                  WebkitOverflowScrolling: 'touch',
                 }}
               >
-                <div style={{ fontSize: 'clamp(10px, 2.5vw, 11px)', color: '#DAE3ED', opacity: 0.7, marginBottom: '4px' }}>
-                  {isEn ? 'Uptime' : 'Disponibilité'}
-                </div>
-                <div style={{ fontSize: 'clamp(14px, 3.5vw, 16px)', fontWeight: 700, color: '#FFFFFF', fontFamily: "'Manrope', sans-serif" }}>
-                  99.9%
-                </div>
-              </div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '12px',
+                        paddingBottom: '8px',
+                        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                        gap: '8px',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#19B8CD' }} />
+                        <span style={{ fontSize: 'clamp(11.5px, 2.6vw, 13px)', color: '#19B8CD', fontWeight: 600 }}>
+                          {isEn ? 'Software Architecture' : 'Architecture Applicative'}
+                        </span>
+                      </div>
+                      <span
+                        style={{
+                          fontSize: 'clamp(10.5px, 2.4vw, 12px)',
+                          color: '#94A3B8',
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                          padding: '2px 8px',
+                          borderRadius: '4px',
+                          fontWeight: 500,
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {isEn ? 'Senegal × Global' : 'Dakar × International'}
+                      </span>
+                    </div>
+                      <div
+                        style={{
+                          fontFamily: "'Geist Mono', monospace",
+                          fontSize: 'clamp(11px, 2.6vw, 13px)',
+                          lineHeight: 1.65,
+                          color: '#E2E8F0',
+                        }}
+                      >
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>1</span>
+                          <div>
+                            <span style={{ color: '#19B8CD' }}>const</span> app = <span style={{ color: '#E0A838' }}>new MusaTechSolution</span>({'{'}
+                          </div>
+                        </div>
 
-              <div
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                  padding: 'clamp(8px, 2vw, 12px)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(218, 227, 237, 0.08)',
-                }}
-              >
-                <div style={{ fontSize: 'clamp(10px, 2.5vw, 11px)', color: '#DAE3ED', opacity: 0.7, marginBottom: '4px' }}>
-                  {isEn ? 'Response Time' : 'Temps de réponse'}
-                </div>
-                <div style={{ fontSize: 'clamp(14px, 3.5vw, 16px)', fontWeight: 700, color: '#19B8CD', fontFamily: "'Manrope', sans-serif" }}>
-                  &lt; 150ms
-                </div>
-              </div>
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>2</span>
+                          <div style={{ paddingLeft: '8px' }}>
+                            <span style={{ color: '#94A3B8' }}>backend:</span> <span style={{ color: '#88C0D0' }}>'NestJS / Node.js'</span>,
+                          </div>
+                        </div>
 
-              <div
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                  padding: 'clamp(8px, 2vw, 12px)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(218, 227, 237, 0.08)',
-                }}
-              >
-                <div style={{ fontSize: 'clamp(10px, 2.5vw, 11px)', color: '#DAE3ED', opacity: 0.7, marginBottom: '4px' }}>
-                  {isEn ? 'Type Safety' : 'Tests & Qualité'}
-                </div>
-                <div style={{ fontSize: 'clamp(14px, 3.5vw, 16px)', fontWeight: 700, color: '#27C93F', fontFamily: "'Manrope', sans-serif" }}>
-                  100% typé
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>3</span>
+                          <div style={{ paddingLeft: '8px' }}>
+                            <span style={{ color: '#94A3B8' }}>frontend:</span> <span style={{ color: '#88C0D0' }}>'React 19 / Next.js'</span>,
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>4</span>
+                          <div style={{ paddingLeft: '8px' }}>
+                            <span style={{ color: '#94A3B8' }}>mobile:</span> <span style={{ color: '#88C0D0' }}>'React Native / Expo'</span>,
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>5</span>
+                          <div style={{ paddingLeft: '8px' }}>
+                            <span style={{ color: '#94A3B8' }}>database:</span> <span style={{ color: '#88C0D0' }}>'PostgreSQL / Redis'</span>,
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>6</span>
+                          <div style={{ paddingLeft: '8px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                            <span style={{ color: '#94A3B8' }}>payments:</span>
+                            <span>[<span style={{ color: '#88C0D0' }}>'Wave'</span>, <span style={{ color: '#88C0D0' }}>'Orange Money'</span>, <span style={{ color: '#88C0D0' }}>'Stripe'</span>],</span>
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>7</span>
+                          <div style={{ paddingLeft: '8px' }}>
+                            <span style={{ color: '#94A3B8' }}>security:</span> <span style={{ color: '#27C93F' }}>'WCAG AA + SSL + JWT'</span>
+                          </div>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                          <span style={{ color: '#475569', userSelect: 'none', minWidth: '14px', textAlign: 'right' }}>8</span>
+                          <div>{'}'});</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Verification Stats Row */}
+                      <div
+                        style={{
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(3, 1fr)',
+                          gap: 'clamp(6px, 1.8vw, 10px)',
+                        }}
+                      >
+                        <div
+                          style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                            padding: 'clamp(8px, 2vw, 12px) 6px',
+                            borderRadius: '10px',
+                            border: '1px solid rgba(218, 227, 237, 0.08)',
+                            textAlign: 'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                            <div
+                              style={{
+                                fontSize: 'clamp(14px, 3.5vw, 17px)',
+                                fontWeight: 800,
+                                color: '#FFFFFF',
+                                fontFamily: "'Manrope', sans-serif",
+                                lineHeight: 1.2,
+                                marginBottom: '3px',
+                              }}
+                            >
+                              99.9%
+                            </div>
+                            <div
+                              style={{
+                                fontSize: 'clamp(10px, 2.2vw, 11px)',
+                                color: '#94A3B8',
+                                lineHeight: 1.2,
+                                fontWeight: 500,
+                              }}
+                            >
+                              {isEn ? 'Uptime' : 'Disponibilité'}
+                            </div>
+                          </div>
+
+                          <div
+                            style={{
+                              backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                              padding: 'clamp(8px, 2vw, 12px) 6px',
+                              borderRadius: '10px',
+                              border: '1px solid rgba(218, 227, 237, 0.08)',
+                              textAlign: 'center',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                            }}
+                          >
+                              <div
+                                style={{
+                                  fontSize: 'clamp(14px, 3.5vw, 17px)',
+                                  fontWeight: 800,
+                                  color: '#19B8CD',
+                                  fontFamily: "'Manrope', sans-serif",
+                                  lineHeight: 1.2,
+                                  marginBottom: '3px',
+                                }}
+                              >
+                                &lt; 150ms
+                              </div>
+                              <div
+                                style={{
+                                  fontSize: 'clamp(10px, 2.2vw, 11px)',
+                                  color: '#94A3B8',
+                                  lineHeight: 1.2,
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {isEn ? 'Response Time' : 'Temps de réponse'}
+                              </div>
+                            </div>
+
+                            <div
+                              style={{
+                                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                                padding: 'clamp(8px, 2vw, 12px) 6px',
+                                borderRadius: '10px',
+                                border: '1px solid rgba(218, 227, 237, 0.08)',
+                                textAlign: 'center',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                                <div
+                                  style={{
+                                    fontSize: 'clamp(14px, 3.5vw, 17px)',
+                                    fontWeight: 800,
+                                    color: '#27C93F',
+                                    fontFamily: "'Manrope', sans-serif",
+                                    lineHeight: 1.2,
+                                    marginBottom: '3px',
+                                  }}
+                                >
+                                  100% typé
+                                </div>
+                                <div
+                                  style={{
+                                    fontSize: 'clamp(10px, 2.2vw, 11px)',
+                                    color: '#94A3B8',
+                                    lineHeight: 1.2,
+                                    fontWeight: 500,
+                                  }}
+                                >
+                                  {isEn ? 'Type Safety' : 'Tests & Qualité'}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Container>
+                    </section>
+                    );
 };

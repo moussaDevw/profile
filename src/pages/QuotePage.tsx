@@ -27,7 +27,6 @@ import {
 } from '../schemas/quoteSchema';
 import {
   submitQuoteRequest,
-  isBackendConfigured,
   QuoteSubmissionResponse,
 } from '../lib/quoteService';
 import { updatePageMetadata } from '../lib/seoMetadata';
@@ -136,8 +135,6 @@ export const QuotePage: React.FC = () => {
       }
     }
   }, [path, isEn, locale]);
-
-  const backendReady = isBackendConfigured();
 
   const handleCurrencyChange = (newCurrency: 'XOF' | 'EUR' | 'USD') => {
     setCurrencyMode(newCurrency);
@@ -292,35 +289,6 @@ export const QuotePage: React.FC = () => {
       >
         <Container>
           <div style={{ maxWidth: '840px', margin: '0 auto' }}>
-            {/* Information sur l'état du backend */}
-            {!backendReady && (
-              <div
-                style={{
-                  marginBottom: '28px',
-                  padding: '16px 20px',
-                  backgroundColor: '#EFF6FF',
-                  border: '1px solid #BFDBFE',
-                  borderRadius: '12px',
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '12px',
-                  fontSize: '13px',
-                  color: '#1E40AF',
-                  lineHeight: 1.5,
-                }}
-              >
-                <AlertCircle size={20} color="#2563EB" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <div>
-                  <strong>{isEn ? 'Active Qualification Mode:' : 'Mode de qualification active :'}</strong>
-                  <p style={{ margin: '4px 0 0 0' }}>
-                    {isEn
-                      ? 'The automated dispatch server is in final configuration. This form validates all your technical criteria and pre-fills your message for direct transmission via WhatsApp or Email without re-typing.'
-                      : 'Le serveur de réception automatique est en cours de configuration finale. Ce formulaire valide l’intégralité de vos critères techniques et prépare automatiquement votre message pour une transmission directe par WhatsApp ou Email sans ressaisie.'}
-                  </p>
-                </div>
-              </div>
-            )}
-
             {/* Écran de confirmation SUCCESS */}
             {submissionResponse?.success ? (
               <div
