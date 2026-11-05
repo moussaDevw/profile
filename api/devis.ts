@@ -76,66 +76,72 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
     });
   }
 
-  // 2. Récupération de l'IP pour le rate limiting
-  const forwarded = req.headers['x-forwarded-for'];
-  const clientIp = typeof forwarded === 'string'
-    ? forwarded.split(',')[0].trim()
-    : Array.isArray(forwarded)
-    ? forwarded[0]
-    : '127.0.0.1';
-
-  if (!checkRateLimit(clientIp)) {
-    // eslint-disable-next-line no-console
-    console.warn('[MusaTech Security] Rate limit dépassé pour une requête.');
-    return res.status(429).json({
-      success: false,
-      status: 'RATE_LIMITED',
-      message: 'Trop de requêtes soumises. Veuillez patienter quelques instants.',
-    });
-  }
-
-  // 3. Protection Anti-Spam Honeypot (trappe silencieuse avant analyse poussée)
-  const rawBody = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-  const rawHoneypot = (rawBody as { honeypot?: string })?.honeypot;
-  if (rawHoneypot && typeof rawHoneypot === 'string' && rawHoneypot.trim().length > 0) {
-    // eslint-disable-next-line no-console
-    console.warn('[MusaTech Security] Tentative de spam bot interceptée par le honeypot.');
-    // Retour silencieux pour induire le robot en erreur
-    return res.status(200).json({
-      success: true,
-      status: 'SUCCESS',
-      message: 'Demande reçue.',
-    });
-  }
-
-  // 4. Validation des données avec Zod
-  const validation = quoteFormSchema.safeParse(rawBody);
-
-  if (!validation.success) {
-    return res.status(400).json({
-      success: false,
-      status: 'VALIDATION_ERROR',
-      message: 'Données de formulaire invalides.',
-      errors: validation.error.flatten().fieldErrors,
-    });
-  }
-
-  const data = validation.data;
-  const locale = (rawBody as { locale?: string })?.locale === 'en' ? 'en' : 'fr';
-
-  // 5. Vérification de la configuration base de données
-  const prisma = getPrismaClient();
-  if (!prisma) {
-    // eslint-disable-next-line no-console
-    console.warn('[MusaTech API] DATABASE_URL non configuré.');
-    return res.status(503).json({
-      success: false,
-      status: 'BACKEND_NOT_READY',
-      message: 'Le système de base de données est en cours d’initialisation.',
-    });
-  }
-
   try {
+    // 2. Récupération de l'IP pour le rate limiting
+    const forwarded = req.headers?.['x-forwarded-for'];
+    const clientIp = typeof forwarded === 'string'
+      ? forwarded.split(',')[0].trim()
+      : Array.isArray(forwarded)
+      ? forwarded[0]
+      : '127.0.0.1';
+
+    if (!checkRateLimit(clientIp)) {
+      // eslint-disable-next-line no-console
+      console.warn('[MusaTech Security] Rate limit dépassé pour une requête.');
+      return res.status(429).json({
+        success: false,
+        status: 'RATE_LIMITED',
+        message: 'Trop de requêtes soumises. Veuillez patienter quelques instants.',
+      });
+    }
+
+    // 3. Protection Anti-Spam Honeypot (trappe silencieuse avant analyse poussée)
+    let rawBody: unknown;
+    try {
+      rawBody = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    } catch {
+      rawBody = req.body;
+    }
+
+    const rawHoneypot = (rawBody as { honeypot?: string })?.honeypot;
+    if (rawHoneypot && typeof rawHoneypot === 'string' && rawHoneypot.trim().length > 0) {
+      // eslint-disable-next-line no-console
+      console.warn('[MusaTech Security] Tentative de spam bot interceptée par le honeypot.');
+      // Retour silencieux pour induire le robot en erreur
+      return res.status(200).json({
+        success: true,
+        status: 'SUCCESS',
+        message: 'Demande reçue.',
+      });
+    }
+
+    // 4. Validation des données avec Zod
+    const validation = quoteFormSchema.safeParse(rawBody);
+
+    if (!validation.success) {
+      return res.status(400).json({
+        success: false,
+        status: 'VALIDATION_ERROR',
+        message: 'Données de formulaire invalides.',
+        errors: validation.error.flatten().fieldErrors,
+      });
+    }
+
+    const data = validation.data;
+    const locale = (rawBody as { locale?: string })?.locale === 'en' ? 'en' : 'fr';
+
+    // 5. Vérification de la configuration base de données
+    const prisma = getPrismaClient();
+    if (!prisma) {
+      // eslint-disable-next-line no-console
+      console.warn('[MusaTech API] DATABASE_URL non configuré.');
+      return res.status(503).json({
+        success: false,
+        status: 'BACKEND_NOT_READY',
+        message: 'Le système de base de données est en cours d’initialisation.',
+      });
+    }
+
     // 6. Enregistrement en base de données PostgreSQL
     const createdLead = await prisma.quoteLead.create({
       data: {
@@ -168,31 +174,31 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
     // 7. Envoi des emails via Resend (si clé configurée)
     const resendApiKey = process.env.RESEND_API_KEY;
     if (resendApiKey) {
-      const resend = new Resend(resendApiKey);
-      const emailFrom = process.env.EMAIL_FROM || 'MusaTech <notifications@musatech.tech>';
-      const notifyTo = process.env.NOTIFICATION_EMAIL_TO || 'musadev27@gmail.com';
-
-      const emailPayload: LeadEmailData = {
-        id: createdLead.id,
-        name: createdLead.name,
-        email: createdLead.email,
-        company: createdLead.company,
-        phone: createdLead.phone,
-        country: createdLead.country,
-        industry: createdLead.industry,
-        serviceRequested: createdLead.serviceRequested,
-        budget: createdLead.budget,
-        currency: createdLead.currency,
-        timeline: createdLead.timeline,
-        description: createdLead.description,
-        locale: createdLead.locale,
-        createdAt: createdLead.createdAt,
-      };
-
-      const internalEmail = buildInternalNotificationEmail(emailPayload);
-      const prospectEmail = buildProspectAcknowledgmentEmail(emailPayload);
-
       try {
+        const resend = new Resend(resendApiKey);
+        const emailFrom = process.env.EMAIL_FROM || 'MusaTech <contact@musatech.tech>';
+        const notifyTo = process.env.NOTIFICATION_EMAIL_TO || 'musadev27@gmail.com';
+
+        const emailPayload: LeadEmailData = {
+          id: createdLead.id,
+          name: createdLead.name,
+          email: createdLead.email,
+          company: createdLead.company,
+          phone: createdLead.phone,
+          country: createdLead.country,
+          industry: createdLead.industry,
+          serviceRequested: createdLead.serviceRequested,
+          budget: createdLead.budget,
+          currency: createdLead.currency,
+          timeline: createdLead.timeline,
+          description: createdLead.description,
+          locale: createdLead.locale,
+          createdAt: createdLead.createdAt,
+        };
+
+        const internalEmail = buildInternalNotificationEmail(emailPayload);
+        const prospectEmail = buildProspectAcknowledgmentEmail(emailPayload);
+
         // Envoi parallèle de la notification interne et de l'accusé de réception
         await Promise.allSettled([
           resend.emails.send({
@@ -225,15 +231,14 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
         ? 'Your quote request has been transmitted successfully to Moussa Diagne. You will receive an acknowledgment email shortly.'
         : 'Votre demande de devis a été enregistrée avec succès. Un email de confirmation vient de vous être envoyé.',
     });
-  } catch (dbErr) {
+  } catch (fatalErr: unknown) {
     // eslint-disable-next-line no-console
-    console.error('[MusaTech API] Erreur lors de l’enregistrement en base de données :', dbErr);
+    console.error('[MusaTech API Fatal Handler Error]:', fatalErr);
+    const errMessage = fatalErr instanceof Error ? fatalErr.message : 'Erreur interne de traitement.';
     return res.status(500).json({
       success: false,
       status: 'SERVER_ERROR',
-      message: locale === 'en'
-        ? 'An error occurred while saving your request. Please contact Moussa directly via WhatsApp.'
-        : 'Une erreur interne est survenue lors de l’enregistrement. Veuillez nous contacter directement via WhatsApp.',
+      message: errMessage,
     });
   }
 }

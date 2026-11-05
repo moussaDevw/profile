@@ -194,8 +194,8 @@ export const quoteFormSchema = z.object({
     .trim(),
   email: z
     .string()
-    .min(1, 'L’adresse email professionnelle est obligatoire.')
-    .email('Veuillez saisir une adresse email professionnelle valide.')
+    .min(1, 'L’adresse email est obligatoire.')
+    .email('Veuillez saisir une adresse email valide.')
     .max(120, 'L’adresse email est trop longue.')
     .trim(),
   company: z.string().max(100).optional().or(z.literal('')),
@@ -245,7 +245,7 @@ export type QuoteValidationResult =
 // Messages d'erreurs traduits
 const ERROR_MESSAGES_EN: Record<string, string> = {
   fullName: 'Full name is required (at least 2 characters).',
-  email: 'Please enter a valid work email address.',
+  email: 'Please enter a valid email address.',
   country: 'Country is required.',
   projectType: 'Please select a project type.',
   description: 'Please describe your project in more detail (at least 20 characters).',

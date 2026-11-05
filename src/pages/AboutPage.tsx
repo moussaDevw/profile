@@ -345,7 +345,7 @@ export const AboutPage: React.FC = () => {
                 <LinkButton href={isEn ? '/en/contact' : '/contact'} variant="primary" size="lg">
                   {isEn ? 'Contact Me Directly' : 'Me contacter directement'}
                 </LinkButton>
-                <LinkButton href={isEn ? '/en/quote' : '/#devis'} variant="secondary" size="lg">
+                <LinkButton href={isEn ? '/en/quote' : '/fr/devis'} variant="secondary" size="lg">
                   {isEn ? 'Request a Custom Proposal' : 'Demander un devis personnalisé'}
                 </LinkButton>
               </div>
@@ -786,7 +786,11 @@ export const AboutPage: React.FC = () => {
               >
                 {isEn ? 'Get in Touch' : 'Me contacter'}
               </LinkButton>
-              <LinkButton href={isEn ? '/en/quote' : '/#devis'} variant="outline" size="lg">
+              <LinkButton
+                href={isEn ? '/en/quote' : '/fr/devis'}
+                variant="outline-light"
+                size="lg"
+              >
                 {isEn ? 'Request a Proposal' : 'Remplir une demande de devis'}
               </LinkButton>
             </div>

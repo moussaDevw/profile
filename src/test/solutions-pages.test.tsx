@@ -113,7 +113,7 @@ describe('MusaTech Sector Solutions Pages (/solutions & /solutions/[sector])', (
         name: /Demander un devis pour Immobilier/i,
       });
       expect(ctaButtons.length).toBeGreaterThanOrEqual(1);
-      expect(ctaButtons[0]).toHaveAttribute('href', '/#devis?sector=immobilier');
+      expect(ctaButtons[0]).toHaveAttribute('href', '/fr/devis?sector=immobilier');
     });
   });
 
@@ -180,7 +180,7 @@ describe('MusaTech Sector Solutions Pages (/solutions & /solutions/[sector])', (
         name: /Demander un devis pour Éducation/i,
       });
       expect(ctaButtons.length).toBeGreaterThanOrEqual(1);
-      expect(ctaButtons[0]).toHaveAttribute('href', '/#devis?sector=education');
+      expect(ctaButtons[0]).toHaveAttribute('href', '/fr/devis?sector=education');
     });
   });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from '../lib/router';
 
-export type ButtonVariant = 'primary' | 'cyan' | 'secondary' | 'outline' | 'ghost';
+export type ButtonVariant = 'primary' | 'cyan' | 'secondary' | 'outline' | 'outline-light' | 'ghost';
 export type ButtonSize = 'default' | 'sm' | 'lg';
 
 interface BaseButtonStylesProps {
@@ -56,6 +56,11 @@ const getButtonStyles = ({
       backgroundColor: 'transparent',
       color: '#0B1730',
       border: '1px solid #DAE3ED',
+    },
+    'outline-light': {
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      color: '#FFFFFF',
+      border: '1px solid rgba(218, 227, 237, 0.4)',
     },
     ghost: {
       backgroundColor: 'transparent',

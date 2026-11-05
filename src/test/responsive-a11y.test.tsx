@@ -100,14 +100,10 @@ describe('MusaTech Commercial Homepage — Responsive & Accessibility Validation
       expect(firstFaqButton).toHaveAttribute('aria-expanded', 'true');
     }
 
-    // 2. Form submission keyboard handling
-    const quoteSubmitButton = screen.getByRole('button', { name: /Envoyer ma demande/i });
-    expect(quoteSubmitButton).toBeInTheDocument();
-
-    // Trigger validation error by submitting empty form
-    fireEvent.click(quoteSubmitButton);
-    expect(screen.getByText(/Veuillez renseigner votre nom complet/i)).toBeInTheDocument();
-    expect(screen.getByText(/Veuillez saisir une adresse email valide/i)).toBeInTheDocument();
+    // 2. Navigation & CTA accessibility
+    const quoteLinks = screen.getAllByRole('link', { name: /Demander un devis/i });
+    expect(quoteLinks.length).toBeGreaterThanOrEqual(1);
+    expect(quoteLinks[0]).toHaveAttribute('href', '/fr/devis');
   });
 });
 

@@ -18,7 +18,7 @@ export const CommercialNavbar: React.FC = () => {
       setScrolled(window.scrollY > 20);
 
       if (path === '/' || path === '/fr' || path === '/en') {
-        const sections = ['services', 'solutions', 'realisations', 'methode', 'a-propos', 'faq', 'devis'];
+        const sections = ['services', 'solutions', 'realisations', 'methode', 'a-propos', 'faq'];
         const scrollPosition = window.scrollY + 200;
 
         for (const sectionId of sections) {

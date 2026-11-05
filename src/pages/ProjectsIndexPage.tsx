@@ -186,7 +186,7 @@ export const ProjectsIndexPage: React.FC = () => {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
-              <LinkButton href={isEn ? '/en/quote' : '/#devis'} variant="primary" size="lg">
+              <LinkButton href={isEn ? '/en/quote' : '/fr/devis'} variant="primary" size="lg">
                 {isEn ? 'Start Your Project With MusaTech' : 'Démarrer votre projet avec MusaTech'}
               </LinkButton>
               <LinkButton href={isEn ? '/en/services' : '/services'} variant="secondary" size="lg">
@@ -514,7 +514,7 @@ export const ProjectsIndexPage: React.FC = () => {
                 : 'Que vous ayez besoin d’un MVP mobile, d’une API NestJS performante ou d’un logiciel métier complet, MusaTech met cette rigueur technique au service de votre croissance.'}
             </p>
             <LinkButton
-              href={isEn ? '/en/quote' : '/#devis'}
+              href={isEn ? '/en/quote' : '/fr/devis'}
               variant="primary"
               size="lg"
               style={{ backgroundColor: '#19B8CD', color: '#0B1730', border: '1px solid #19B8CD' }}

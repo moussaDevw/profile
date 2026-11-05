@@ -27,8 +27,8 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
 
       // 1. Nom complet
       expect(screen.getByLabelText(/Nom complet/i)).toBeInTheDocument();
-      // 2. Email professionnel
-      expect(screen.getByLabelText(/Email professionnel/i)).toBeInTheDocument();
+      // 2. Adresse email
+      expect(screen.getByLabelText(/Adresse email/i)).toBeInTheDocument();
       // 3. Nom de l'entreprise
       expect(screen.getByLabelText(/Nom de l'entreprise/i)).toBeInTheDocument();
       // 4. Téléphone / WhatsApp
@@ -65,6 +65,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
       );
 
       // Soumettre formulaire vide
+      resetSubmissionRateLimitForTesting();
       fireEvent.click(screen.getByRole('button', { name: /Transmettre ma demande de devis/i }));
 
       await waitFor(() => {
@@ -72,7 +73,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
           screen.getByText(/Le nom complet est obligatoire/i)
         ).toBeInTheDocument();
         expect(
-          screen.getByText(/L’adresse email professionnelle est obligatoire/i)
+          screen.getByText(/L’adresse email est obligatoire/i)
         ).toBeInTheDocument();
         expect(
           screen.getByText(/Veuillez décrire votre projet plus en détail \(au moins 20 caractères\)/i)
@@ -90,15 +91,16 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
         </RouterProvider>
       );
 
-      fireEvent.change(screen.getByLabelText(/Email professionnel/i), {
+      fireEvent.change(screen.getByLabelText(/Adresse email/i), {
         target: { value: 'not-an-email' },
       });
 
+      resetSubmissionRateLimitForTesting();
       fireEvent.click(screen.getByRole('button', { name: /Transmettre ma demande de devis/i }));
 
       await waitFor(() => {
         expect(
-          screen.getByText(/Veuillez saisir une adresse email professionnelle valide/i)
+          screen.getByText(/Veuillez saisir une adresse email valide/i)
         ).toBeInTheDocument();
       });
     });
@@ -119,7 +121,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
       fireEvent.change(screen.getByLabelText(/Nom complet/i), {
         target: { value: 'Babacar Diop' },
       });
-      fireEvent.change(screen.getByLabelText(/Email professionnel/i), {
+      fireEvent.change(screen.getByLabelText(/Adresse email/i), {
         target: { value: 'babacar@diop-logistique.sn' },
       });
       fireEvent.change(screen.getByLabelText(/Description détaillée de votre projet/i), {
@@ -133,6 +135,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
         })
       );
 
+      resetSubmissionRateLimitForTesting();
       fireEvent.click(screen.getByRole('button', { name: /Transmettre ma demande de devis/i }));
 
       await waitFor(() => {
@@ -152,6 +155,40 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
   });
 
   describe('Succès avec Backend Opérationnel', () => {
+    it('captures browser auto-filled DOM values even without React onChange', async () => {
+      setBackendEndpointForTesting('/api/quote');
+
+      render(
+        <RouterProvider>
+          <QuotePage />
+        </RouterProvider>
+      );
+
+      // Simule un autofill direct du navigateur dans le DOM (événement onInput de l'autofill)
+      const nameInput = screen.getByLabelText(/Nom complet/i);
+      const emailInput = screen.getByLabelText(/Adresse email/i);
+      const descInput = screen.getByLabelText(/Description détaillée de votre projet/i);
+
+      fireEvent.input(nameInput, { target: { value: 'Amadou Autofill' } });
+      fireEvent.input(emailInput, { target: { value: 'amadou.autofill@gmail.com' } });
+      fireEvent.input(descInput, {
+        target: { value: 'Description saisie ou injectée via autofill pour un projet e-commerce avec Wave.' },
+      });
+
+      fireEvent.click(
+        screen.getByRole('checkbox', {
+          name: /J’accepte que les données saisies soient traitées par MusaTech/i,
+        })
+      );
+
+      resetSubmissionRateLimitForTesting();
+      fireEvent.click(screen.getByRole('button', { name: /Transmettre ma demande de devis/i }));
+
+      await waitFor(() => {
+        expect(screen.getByText('Demande de devis bien reçue !')).toBeInTheDocument();
+      });
+    });
+
     it('displays success confirmation when backend is configured and responds successfully', async () => {
       // Simulation d'un backend prêt
       setBackendEndpointForTesting('/api/quote');
@@ -166,7 +203,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
       fireEvent.change(screen.getByLabelText(/Nom complet/i), {
         target: { value: 'Fatou Sow' },
       });
-      fireEvent.change(screen.getByLabelText(/Email professionnel/i), {
+      fireEvent.change(screen.getByLabelText(/Adresse email/i), {
         target: { value: 'fatou@sow-solutions.com' },
       });
       fireEvent.change(screen.getByLabelText(/Description détaillée de votre projet/i), {
@@ -180,6 +217,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
         })
       );
 
+      resetSubmissionRateLimitForTesting();
       fireEvent.click(screen.getByRole('button', { name: /Transmettre ma demande de devis/i }));
 
       await waitFor(() => {
@@ -204,7 +242,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
       fireEvent.change(screen.getByLabelText(/Nom complet/i), {
         target: { value: 'Test User' },
       });
-      fireEvent.change(screen.getByLabelText(/Email professionnel/i), {
+      fireEvent.change(screen.getByLabelText(/Adresse email/i), {
         target: { value: 'test@domain.com' },
       });
       fireEvent.change(screen.getByLabelText(/Description détaillée de votre projet/i), {
@@ -218,6 +256,7 @@ describe('MusaTech B2B Quote Qualification Form (/devis)', () => {
         })
       );
 
+      resetSubmissionRateLimitForTesting();
       fireEvent.click(screen.getByRole('button', { name: /Transmettre ma demande de devis/i }));
 
       await waitFor(() => {

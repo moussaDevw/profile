@@ -12,7 +12,6 @@ import { WorkMethod } from './components/home/WorkMethod';
 import { AboutFounder } from './components/home/AboutFounder';
 import { FaqSection } from './components/home/FaqSection';
 import { FinalCta } from './components/home/FinalCta';
-import { QuoteRequestSection } from './components/home/QuoteRequestSection';
 import { HomeFooter } from './components/home/HomeFooter';
 import { ServicesIndexPage } from './pages/ServicesIndexPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
@@ -141,7 +140,6 @@ function AppContent() {
                 <AboutFounder />
                 <FaqSection />
                 <FinalCta />
-                <QuoteRequestSection />
               </main>
             );
         }

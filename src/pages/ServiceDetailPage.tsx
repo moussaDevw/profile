@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Container } from '../design-system/Container';
 import { SectionHeading } from '../design-system/SectionHeading';
+import { FaqAccordion } from '../design-system/FaqAccordion';
 import { LinkButton } from '../design-system/Button';
 import { ProjectCard } from '../design-system/cards/ProjectCard';
 import { getServiceBySlug } from '../content/servicesData';
@@ -30,7 +31,6 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
   const { locale } = useRouter();
   const isEn = locale === 'en';
   const service = getServiceBySlug(slug, locale);
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   useEffect(() => {
     if (service) {
@@ -88,7 +88,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
 
   const quoteUrl = isEn
     ? `/en/quote?service=${service.slug}`
-    : `/#devis?service=${service.slug}`;
+    : `/fr/devis?service=${service.slug}`;
 
   return (
     <div className={`mt-service-detail-page mt-service-${service.slug}`}>
@@ -545,58 +545,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
             align="center"
           />
 
-          <div style={{ maxWidth: '820px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {service.faq.map((item, idx) => {
-              const isOpen = openFaqIndex === idx;
-              return (
-                <div
-                  key={idx}
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: '12px',
-                    border: isOpen ? '1.5px solid #19B8CD' : '1px solid #DAE3ED',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    aria-expanded={isOpen}
-                    style={{
-                      width: '100%',
-                      padding: '16px clamp(12px, 2.5vw, 24px)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      fontFamily: "'Manrope', sans-serif",
-                      fontSize: '16px',
-                      fontWeight: 600,
-                      color: isOpen ? '#0B1730' : '#172A46',
-                    }}
-                  >
-                    <span>{item.question}</span>
-                    <ChevronDown
-                      size={18}
-                      color={isOpen ? '#19B8CD' : '#465670'}
-                      style={{
-                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                        transition: 'transform 0.2s ease',
-                      }}
-                    />
-                  </button>
-
-                  {isOpen && (
-                    <div style={{ padding: '0 clamp(12px, 2.5vw, 24px) 16px clamp(12px, 2.5vw, 24px)', fontSize: '15px', color: '#465670', lineHeight: 1.6 }}>
-                      {item.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <FaqAccordion items={service.faq} idPrefix={`service-faq-${service.slug}`} />
         </Container>
       </section>
 

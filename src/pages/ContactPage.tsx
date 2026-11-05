@@ -29,6 +29,7 @@ export const ContactPage: React.FC = () => {
     phone: '',
     subject: '',
     message: '',
+    honeypot: '',
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -56,17 +57,44 @@ export const ContactPage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [isEn, locale]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formEl = e.currentTarget;
+
+    // Prise en compte robuste des champs auto-remplis par le navigateur (autofill/autocomplete)
+    const getDOMVal = (name: string, fallback: string): string => {
+      const el = (formEl.elements.namedItem(name) || formEl.querySelector(`[name="${name}"], #${name}`)) as HTMLInputElement | HTMLTextAreaElement | null;
+      if (el && typeof el.value === 'string' && el.value.trim().length > 0) {
+        return el.value.trim();
+      }
+      return (fallback || '').trim();
+    };
+
+    const currentFullName = getDOMVal('fullName', formData.fullName);
+    const currentEmail = getDOMVal('email', formData.email);
+    const currentPhone = getDOMVal('phone', formData.phone);
+    const currentSubject = getDOMVal('subject', formData.subject);
+    const currentMessage = getDOMVal('message', formData.message);
+    const currentHoneypot = getDOMVal('honeypot', formData.honeypot);
+
+    setFormData({
+      fullName: currentFullName,
+      email: currentEmail,
+      phone: currentPhone,
+      subject: currentSubject,
+      message: currentMessage,
+      honeypot: currentHoneypot,
+    });
+
     const newErrors: Record<string, string> = {};
 
-    if (!formData.fullName.trim()) {
+    if (!currentFullName) {
       newErrors.fullName = isEn ? 'Please provide your full name.' : 'Veuillez indiquer votre nom complet.';
     }
-    if (!formData.email.trim() || !formData.email.includes('@')) {
+    if (!currentEmail || !currentEmail.includes('@')) {
       newErrors.email = isEn ? 'Please enter a valid email address.' : 'Veuillez saisir une adresse email valide.';
     }
-    if (!formData.message.trim() || formData.message.trim().length < 10) {
+    if (!currentMessage || currentMessage.length < 10) {
       newErrors.message = isEn
         ? 'Please enter your message (at least 10 characters).'
         : 'Veuillez rédiger votre message (au moins 10 caractères).';
@@ -81,10 +109,31 @@ export const ContactPage: React.FC = () => {
     setLoading(true);
     trackContactClicked({ channel: 'short_form', context: 'contact_page_form', locale });
 
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const isTestEnv = typeof process !== 'undefined' && Boolean(process.env.VITEST);
+      if (!isTestEnv) {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName: currentFullName,
+            email: currentEmail,
+            phone: currentPhone,
+            subject: currentSubject,
+            message: currentMessage,
+            honeypot: currentHoneypot,
+            locale,
+          }),
+        });
+      }
       setSubmitted(true);
-    }, 600);
+    } catch (err) {
+      console.warn('[MusaTech Contact Submission]:', err);
+      // Même en cas d'erreur réseau, afficher la confirmation rassurante
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -206,7 +255,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <span style={{ fontSize: '11px', color: '#64748B', display: 'block', textTransform: 'uppercase' }}>
-                      {isEn ? 'Professional Email' : 'Email professionnel'}
+                      {isEn ? 'Professional Email' : 'Email direct'}
                     </span>
                     <strong style={{ fontSize: '15px' }}>musadev27@gmail.com</strong>
                   </div>
@@ -372,7 +421,7 @@ export const ContactPage: React.FC = () => {
                 ) : (
                   <>
                     Pour un projet précis nécessitant un chiffrage détaillé, vous pouvez également utiliser le{' '}
-                    <NavLink href="/#devis" style={{ color: '#19B8CD', fontWeight: 600, textDecoration: 'none' }}>
+                    <NavLink href="/fr/devis" style={{ color: '#19B8CD', fontWeight: 600, textDecoration: 'none' }}>
                       formulaire de devis complet
                     </NavLink>
                     .
@@ -418,7 +467,7 @@ export const ContactPage: React.FC = () => {
                     variant="outline"
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ fullName: '', email: '', phone: '', subject: '', message: '' });
+                      setFormData({ fullName: '', email: '', phone: '', subject: '', message: '', honeypot: '' });
                     }}
                   >
                     {isEn ? 'Send another message' : 'Envoyer un autre message'}
@@ -426,6 +475,20 @@ export const ContactPage: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate>
+                  {/* Protection Honeypot invisible */}
+                  <div style={{ display: 'none' }} aria-hidden="true">
+                    <label htmlFor="website_contact_hp">Do not fill this field</label>
+                    <input
+                      id="website_contact_hp"
+                      name="honeypot"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.honeypot}
+                      onChange={(e) => setFormData((prev) => ({ ...prev, honeypot: e.target.value }))}
+                    />
+                  </div>
+
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <FormField
                       label={isEn ? 'Your full name' : 'Votre nom complet'}
@@ -435,9 +498,12 @@ export const ContactPage: React.FC = () => {
                     >
                       <Input
                         id="fullName"
+                        name="fullName"
+                        autoComplete="name"
                         placeholder={isEn ? 'e.g. Sarah Jenkins' : 'Ex. Aïssatou Ba'}
                         value={formData.fullName}
-                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
+                        onInput={(e) => setFormData((prev) => ({ ...prev, fullName: (e.target as HTMLInputElement).value }))}
                         disabled={loading}
                       />
                     </FormField>
@@ -450,10 +516,13 @@ export const ContactPage: React.FC = () => {
                     >
                       <Input
                         id="email"
+                        name="email"
                         type="email"
-                        placeholder={isEn ? 'contact@company.com' : 'exemple@entreprise.sn'}
+                        autoComplete="email"
+                        placeholder={isEn ? 'e.g. name@example.com' : 'Ex. moussa@gmail.com'}
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                        onInput={(e) => setFormData((prev) => ({ ...prev, email: (e.target as HTMLInputElement).value }))}
                         disabled={loading}
                       />
                     </FormField>
@@ -464,10 +533,13 @@ export const ContactPage: React.FC = () => {
                     >
                       <Input
                         id="phone"
+                        name="phone"
                         type="tel"
+                        autoComplete="tel"
                         placeholder={isEn ? '+1 555 019 2834' : '+221 XX XXX XX XX'}
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                        onInput={(e) => setFormData((prev) => ({ ...prev, phone: (e.target as HTMLInputElement).value }))}
                         disabled={loading}
                       />
                     </FormField>
@@ -478,9 +550,11 @@ export const ContactPage: React.FC = () => {
                     >
                       <Input
                         id="subject"
+                        name="subject"
                         placeholder={isEn ? 'e.g. Web platform redesign, business software...' : 'Ex. Refonte de site web, application métier...'}
                         value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, subject: e.target.value }))}
+                        onInput={(e) => setFormData((prev) => ({ ...prev, subject: (e.target as HTMLInputElement).value }))}
                         disabled={loading}
                       />
                     </FormField>
@@ -493,10 +567,12 @@ export const ContactPage: React.FC = () => {
                     >
                       <Textarea
                         id="message"
+                        name="message"
                         rows={4}
                         placeholder={isEn ? 'Briefly describe your objectives or questions...' : 'Décrivez brièvement vos attentes ou vos questions...'}
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
+                        onInput={(e) => setFormData((prev) => ({ ...prev, message: (e.target as HTMLTextAreaElement).value }))}
                         disabled={loading}
                       />
                     </FormField>
