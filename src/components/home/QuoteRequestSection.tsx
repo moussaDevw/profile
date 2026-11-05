@@ -85,20 +85,43 @@ export const QuoteRequestSection: React.FC = () => {
     }
   }, [isEn]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formEl = e.currentTarget;
+
+    const getDOMVal = (name: string, fallback: string): string => {
+      const el = formEl.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
+      if (el && typeof el.value === 'string' && el.value.trim().length > 0) {
+        return el.value.trim();
+      }
+      return (fallback || '').trim();
+    };
+
+    const currentFullName = getDOMVal('fullName', formData.fullName);
+    const currentEmail = getDOMVal('email', formData.email);
+    const currentPhone = getDOMVal('phone', formData.phone);
+    const currentDesc = getDOMVal('description', formData.description);
+
+    setFormData((prev) => ({
+      ...prev,
+      fullName: currentFullName,
+      email: currentEmail,
+      phone: currentPhone,
+      description: currentDesc,
+    }));
+
     const newErrors: Record<string, string> = {};
 
-    if (!formData.fullName.trim()) {
+    if (!currentFullName) {
       newErrors.fullName = isEn ? 'Please enter your full name.' : 'Veuillez renseigner votre nom complet.';
     }
-    if (!formData.email.trim() || !formData.email.includes('@')) {
-      newErrors.email = isEn ? 'Please enter a valid work email.' : 'Veuillez saisir une adresse email valide.';
+    if (!currentEmail || !currentEmail.includes('@')) {
+      newErrors.email = isEn ? 'Please enter a valid email address.' : 'Veuillez saisir une adresse email valide.';
     }
-    if (!formData.phone.trim()) {
+    if (!currentPhone) {
       newErrors.phone = isEn ? 'Please provide a valid phone or WhatsApp number.' : 'Veuillez indiquer un numéro WhatsApp ou téléphone joignable.';
     }
-    if (!formData.description.trim() || formData.description.trim().length < 10) {
+    if (!currentDesc || currentDesc.length < 10) {
       newErrors.description = isEn
         ? 'Please describe your project briefly (at least 10 characters).'
         : 'Veuillez décrire brièvement votre besoin (au moins 10 caractères).';
@@ -260,20 +283,26 @@ export const QuoteRequestSection: React.FC = () => {
                   <FormField label={isEn ? 'Your Full Name' : 'Votre nom complet'} id="fullName" required error={errors.fullName}>
                     <Input
                       id="fullName"
+                      name="fullName"
+                      autoComplete="name"
                       placeholder={isEn ? 'e.g. David Miller' : 'Ex. Amadou Ndiaye'}
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      onInput={(e) => setFormData((prev) => ({ ...prev, fullName: (e.target as HTMLInputElement).value }))}
                       error={!!errors.fullName}
                     />
                   </FormField>
 
-                  <FormField label={isEn ? 'Work Email' : 'Email professionnel'} id="email" required error={errors.email}>
+                  <FormField label={isEn ? 'Email' : 'Adresse email'} id="email" required error={errors.email}>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
-                      placeholder={isEn ? 'david@company.com' : 'contact@entreprise.com'}
+                      autoComplete="email"
+                      placeholder={isEn ? 'e.g. name@example.com' : 'Ex. amadou@gmail.com'}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onInput={(e) => setFormData((prev) => ({ ...prev, email: (e.target as HTMLInputElement).value }))}
                       error={!!errors.email}
                     />
                   </FormField>
@@ -281,10 +310,13 @@ export const QuoteRequestSection: React.FC = () => {
                   <FormField label={isEn ? 'Phone / WhatsApp' : 'Téléphone / WhatsApp'} id="phone" required error={errors.phone}>
                     <Input
                       id="phone"
+                      name="phone"
                       type="tel"
+                      autoComplete="tel"
                       placeholder={isEn ? '+1 555 123 4567' : '+221 77 000 00 00'}
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onInput={(e) => setFormData((prev) => ({ ...prev, phone: (e.target as HTMLInputElement).value }))}
                       error={!!errors.phone}
                     />
                   </FormField>
@@ -303,6 +335,7 @@ export const QuoteRequestSection: React.FC = () => {
                 >
                   <Textarea
                     id="description"
+                    name="description"
                     rows={4}
                     placeholder={
                       isEn
@@ -311,6 +344,7 @@ export const QuoteRequestSection: React.FC = () => {
                     }
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    onInput={(e) => setFormData((prev) => ({ ...prev, description: (e.target as HTMLTextAreaElement).value }))}
                     error={!!errors.description}
                   />
                 </FormField>

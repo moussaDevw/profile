@@ -4,7 +4,7 @@ import App from './App';
 import './i18n';
 
 describe('MusaTech Commercial Homepage Smoke Tests', () => {
-  it('renders without crashing and mounts all 10 commercial sections', () => {
+  it('renders without crashing and mounts all homepage commercial sections', () => {
     const { container } = render(<App />);
 
     // Brand and founder check
@@ -27,7 +27,7 @@ describe('MusaTech Commercial Homepage Smoke Tests', () => {
     expect(container.querySelector('#methode')).toBeInTheDocument();
     expect(container.querySelector('#a-propos')).toBeInTheDocument();
     expect(container.querySelector('#faq')).toBeInTheDocument();
-    expect(container.querySelector('#devis')).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /Demander un devis/i }).length).toBeGreaterThanOrEqual(1);
 
     // Key services check (can appear in section and footer)
     expect(screen.getAllByText('Sites web professionnels').length).toBeGreaterThanOrEqual(1);

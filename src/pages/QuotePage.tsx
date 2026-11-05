@@ -141,7 +141,7 @@ export const QuotePage: React.FC = () => {
     setFormData((prev) => ({ ...prev, currencyMode: newCurrency }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (loading) return;
 
@@ -149,17 +149,44 @@ export const QuotePage: React.FC = () => {
     setErrors({});
     setSubmissionResponse(null);
 
+    // Prise en compte robuste des champs auto-remplis par le navigateur (autofill/autocomplete)
+    const formEl = e.currentTarget;
+    const getDOMValue = (fieldName: string, fallback: string): string => {
+      const el = (formEl.elements.namedItem(fieldName) || formEl.querySelector(`[name="${fieldName}"], #${fieldName}`)) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
+      if (el && typeof el.value === 'string' && el.value.trim().length > 0) {
+        return el.value.trim();
+      }
+      return (fallback || '').trim();
+    };
+
+    const payload: QuoteFormData = {
+      ...formData,
+      fullName: getDOMValue('fullName', formData.fullName),
+      email: getDOMValue('email', formData.email),
+      company: getDOMValue('company', formData.company || ''),
+      phone: getDOMValue('phone', formData.phone || ''),
+      country: getDOMValue('country', formData.country),
+      industry: getDOMValue('industry', formData.industry || ''),
+      projectType: getDOMValue('projectType', formData.projectType),
+      budget: getDOMValue('budget', formData.budget || 'to_define'),
+      timeline: getDOMValue('timeline', formData.timeline || 'flexible'),
+      description: getDOMValue('description', formData.description),
+    };
+
+    // Maintient la synchronisation dans l'état React
+    setFormData(payload);
+
     try {
-      const response = await submitQuoteRequest(formData, locale);
+      const response = await submitQuoteRequest(payload, locale);
       setSubmissionResponse(response);
 
       if (response.success) {
         trackQuoteSubmitted({
-          service: formData.projectType,
-          budget: formData.budget,
-          currency: formData.currencyMode,
-          country: formData.country,
-          hasCompany: Boolean(formData.company),
+          service: payload.projectType,
+          budget: payload.budget,
+          currency: payload.currencyMode,
+          country: payload.country,
+          hasCompany: Boolean(payload.company),
           locale,
         });
       } else if (response.errors) {
@@ -468,20 +495,26 @@ export const QuotePage: React.FC = () => {
                         <FormField label={isEn ? 'Full Name' : 'Nom complet'} id="fullName" required error={errors.fullName}>
                           <Input
                             id="fullName"
+                            name="fullName"
+                            autoComplete="name"
                             placeholder={isEn ? 'e.g. David Miller' : 'Ex. Moussa Ndiaye'}
                             value={formData.fullName}
-                            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, fullName: e.target.value }))}
+                            onInput={(e) => setFormData((prev) => ({ ...prev, fullName: (e.target as HTMLInputElement).value }))}
                             disabled={loading}
                           />
                         </FormField>
 
-                        <FormField label={isEn ? 'Work Email' : 'Email professionnel'} id="email" required error={errors.email}>
+                        <FormField label={isEn ? 'Email' : 'Adresse email'} id="email" required error={errors.email}>
                           <Input
                             id="email"
+                            name="email"
                             type="email"
-                            placeholder={isEn ? 'david@company.com' : 'moussa@entreprise.sn'}
+                            autoComplete="email"
+                            placeholder={isEn ? 'e.g. name@example.com' : 'Ex. moussa@gmail.com'}
                             value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                            onInput={(e) => setFormData((prev) => ({ ...prev, email: (e.target as HTMLInputElement).value }))}
                             disabled={loading}
                           />
                         </FormField>
@@ -489,9 +522,12 @@ export const QuotePage: React.FC = () => {
                         <FormField label={isEn ? 'Company / Organization (Optional)' : "Nom de l'entreprise (facultatif)"} id="company">
                           <Input
                             id="company"
+                            name="company"
+                            autoComplete="organization"
                             placeholder={isEn ? 'e.g. Miller Logistics Ltd' : 'Ex. Ndiaye Logistique SARL'}
                             value={formData.company}
-                            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
+                            onInput={(e) => setFormData((prev) => ({ ...prev, company: (e.target as HTMLInputElement).value }))}
                             disabled={loading}
                           />
                         </FormField>
@@ -499,10 +535,13 @@ export const QuotePage: React.FC = () => {
                         <FormField label={isEn ? 'Phone / WhatsApp (Optional)' : 'Téléphone / WhatsApp (facultatif)'} id="phone">
                           <Input
                             id="phone"
+                            name="phone"
                             type="tel"
+                            autoComplete="tel"
                             placeholder={isEn ? '+1 555 123 4567' : '+221 XX XXX XX XX'}
                             value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                            onInput={(e) => setFormData((prev) => ({ ...prev, phone: (e.target as HTMLInputElement).value }))}
                             disabled={loading}
                           />
                         </FormField>
@@ -510,8 +549,10 @@ export const QuotePage: React.FC = () => {
                         <FormField label={isEn ? 'Country' : 'Pays'} id="country" required error={errors.country}>
                           <Select
                             id="country"
+                            name="country"
+                            autoComplete="country-name"
                             value={formData.country}
-                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, country: e.target.value }))}
                             options={countriesList.map((c) => ({ label: c.name, value: c.name }))}
                             disabled={loading}
                           />
@@ -520,8 +561,9 @@ export const QuotePage: React.FC = () => {
                         <FormField label={isEn ? 'Industry' : "Secteur d'activité"} id="industry">
                           <Select
                             id="industry"
+                            name="industry"
                             value={formData.industry}
-                            onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                            onChange={(e) => setFormData((prev) => ({ ...prev, industry: e.target.value }))}
                             options={industriesList.map((ind) => ({ label: ind, value: ind }))}
                             disabled={loading}
                           />
@@ -643,6 +685,7 @@ export const QuotePage: React.FC = () => {
                       >
                         <Textarea
                           id="description"
+                          name="description"
                           rows={6}
                           placeholder={
                             isEn
@@ -650,7 +693,8 @@ export const QuotePage: React.FC = () => {
                               : 'Exemple : Nous sommes une agence de transport basée à Dakar et souhaitons développer une plateforme web avec suivi des expéditions en temps réel, génération des bordereaux PDF et encaissement des frais via Wave...'
                           }
                           value={formData.description}
-                          onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                          onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
+                          onInput={(e) => setFormData((prev) => ({ ...prev, description: (e.target as HTMLTextAreaElement).value }))}
                           disabled={loading}
                         />
                       </FormField>

@@ -192,6 +192,13 @@
   border-color: var(--mt-slate) !important;
 }
 
+.mt-btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
 .mt-btn-ghost:hover {
   background-color: var(--mt-surface-alt) !important;
 }

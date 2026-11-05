@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Container } from '../design-system/Container';
 import { SectionHeading } from '../design-system/SectionHeading';
+import { FaqAccordion } from '../design-system/FaqAccordion';
 import { LinkButton } from '../design-system/Button';
 import { getSolutionBySlug } from '../content/solutionsData';
 import { NavLink, useRouter } from '../lib/router';
@@ -30,7 +31,6 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
   const { locale } = useRouter();
   const isEn = locale === 'en';
   const solution = getSolutionBySlug(slug, locale);
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   useEffect(() => {
     if (solution) {
@@ -77,7 +77,7 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
   }
 
   const isProposal = solution.status === 'draft_proposal';
-  const quoteHref = isEn ? `/en/quote?sector=${solution.quoteSlug}` : `/#devis?sector=${solution.quoteSlug}`;
+  const quoteHref = isEn ? `/en/quote?sector=${solution.quoteSlug}` : `/fr/devis?sector=${solution.quoteSlug}`;
 
   return (
     <div className={`mt-solution-detail-page mt-solution-${solution.slug}`}>
@@ -915,68 +915,8 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
               align="center"
             />
 
-            <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {solution.faq.map((item, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    style={{
-                      backgroundColor: '#F4F7FB',
-                      borderRadius: '12px',
-                      border: '1px solid #DAE3ED',
-                      overflow: 'hidden',
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      style={{
-                        width: '100%',
-                        padding: '16px clamp(12px, 2.5vw, 22px)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        textAlign: 'left',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        fontSize: '16px',
-                        fontWeight: 600,
-                        color: '#0B1730',
-                      }}
-                      aria-expanded={isOpen}
-                    >
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <HelpCircle size={18} color="#19B8CD" />
-                        {item.question}
-                      </span>
-                      <ChevronDown
-                        size={18}
-                        color="#465670"
-                        style={{
-                          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                          transition: 'transform 0.2s ease',
-                          flexShrink: 0,
-                        }}
-                      />
-                    </button>
-                    {isOpen && (
-                      <div
-                        style={{
-                          padding: '0 clamp(12px, 2.5vw, 22px) 16px clamp(12px, 2.5vw, 22px)',
-                          color: '#465670',
-                          fontSize: '15px',
-                          lineHeight: 1.6,
-                        }}
-                      >
-                        {item.answer}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <div style={{ marginTop: '40px' }}>
+              <FaqAccordion items={solution.faq} idPrefix={`solution-faq-${solution.slug}`} />
             </div>
           </div>
         </Container>
@@ -1031,7 +971,11 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
                   : `Demander un devis pour ${solution.sectorName}`}
               </LinkButton>
 
-              <LinkButton href={isEn ? '/en/solutions' : '/solutions'} variant="outline" size="lg">
+              <LinkButton
+                href={isEn ? '/en/solutions' : '/solutions'}
+                variant="outline-light"
+                size="lg"
+              >
                 {isEn ? 'View all industry solutions' : 'Voir tous les secteurs'}
               </LinkButton>
             </div>

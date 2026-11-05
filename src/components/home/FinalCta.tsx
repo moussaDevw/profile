@@ -83,13 +83,8 @@ export const FinalCta: React.FC = () => {
 
             <LinkButton
               href={ctaData.cta2.href}
-              variant="outline"
+              variant="outline-light"
               size="lg"
-              style={{
-                color: '#FFFFFF',
-                borderColor: 'rgba(218, 227, 237, 0.3)',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
-              }}
             >
               {ctaData.cta2.label}
             </LinkButton>

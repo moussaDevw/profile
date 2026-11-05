@@ -228,7 +228,7 @@ describe('MusaTech Internationalization (i18n) & Localized Routing', () => {
       expect(result.success).toBe(false);
       if (!result.success) {
         expect(result.errors.fullName).toBe('Full name is required (at least 2 characters).');
-        expect(result.errors.email).toBe('Please enter a valid work email address.');
+        expect(result.errors.email).toBe('Please enter a valid email address.');
         expect(result.errors.country).toBe('Country is required.');
         expect(result.errors.projectType).toBe('Please select a project type.');
         expect(result.errors.description).toBe(
@@ -253,7 +253,7 @@ describe('MusaTech Internationalization (i18n) & Localized Routing', () => {
 
       // Remplissage du formulaire en anglais
       const fullNameInput = screen.getByLabelText(/full name/i);
-      const emailInput = screen.getByLabelText(/work email/i);
+      const emailInput = screen.getByLabelText(/^email/i);
       const descInput = screen.getByLabelText(/detailed project overview & requirements/i);
       const consentCheckbox = screen.getByRole('checkbox');
 

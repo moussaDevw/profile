@@ -115,7 +115,7 @@ describe('MusaTech Services & Detailed Service Pages', () => {
           name: new RegExp(`Demander un devis pour`, 'i'),
         });
         expect(ctaButtons.length).toBeGreaterThanOrEqual(1);
-        expect(ctaButtons[0]).toHaveAttribute('href', `/#devis?service=${slug}`);
+        expect(ctaButtons[0]).toHaveAttribute('href', `/fr/devis?service=${slug}`);
       });
     });
   });

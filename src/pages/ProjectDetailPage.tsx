@@ -116,8 +116,8 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ slug }) =>
 
   const natureBadge = getNatureBadgeStyle(project.nature);
   const quoteHref = project.relatedServiceSlug
-    ? (isEn ? `/en/quote?service=${project.relatedServiceSlug}` : `/#devis?service=${project.relatedServiceSlug}`)
-    : (isEn ? '/en/quote' : '/#devis');
+    ? (isEn ? `/en/quote?service=${project.relatedServiceSlug}` : `/fr/devis?service=${project.relatedServiceSlug}`)
+    : (isEn ? '/en/quote' : '/fr/devis');
 
   return (
     <div className={`mt-project-detail-page mt-project-${project.slug}`}>
@@ -908,7 +908,11 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ slug }) =>
                 {isEn ? 'Request a Proposal for Your Project' : 'Demander un devis pour votre projet'}
               </LinkButton>
 
-              <LinkButton href={isEn ? '/en/case-studies' : '/realisations'} variant="outline" size="lg">
+              <LinkButton
+                href={isEn ? '/en/case-studies' : '/realisations'}
+                variant="outline-light"
+                size="lg"
+              >
                 {isEn ? 'View All Case Studies' : 'Voir toutes les réalisations'}
               </LinkButton>
             </div>

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Container } from '../design-system/Container';
 import { SectionHeading } from '../design-system/SectionHeading';
+import { FaqAccordion } from '../design-system/FaqAccordion';
 import { LinkButton } from '../design-system/Button';
 import { getAllSolutions } from '../content/solutionsData';
 import { METHOD_STEPS } from '../content/homeData';
@@ -24,7 +25,6 @@ export const SolutionsIndexPage: React.FC = () => {
   const { locale } = useRouter();
   const isEn = locale === 'en';
   const solutions = getAllSolutions(locale);
-  const [openFaqIndex, setOpenFaqIndex] = React.useState<number | null>(0);
 
   useEffect(() => {
     updatePageMetadata({
@@ -213,7 +213,7 @@ export const SolutionsIndexPage: React.FC = () => {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
-              <LinkButton href={isEn ? '/en/quote' : '/#devis'} variant="primary" size="lg">
+              <LinkButton href={isEn ? '/en/quote' : '/fr/devis'} variant="primary" size="lg">
                 {isEn ? 'Request a Custom Proposal' : 'Demander un devis personnalisé'}
               </LinkButton>
               <LinkButton href={isEn ? '/en/services' : '/services'} variant="secondary" size="lg">
@@ -255,7 +255,7 @@ export const SolutionsIndexPage: React.FC = () => {
             {solutions.map((sol) => {
               const isProposal = sol.status === 'draft_proposal';
               const detailHref = isEn ? `/en/solutions/${sol.slug}` : `/solutions/${sol.slug}`;
-              const quoteHref = isEn ? `/en/quote?sector=${sol.slug}` : `/#devis?sector=${sol.slug}`;
+              const quoteHref = isEn ? `/en/quote?sector=${sol.slug}` : `/fr/devis?sector=${sol.slug}`;
 
               return (
                 <div
@@ -677,68 +677,8 @@ export const SolutionsIndexPage: React.FC = () => {
               align="center"
             />
 
-            <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {generalSectorFaq.map((item, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    style={{
-                      backgroundColor: '#FFFFFF',
-                      borderRadius: '12px',
-                      border: '1px solid #DAE3ED',
-                      overflow: 'hidden',
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      style={{
-                        width: '100%',
-                        padding: '18px 22px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        textAlign: 'left',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        fontSize: '16px',
-                        fontWeight: 600,
-                        color: '#0B1730',
-                      }}
-                      aria-expanded={isOpen}
-                    >
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <HelpCircle size={18} color="#19B8CD" />
-                        {item.q}
-                      </span>
-                      <ChevronDown
-                        size={18}
-                        color="#465670"
-                        style={{
-                          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                          transition: 'transform 0.2s ease',
-                          flexShrink: 0,
-                        }}
-                      />
-                    </button>
-                    {isOpen && (
-                      <div
-                        style={{
-                          padding: '0 22px 20px 50px',
-                          color: '#465670',
-                          fontSize: '15px',
-                          lineHeight: 1.6,
-                        }}
-                      >
-                        {item.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <div style={{ marginTop: '40px' }}>
+              <FaqAccordion items={generalSectorFaq} idPrefix="solutions-index-faq" />
             </div>
           </div>
         </Container>
@@ -771,7 +711,7 @@ export const SolutionsIndexPage: React.FC = () => {
                 ? 'Share your operational objectives and business rules. We will return a technical feasibility analysis and detailed proposal within 24 to 48 business hours.'
                 : 'Partagez-nous vos objectifs et vos règles métier. Nous vous fournirons une analyse de faisabilité et une proposition détaillée sous 24 à 48 heures ouvrées.'}
             </p>
-            <LinkButton href={isEn ? '/en/quote' : '/#devis'} variant="primary" size="lg">
+            <LinkButton href={isEn ? '/en/quote' : '/fr/devis'} variant="primary" size="lg">
               {isEn ? 'Request an Industry Proposal' : 'Demander un devis sectoriel'}
             </LinkButton>
           </div>

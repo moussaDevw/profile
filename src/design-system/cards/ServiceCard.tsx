@@ -26,7 +26,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   startingPrice,
   deliverables,
   ctaText,
-  ctaHref = '#devis',
+  ctaHref,
   featured = false,
   featuredLabel,
   priceLabel,
@@ -42,6 +42,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   const resolvedFeaturedLabel = featuredLabel || (isEn ? 'Recommended' : 'Recommandé');
   const resolvedPriceLabel = priceLabel || (isEn ? 'Indicative Pricing' : 'Tarif indicatif');
   const resolvedCtaText = ctaText || (isEn ? 'Request a Proposal' : 'Demander un devis');
+  const resolvedCtaHref = ctaHref || (isEn ? '/en/quote' : '/fr/devis');
 
   return (
     <article
@@ -257,7 +258,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
       {/* Bouton d'action */}
       <LinkButton
-        href={ctaHref}
+        href={resolvedCtaHref}
         variant={featured ? 'cyan' : 'outline'}
         fullWidth
         icon={<ArrowUpRight size={16} />}

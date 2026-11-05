@@ -11,7 +11,7 @@ export function getPrismaClient(): PrismaClient | null {
 
   if (!globalForPrisma.prisma) {
     globalForPrisma.prisma = new PrismaClient({
-      log: process.env.NODE_ENV === 'development' ? ['warn', 'error'] : ['error'],
+      log: ['error'],
     });
   }
 
