@@ -10,9 +10,14 @@ export function getPrismaClient(): PrismaClient | null {
   }
 
   if (!globalForPrisma.prisma) {
-    globalForPrisma.prisma = new PrismaClient({
-      log: ['error'],
-    });
+    try {
+      globalForPrisma.prisma = new PrismaClient({
+        log: ['error'],
+      });
+    } catch (err) {
+      console.error('[MusaTech API] Erreur initialisation PrismaClient :', err);
+      return null;
+    }
   }
 
   return globalForPrisma.prisma;

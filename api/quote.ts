@@ -1,2 +1,5 @@
-export { default } from './devis';
+import handler from './devis';
+
+export default handler;
+
 

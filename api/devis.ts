@@ -143,33 +143,43 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
     }
 
     // 6. Enregistrement en base de données PostgreSQL
-    const createdLead = await prisma.quoteLead.create({
-      data: {
-        name: data.fullName,
-        email: data.email,
-        company: data.company || null,
-        phone: data.phone || null,
-        country: data.country,
-        industry: data.industry || null,
-        serviceRequested: data.projectType,
-        budget: data.budget || 'to_define',
-        currency: data.currencyMode || 'XOF',
-        timeline: data.timeline || 'flexible',
-        description: data.description,
-        locale,
-        status: 'NEW',
-      },
-    });
+    let leadId = `lead_${Date.now()}`;
+    let leadCreatedAt = new Date();
 
-    // Log sobre et respectueux de la vie privée (aucune PII)
-    // eslint-disable-next-line no-console
-    console.info('[MusaTech API] Nouveau prospect enregistré avec succès :', {
-      leadId: createdLead.id,
-      service: createdLead.serviceRequested,
-      country: createdLead.country,
-      currency: createdLead.currency,
-      timestamp: createdLead.createdAt.toISOString(),
-    });
+    try {
+      const createdLead = await prisma.quoteLead.create({
+        data: {
+          name: data.fullName,
+          email: data.email,
+          company: data.company || null,
+          phone: data.phone || null,
+          country: data.country,
+          industry: data.industry || null,
+          serviceRequested: data.projectType,
+          budget: data.budget || 'to_define',
+          currency: data.currencyMode || 'XOF',
+          timeline: data.timeline || 'flexible',
+          description: data.description,
+          locale,
+          status: 'NEW',
+        },
+      });
+      leadId = createdLead.id;
+      leadCreatedAt = createdLead.createdAt;
+
+      // Log sobre et respectueux de la vie privée (aucune PII)
+      // eslint-disable-next-line no-console
+      console.info('[MusaTech API] Nouveau prospect enregistré avec succès :', {
+        leadId: createdLead.id,
+        service: createdLead.serviceRequested,
+        country: createdLead.country,
+        currency: createdLead.currency,
+        timestamp: createdLead.createdAt.toISOString(),
+      });
+    } catch (dbErr) {
+      // eslint-disable-next-line no-console
+      console.error('[MusaTech API] Erreur BDD PostgreSQL (continuation vers notification email) :', dbErr);
+    }
 
     // 7. Envoi des emails via Resend (si clé configurée)
     const resendApiKey = process.env.RESEND_API_KEY;
@@ -180,20 +190,20 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
         const notifyTo = process.env.NOTIFICATION_EMAIL_TO || 'musadev27@gmail.com';
 
         const emailPayload: LeadEmailData = {
-          id: createdLead.id,
-          name: createdLead.name,
-          email: createdLead.email,
-          company: createdLead.company,
-          phone: createdLead.phone,
-          country: createdLead.country,
-          industry: createdLead.industry,
-          serviceRequested: createdLead.serviceRequested,
-          budget: createdLead.budget,
-          currency: createdLead.currency,
-          timeline: createdLead.timeline,
-          description: createdLead.description,
-          locale: createdLead.locale,
-          createdAt: createdLead.createdAt,
+          id: leadId,
+          name: data.fullName,
+          email: data.email,
+          company: data.company || null,
+          phone: data.phone || null,
+          country: data.country,
+          industry: data.industry || null,
+          serviceRequested: data.projectType,
+          budget: data.budget || 'to_define',
+          currency: data.currencyMode || 'XOF',
+          timeline: data.timeline || 'flexible',
+          description: data.description,
+          locale,
+          createdAt: leadCreatedAt,
         };
 
         const internalEmail = buildInternalNotificationEmail(emailPayload);
@@ -210,7 +220,7 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
           }),
           resend.emails.send({
             from: emailFrom,
-            to: createdLead.email,
+            to: data.email,
             subject: prospectEmail.subject,
             text: prospectEmail.text,
             html: prospectEmail.html,
@@ -226,7 +236,7 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
     return res.status(200).json({
       success: true,
       status: 'SUCCESS',
-      leadId: createdLead.id,
+      leadId,
       message: locale === 'en'
         ? 'Your quote request has been transmitted successfully to Moussa Diagne. You will receive an acknowledgment email shortly.'
         : 'Votre demande de devis a été enregistrée avec succès. Un email de confirmation vient de vous être envoyé.',
