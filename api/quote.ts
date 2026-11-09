@@ -1,4 +1,4 @@
-import handler from './devis';
+import handler from './devis.js';
 
 export default handler;
 

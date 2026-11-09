@@ -3,7 +3,7 @@
  * Route : POST /api/contact
  */
 import { Resend } from 'resend';
-import { getPrismaClient } from './_lib/prisma';
+import { getPrismaClient } from './_lib/prisma.js';
 
 interface VercelLikeRequest {
   method?: string;

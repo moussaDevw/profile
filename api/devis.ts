@@ -14,13 +14,13 @@
  */
 
 import { Resend } from 'resend';
-import { getPrismaClient } from './_lib/prisma';
+import { getPrismaClient } from './_lib/prisma.js';
 import {
   buildInternalNotificationEmail,
   buildProspectAcknowledgmentEmail,
   LeadEmailData,
-} from './_lib/emailTemplates';
-import { quoteFormSchema } from '../src/schemas/quoteSchema';
+} from './_lib/emailTemplates.js';
+import { quoteFormSchema } from './_lib/quoteSchema.js';
 
 // Interface minimale pour compatibilité Vercel / Node.js
 interface VercelLikeRequest {
