@@ -15,7 +15,7 @@ export function getPrismaClient(): PrismaClient | null {
         log: ['error'],
       });
     } catch {
-      console.error('[MusaTech API] Erreur initialisation PrismaClient.');
+      console.error('[MusaTech API ] Erreur initialisation PrismaClient.');
       return null;
     }
   }
