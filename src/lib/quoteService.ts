@@ -105,23 +105,9 @@ export async function submitQuoteRequest(
   }
   lastSubmissionTimestamp = now;
 
-  // 4. Confidentialité des logs : SÉCURISÉ
   const isTestEnv =
     typeof globalThis !== 'undefined' &&
     Boolean((globalThis as unknown as { process?: { env?: { NODE_ENV?: string } } }).process?.env?.NODE_ENV === 'test');
-
-  if (!isTestEnv) {
-    // eslint-disable-next-line no-console
-    console.info('[MusaTech QuoteService] Demande qualifiée reçue :', {
-      timestamp: new Date().toISOString(),
-      projectType: data.projectType,
-      country: data.country,
-      hasCompany: Boolean(data.company),
-      budgetSelected: Boolean(data.budget),
-      locale,
-      // Données personnelles expressément exclues
-    });
-  }
 
   // Préparation des passerelles de secours directes
   const fallbackMessage = encodeURIComponent(

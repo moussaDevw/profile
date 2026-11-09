@@ -89,8 +89,8 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
             status: 'NEW',
           },
         });
-      } catch (dbErr) {
-        console.error('[MusaTech Contact API DB Error]:', dbErr);
+      } catch {
+        console.error('[MusaTech Contact API] Avertissement : échec d’enregistrement en BDD.');
       }
     }
 
@@ -153,8 +153,8 @@ ${waLink ? `WhatsApp direct : ${waLink}` : ''}
 </html>
 `.trim(),
         });
-      } catch (mailErr) {
-        console.error('[MusaTech Contact API Email Error]:', mailErr);
+      } catch {
+        console.error('[MusaTech Contact API] Avertissement : échec d’envoi d’email.');
       }
     }
 
@@ -164,8 +164,8 @@ ${waLink ? `WhatsApp direct : ${waLink}` : ''}
         ? 'Thank you! Your message has been transmitted successfully.'
         : 'Merci ! Votre message a bien été transmis à Moussa Diagne.',
     });
-  } catch (fatalErr) {
-    console.error('[MusaTech Contact API Fatal Error]:', fatalErr);
+  } catch {
+    console.error('[MusaTech Contact API] Erreur interne lors du traitement.');
     return res.status(500).json({
       success: false,
       message: 'Une erreur interne est survenue lors de l’envoi.',

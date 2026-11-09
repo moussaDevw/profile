@@ -14,8 +14,8 @@ export function getPrismaClient(): PrismaClient | null {
       globalForPrisma.prisma = new PrismaClient({
         log: ['error'],
       });
-    } catch (err) {
-      console.error('[MusaTech API] Erreur initialisation PrismaClient :', err);
+    } catch {
+      console.error('[MusaTech API] Erreur initialisation PrismaClient.');
       return null;
     }
   }
