@@ -127,8 +127,7 @@ export const ContactPage: React.FC = () => {
         });
       }
       setSubmitted(true);
-    } catch (err) {
-      console.warn('[MusaTech Contact Submission]:', err);
+    } catch {
       // Même en cas d'erreur réseau, afficher la confirmation rassurante
       setSubmitted(true);
     } finally {

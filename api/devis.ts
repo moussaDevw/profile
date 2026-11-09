@@ -14,13 +14,13 @@
  */
 
 import { Resend } from 'resend';
-import { getPrismaClient } from './_lib/prisma';
+import { getPrismaClient } from './_lib/prisma.js';
 import {
   buildInternalNotificationEmail,
   buildProspectAcknowledgmentEmail,
   LeadEmailData,
-} from './_lib/emailTemplates';
-import { quoteFormSchema } from '../src/schemas/quoteSchema';
+} from './_lib/emailTemplates.js';
+import { quoteFormSchema } from './_lib/quoteSchema.js';
 
 // Interface minimale pour compatibilité Vercel / Node.js
 interface VercelLikeRequest {
@@ -166,19 +166,9 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
       });
       leadId = createdLead.id;
       leadCreatedAt = createdLead.createdAt;
-
-      // Log sobre et respectueux de la vie privée (aucune PII)
+    } catch {
       // eslint-disable-next-line no-console
-      console.info('[MusaTech API] Nouveau prospect enregistré avec succès :', {
-        leadId: createdLead.id,
-        service: createdLead.serviceRequested,
-        country: createdLead.country,
-        currency: createdLead.currency,
-        timestamp: createdLead.createdAt.toISOString(),
-      });
-    } catch (dbErr) {
-      // eslint-disable-next-line no-console
-      console.error('[MusaTech API] Erreur BDD PostgreSQL (continuation vers notification email) :', dbErr);
+      console.error('[MusaTech API] Avertissement BDD PostgreSQL : enregistrement direct impossible, bascule vers notification email.');
     }
 
     // 7. Envoi des emails via Resend (si clé configurée)
@@ -226,9 +216,9 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
             html: prospectEmail.html,
           }),
         ]);
-      } catch (emailErr) {
+      } catch {
         // eslint-disable-next-line no-console
-        console.error('[MusaTech API] Avertissement : échec partiel d’envoi d’email :', emailErr);
+        console.error('[MusaTech API] Avertissement : échec partiel d’envoi d’email.');
       }
     }
 
@@ -241,14 +231,13 @@ export default async function handler(req: VercelLikeRequest, res: VercelLikeRes
         ? 'Your quote request has been transmitted successfully to Moussa Diagne. You will receive an acknowledgment email shortly.'
         : 'Votre demande de devis a été enregistrée avec succès. Un email de confirmation vient de vous être envoyé.',
     });
-  } catch (fatalErr: unknown) {
+  } catch {
     // eslint-disable-next-line no-console
-    console.error('[MusaTech API Fatal Handler Error]:', fatalErr);
-    const errMessage = fatalErr instanceof Error ? fatalErr.message : 'Erreur interne de traitement.';
+    console.error('[MusaTech API] Erreur interne lors du traitement.');
     return res.status(500).json({
       success: false,
       status: 'SERVER_ERROR',
-      message: errMessage,
+      message: 'Une erreur interne est survenue. Veuillez nous contacter directement via WhatsApp ou Email.',
     });
   }
 }
