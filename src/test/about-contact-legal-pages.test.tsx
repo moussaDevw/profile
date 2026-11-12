@@ -72,7 +72,7 @@ describe('MusaTech About, Contact & Trust/Legal Pages', () => {
 
       // Verified coordinates check
       expect(screen.getByText('musadev27@gmail.com')).toBeInTheDocument();
-      expect(screen.getByText('+221 78 010 54 26')).toBeInTheDocument();
+      expect(screen.getByText('+221 78 282 41 75')).toBeInTheDocument();
       expect(screen.getByText(/Dakar, Sénégal/i)).toBeInTheDocument();
       expect(screen.getByRole('link', { name: /GitHub/i })).toHaveAttribute(
         'href',

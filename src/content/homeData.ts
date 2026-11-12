@@ -738,7 +738,7 @@ export const FINAL_CTA_DATA_FR = {
   },
   cta2: {
     label: 'Échanger par WhatsApp',
-    href: 'https://wa.me/221780105426?text=Bonjour%20Moussa,%20je%20souhaite%20discuter%20d%27un%20projet%20digital.',
+    href: 'https://wa.me/221782824175?text=Bonjour%20Moussa,%20je%20souhaite%20discuter%20d%27un%20projet%20digital.',
   },
 };
 
@@ -752,7 +752,7 @@ export const FINAL_CTA_DATA_EN = {
   },
   cta2: {
     label: 'Chat on WhatsApp',
-    href: 'https://wa.me/221780105426?text=Hello%20Moussa,%20I%20would%20like%20to%20discuss%20a%20digital%20project.',
+    href: 'https://wa.me/221782824175?text=Hello%20Moussa,%20I%20would%20like%20to%20discuss%20a%20digital%20project.',
   },
 };
 

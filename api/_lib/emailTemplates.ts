@@ -164,14 +164,14 @@ I have received your quote request regarding your "${lead.serviceRequested}" pro
 
 I am currently reviewing the technical and functional aspects of your requirements and will reach out with an initial review or a discovery meeting proposal within 24 to 48 business hours.
 
-If you have additional materials (specifications, wireframes, RFP), feel free to reply directly to this email or reach me on WhatsApp at +221 78 010 54 26.
+If you have additional materials (specifications, wireframes, RFP), feel free to reply directly to this email or reach me on WhatsApp at +221 78 282 41 75.
 
 Best regards,
 
 Moussa Diagne
 Founder & Lead Full Stack Engineer — MusaTech
 Dakar, Senegal & Remote
-WhatsApp: +221 78 010 54 26
+WhatsApp: +221 78 282 41 75
 Portfolio: https://musatech.tech
 `.trim()
     : `
@@ -181,14 +181,14 @@ J'ai bien reçu votre demande de devis concernant votre projet de "${lead.servic
 
 J'analyse actuellement les éléments techniques et fonctionnels de votre besoin et je reviendrai vers vous avec un premier retour ou une proposition d'échange sous 24 à 48 heures ouvrées.
 
-Si vous disposez de documents complémentaires (cahier des charges, maquettes, expressions de besoins), vous pouvez simplement répondre à cet email ou me contacter directement sur WhatsApp au +221 78 010 54 26.
+Si vous disposez de documents complémentaires (cahier des charges, maquettes, expressions de besoins), vous pouvez simplement répondre à cet email ou me contacter directement sur WhatsApp au +221 78 282 41 75.
 
 Bien cordialement,
 
 Moussa Diagne
 Fondateur & Développeur Full Stack — MusaTech
 Dakar, Sénégal & International
-WhatsApp : +221 78 010 54 26
+WhatsApp : +221 78 282 41 75
 Site : https://musatech.tech
 `.trim();
 
@@ -250,7 +250,7 @@ Site : https://musatech.tech
       </p>
 
       <p style="text-align: center; margin: 24px 0;">
-        <a href="https://wa.me/221780105426" class="btn">💬 WhatsApp : +221 78 010 54 26</a>
+        <a href="https://wa.me/221782824175" class="btn">💬 WhatsApp : +221 78 282 41 75</a>
       </p>
 
       <p style="margin-bottom: 0;">

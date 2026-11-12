@@ -261,7 +261,7 @@ export const ContactPage: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/221780105426"
+                  href="https://wa.me/221782824175"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackContactClicked({ channel: 'whatsapp', context: 'contact_page_card', locale })}
@@ -296,7 +296,7 @@ export const ContactPage: React.FC = () => {
                     <span style={{ fontSize: '11px', color: '#64748B', display: 'block', textTransform: 'uppercase' }}>
                       {isEn ? 'Direct WhatsApp & Phone' : 'WhatsApp & Téléphone direct'}
                     </span>
-                    <strong style={{ fontSize: '15px' }}>+221 78 010 54 26</strong>
+                    <strong style={{ fontSize: '15px' }}>+221 78 282 41 75</strong>
                   </div>
                 </a>
 

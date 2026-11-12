@@ -117,7 +117,7 @@ export async function submitQuoteRequest(
   );
 
   const directChannels = {
-    whatsappUrl: `https://wa.me/221780105426?text=${fallbackMessage}`,
+    whatsappUrl: `https://wa.me/221782824175?text=${fallbackMessage}`,
     mailtoUrl: `mailto:musadev27@gmail.com?subject=${encodeURIComponent(
       isEn
         ? `Quote Request: ${data.projectType} - ${data.fullName}`

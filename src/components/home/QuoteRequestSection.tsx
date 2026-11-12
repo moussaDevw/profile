@@ -218,8 +218,8 @@ export const QuoteRequestSection: React.FC = () => {
                 <Phone size={16} color="#19B8CD" />
                 <span>
                   {isEn
-                    ? 'Urgent matter? Contact me directly at +221 78 010 54 26'
-                    : 'Urgence ? Échangez directement au +221 78 010 54 26'}
+                    ? 'Urgent matter? Contact me directly at +221 78 282 41 75'
+                    : 'Urgence ? Échangez directement au +221 78 282 41 75'}
                 </span>
               </div>
             </div>

@@ -95,9 +95,9 @@ const Contact = () => {
           <Reveal delay={0.4}>
             <div className="col">
               <h4>{t('contact.phone')}</h4>
-              <a href="tel:+221780105426" className="phone-link">
+              <a href="tel:+221782824175" className="phone-link">
                 <Phone size={16} />
-                <span>+221 78 010 54 26</span>
+                <span>+221 78 282 41 75</span>
               </a>
             </div>
           </Reveal>

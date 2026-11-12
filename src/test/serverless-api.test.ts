@@ -47,7 +47,7 @@ describe('MusaTech Serverless Backend Pipeline (/api/devis)', () => {
       expect(subject).toBe('Confirmation de votre demande de devis — MusaTech');
       expect(text).toContain('Bonjour Moussa Test');
       expect(text).toContain('24 à 48 heures ouvrées');
-      expect(html).toContain('+221 78 010 54 26');
+      expect(html).toContain('+221 78 282 41 75');
     });
 
     it('generates prospect acknowledgment email in English when locale is en', () => {
