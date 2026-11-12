@@ -367,8 +367,8 @@ export const QuotePage: React.FC = () => {
                   <Phone size={16} color="#19B8CD" />
                   <span>
                     {isEn
-                      ? 'Urgent inquiry? Reach Moussa Diagne directly at +221 78 010 54 26'
-                      : 'Une question urgente ? Joignez directement Moussa Diagne au +221 78 010 54 26'}
+                      ? 'Urgent inquiry? Reach Moussa Diagne directly at +221 78 282 41 75'
+                      : 'Une question urgente ? Joignez directement Moussa Diagne au +221 78 282 41 75'}
                   </span>
                 </div>
               </div>

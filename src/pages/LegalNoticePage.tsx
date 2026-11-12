@@ -144,7 +144,7 @@ export const LegalNoticePage: React.FC = () => {
                     </a>
                   </li>
                   <li>
-                    <strong>{isEn ? 'Direct Phone / WhatsApp:' : 'Téléphone / WhatsApp :'}</strong> +221 78 010 54 26
+                    <strong>{isEn ? 'Direct Phone / WhatsApp:' : 'Téléphone / WhatsApp :'}</strong> +221 78 282 41 75
                   </li>
                   <li>
                     <strong>{isEn ? 'Business Registration:' : 'Identifiants d\'entreprise :'}</strong>{' '}

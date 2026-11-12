@@ -220,7 +220,7 @@ export const HomeFooter: React.FC = () => {
               </a>
 
               <a
-                href="tel:+221780105426"
+                href="tel:+221782824175"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -231,7 +231,7 @@ export const HomeFooter: React.FC = () => {
                 }}
               >
                 <Phone size={16} color="#19B8CD" />
-                <span>+221 78 010 54 26</span>
+                <span>+221 78 282 41 75</span>
               </a>
 
               <div style={{ display: 'flex', gap: '16px', marginTop: '8px' }}>
