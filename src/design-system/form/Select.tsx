@@ -21,11 +21,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           className={`mt-select ${error ? 'mt-select-error' : ''} ${className}`}
           style={{
             width: '100%',
-            minHeight: '48px',
-            padding: '0 40px 0 16px',
-            borderRadius: '10px',
-            border: error ? '1.5px solid #D9383A' : '1px solid #DAE3ED',
-            backgroundColor: disabled ? '#F4F7FB' : '#FFFFFF',
+            minHeight: '50px',
+            padding: '0 42px 0 18px',
+            borderRadius: '16px',
+            border: error ? '1.5px solid #D9383A' : '1px solid #E2DDD5',
+            backgroundColor: disabled ? '#FAF8F5' : '#FFFFFF',
             color: '#0B1730',
             fontSize: '15px',
             fontFamily: "'Inter', sans-serif",

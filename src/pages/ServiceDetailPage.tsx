@@ -92,13 +92,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
 
   return (
     <div className={`mt-service-detail-page mt-service-${service.slug}`}>
-      {/* 1. Hero Section de l'offre */}
+      {/* 1. Hero Section de l'offre — Style Alan.com Pleine Largeur */}
       <section
         style={{
-          paddingTop: 'clamp(48px, 6vw, 80px)',
-          paddingBottom: 'clamp(48px, 6vw, 72px)',
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #DAE3ED',
+          width: '100%',
+          paddingTop: 'clamp(52px, 6vw, 84px)',
+          paddingBottom: 'clamp(52px, 6vw, 80px)',
+          backgroundColor: '#D9F2EE',
+          borderBottom: '1px solid #C5E8E2',
         }}
       >
         <Container>
@@ -169,14 +170,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
               </div>
             </div>
 
-            {/* Price & Delivery Card (Prix de départ validé) */}
+            {/* Price & Delivery Card (Prix de départ validé — Carte Flottante Blanche Alan) */}
             <div
               style={{
-                backgroundColor: '#F4F7FB',
-                borderRadius: '16px',
-                border: '1.5px solid #DAE3ED',
-                padding: 'clamp(18px, 3.5vw, 36px) clamp(12px, 2.5vw, 32px)',
-                boxShadow: '0 8px 24px -4px rgba(11, 23, 48, 0.06)',
+                backgroundColor: '#FFFFFF',
+                borderRadius: '32px',
+                border: '1px solid rgba(11, 23, 48, 0.06)',
+                padding: 'clamp(24px, 3.5vw, 38px)',
+                boxShadow: '0 22px 48px -12px rgba(14, 96, 73, 0.12)',
               }}
             >
               <span style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: '#465670', display: 'block', marginBottom: '8px' }}>
@@ -549,8 +550,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
         </Container>
       </section>
 
-      {/* 10. CTA Final vers devis avec présélection */}
-      <section className="mt-section" style={{ backgroundColor: '#0B1730', color: '#FFFFFF', textAlign: 'center' }}>
+      {/* 10. CTA Final vers devis avec présélection — Vert Forêt Alan */}
+      <section className="mt-section" style={{ width: '100%', backgroundColor: '#0E6049', color: '#FFFFFF', textAlign: 'center' }}>
         <Container>
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             <h2 className="mt-h2" style={{ color: '#FFFFFF', marginBottom: '16px' }}>

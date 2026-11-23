@@ -134,13 +134,14 @@ export const SolutionsIndexPage: React.FC = () => {
 
   return (
     <div className="mt-page-solutions">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section — Style Alan.com Pêche Pastel Pleine Largeur */}
       <section
         style={{
+          width: '100%',
           paddingTop: 'clamp(56px, 8vw, 96px)',
-          paddingBottom: 'clamp(56px, 8vw, 80px)',
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #DAE3ED',
+          paddingBottom: 'clamp(56px, 8vw, 84px)',
+          backgroundColor: '#FBF0E4',
+          borderBottom: '1px solid #EFE0CE',
         }}
       >
         <Container>
@@ -583,11 +584,12 @@ export const SolutionsIndexPage: React.FC = () => {
         </Container>
       </section>
 
-      {/* 4. Méthode de Travail */}
+      {/* 4. Méthode de Travail — Vert Forêt Alan */}
       <section
         style={{
+          width: '100%',
           padding: 'clamp(56px, 8vw, 96px) 0',
-          backgroundColor: '#0B1730',
+          backgroundColor: '#0E6049',
           color: '#FFFFFF',
         }}
       >

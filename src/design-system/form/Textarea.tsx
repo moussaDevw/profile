@@ -14,10 +14,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         className={`mt-textarea ${error ? 'mt-textarea-error' : ''} ${className}`}
         style={{
           width: '100%',
-          padding: '14px 16px',
-          borderRadius: '10px',
-          border: error ? '1.5px solid #D9383A' : '1px solid #DAE3ED',
-          backgroundColor: disabled ? '#F4F7FB' : '#FFFFFF',
+          padding: '14px 18px',
+          borderRadius: '16px',
+          border: error ? '1.5px solid #D9383A' : '1px solid #E2DDD5',
+          backgroundColor: disabled ? '#FAF8F5' : '#FFFFFF',
           color: '#0B1730',
           fontSize: '15px',
           fontFamily: "'Inter', sans-serif",

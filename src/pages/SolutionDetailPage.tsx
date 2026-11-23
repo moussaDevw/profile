@@ -81,13 +81,14 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
 
   return (
     <div className={`mt-solution-detail-page mt-solution-${solution.slug}`}>
-      {/* 1. Hero Spécifique au Secteur */}
+      {/* 1. Hero Spécifique au Secteur — Style Alan.com Pleine Largeur */}
       <section
         style={{
-          paddingTop: 'clamp(48px, 6vw, 80px)',
-          paddingBottom: 'clamp(48px, 6vw, 72px)',
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #DAE3ED',
+          width: '100%',
+          paddingTop: 'clamp(52px, 6vw, 84px)',
+          paddingBottom: 'clamp(52px, 6vw, 80px)',
+          backgroundColor: '#D9F2EE',
+          borderBottom: '1px solid #C5E8E2',
         }}
       >
         <Container>
@@ -222,15 +223,15 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
               </div>
             </div>
 
-            {/* Encadré Synthèse Métier */}
+            {/* Encadré Synthèse Métier — Vert Forêt Alan */}
             <div
               style={{
-                backgroundColor: '#0B1730',
+                backgroundColor: '#0E6049',
                 color: '#FFFFFF',
-                borderRadius: '16px',
-                padding: 'clamp(20px, 3.5vw, 32px) clamp(12px, 2.5vw, 32px)',
-                boxShadow: '0 12px 32px rgba(11, 23, 48, 0.12)',
-                border: '1px solid rgba(218, 227, 237, 0.15)',
+                borderRadius: '32px',
+                padding: 'clamp(24px, 3.5vw, 36px)',
+                boxShadow: '0 22px 48px -12px rgba(14, 96, 73, 0.22)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
               }}
             >
               <div
@@ -922,12 +923,13 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({ slug }) 
         </Container>
       </section>
 
-      {/* 8. Demande de Devis avec Présélection */}
+      {/* 8. Demande de Devis avec Présélection — Vert Forêt Alan */}
       <section
         id="devis-cta"
         style={{
+          width: '100%',
           padding: 'clamp(64px, 8vw, 96px) 0',
-          backgroundColor: '#0B1730',
+          backgroundColor: '#0E6049',
           color: '#FFFFFF',
           textAlign: 'center',
         }}
