@@ -43,7 +43,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
     <div
       className={`mt-faq-accordion ${className}`}
       style={{
-        maxWidth: '820px',
+        maxWidth: '840px',
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
@@ -63,13 +63,13 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
             className={`mt-faq-item ${isOpen ? 'mt-faq-item-open' : ''}`}
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '14px',
-              border: isOpen ? '1.5px solid #19B8CD' : '1px solid #DAE3ED',
+              borderRadius: '26px',
+              border: isOpen ? '1.5px solid #0E6049' : '1px solid rgba(11, 23, 48, 0.06)',
               overflow: 'hidden',
-              transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+              transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
               boxShadow: isOpen
-                ? '0 4px 20px -2px rgba(25, 184, 205, 0.12)'
-                : '0 2px 6px rgba(11, 23, 48, 0.02)',
+                ? '0 20px 44px -10px rgba(11, 23, 48, 0.1)'
+                : '0 8px 24px -6px rgba(11, 23, 48, 0.05)',
             }}
           >
             <button
@@ -80,11 +80,11 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
               aria-controls={contentId}
               style={{
                 width: '100%',
-                padding: 'clamp(14px, 3.5vw, 20px) clamp(14px, 3vw, 24px)',
+                padding: 'clamp(18px, 3.5vw, 24px) clamp(18px, 3vw, 28px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                gap: '14px',
+                gap: '16px',
                 backgroundColor: 'transparent',
                 border: 'none',
                 cursor: 'pointer',
@@ -95,10 +95,10 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
               <span
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: 'clamp(15px, 3.5vw, 17px)',
-                  fontWeight: 700,
-                  color: isOpen ? '#0B1730' : '#172A46',
-                  lineHeight: 1.4,
+                  fontSize: 'clamp(15.5px, 3.5vw, 17.5px)',
+                  fontWeight: 800,
+                  color: '#0B1730',
+                  lineHeight: 1.38,
                   transition: 'color 0.15s ease',
                 }}
               >
@@ -107,12 +107,12 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
 
               <div
                 style={{
-                  width: '32px',
-                  height: '32px',
-                  minWidth: '32px',
-                  minHeight: '32px',
+                  width: '36px',
+                  height: '36px',
+                  minWidth: '36px',
+                  minHeight: '36px',
                   borderRadius: '50%',
-                  backgroundColor: isOpen ? 'rgba(25, 184, 205, 0.12)' : '#F4F7FB',
+                  backgroundColor: isOpen ? '#D9F2EE' : '#FAF8F5',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -123,8 +123,8 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
               >
                 <ChevronDown
                   size={18}
-                  color={isOpen ? '#19B8CD' : '#465670'}
-                  strokeWidth={2.2}
+                  color={isOpen ? '#0E6049' : '#465670'}
+                  strokeWidth={2.5}
                 />
               </div>
             </button>
@@ -135,8 +135,8 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                 role="region"
                 aria-labelledby={headerId}
                 style={{
-                  padding: '0 clamp(14px, 3vw, 24px) clamp(16px, 4vw, 22px) clamp(14px, 3vw, 24px)',
-                  borderTop: '1px solid #F1F5F9',
+                  padding: '0 clamp(18px, 3vw, 28px) clamp(20px, 4vw, 26px) clamp(18px, 3vw, 28px)',
+                  borderTop: '1px solid #F1EFEA',
                 }}
               >
                 <div
@@ -145,8 +145,8 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
                     margin: 0,
                     paddingTop: '16px',
                     lineHeight: 1.65,
-                    fontSize: 'clamp(14px, 2.5vw, 15px)',
-                    color: '#465670',
+                    fontSize: 'clamp(14.5px, 2.5vw, 15.5px)',
+                    color: '#334155',
                   }}
                 >
                   {typeof answerContent === 'string' ? (
@@ -163,4 +163,3 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({
     </div>
   );
 };
-

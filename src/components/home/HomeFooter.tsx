@@ -20,11 +20,12 @@ export const HomeFooter: React.FC = () => {
   return (
     <footer
       style={{
-        backgroundColor: '#0B1730',
+        width: '100%',
+        backgroundColor: '#083D2F',
         color: '#FFFFFF',
-        borderTop: '1px solid rgba(218, 227, 237, 0.1)',
-        paddingTop: 'clamp(48px, 6vw, 64px)',
-        paddingBottom: 'clamp(32px, 4vw, 40px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        paddingTop: 'clamp(52px, 6vw, 72px)',
+        paddingBottom: 'clamp(32px, 4vw, 44px)',
       }}
     >
       <Container>

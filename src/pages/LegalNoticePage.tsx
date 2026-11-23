@@ -32,10 +32,11 @@ export const LegalNoticePage: React.FC = () => {
     <div className="mt-page-legal">
       <section
         style={{
+          width: '100%',
           paddingTop: 'clamp(56px, 8vw, 96px)',
           paddingBottom: 'clamp(56px, 8vw, 80px)',
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #DAE3ED',
+          backgroundColor: '#D9F2EE',
+          borderBottom: '1px solid #C5E8E2',
         }}
       >
         <Container>

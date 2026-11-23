@@ -231,13 +231,14 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="mt-page-about">
-      {/* 1. Hero & Présentation Fondateur */}
+      {/* 1. Hero & Présentation Fondateur — Style Alan.com Pêche Pastel Pleine Largeur */}
       <section
         style={{
+          width: '100%',
           paddingTop: 'clamp(56px, 8vw, 96px)',
-          paddingBottom: 'clamp(56px, 8vw, 80px)',
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #DAE3ED',
+          paddingBottom: 'clamp(56px, 8vw, 84px)',
+          backgroundColor: '#FBF0E4',
+          borderBottom: '1px solid #EFE0CE',
         }}
       >
         <Container>
@@ -351,14 +352,14 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Carte Identité & Localisation */}
+            {/* Carte Identité & Localisation — Carte Flottante Blanche Alan */}
             <div
               style={{
-                backgroundColor: '#F8FAFC',
-                border: '1px solid #DAE3ED',
-                borderRadius: '16px',
-                padding: 'clamp(20px, 3.5vw, 32px) clamp(12px, 2.5vw, 32px)',
-                boxShadow: '0 8px 24px rgba(11, 23, 48, 0.04)',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid rgba(11, 23, 48, 0.05)',
+                borderRadius: '32px',
+                padding: 'clamp(24px, 3.5vw, 36px)',
+                boxShadow: '0 22px 48px -12px rgba(124, 45, 18, 0.1)',
               }}
             >
               <div
@@ -629,11 +630,12 @@ export const AboutPage: React.FC = () => {
         </Container>
       </section>
 
-      {/* 4. Méthode de Collaboration & Engagement Qualité */}
+      {/* 4. Méthode de Collaboration & Engagement Qualité — Vert Forêt Alan */}
       <section
         style={{
+          width: '100%',
           padding: 'clamp(56px, 8vw, 96px) 0',
-          backgroundColor: '#0B1730',
+          backgroundColor: '#0E6049',
           color: '#FFFFFF',
         }}
       >
@@ -758,11 +760,12 @@ export const AboutPage: React.FC = () => {
         </Container>
       </section>
 
-      {/* 6. CTA Final */}
+      {/* 6. CTA Final — Vert Menthe Alan */}
       <section
         style={{
+          width: '100%',
           padding: 'clamp(64px, 8vw, 96px) 0',
-          backgroundColor: '#0B1730',
+          backgroundColor: '#0E6049',
           color: '#FFFFFF',
           textAlign: 'center',
         }}

@@ -59,45 +59,46 @@ const getServiceIcon = (slug: string) => {
 
 return (
   <div className="mt-page-services">
-    {/* 1. Hero Section */}
+    {/* 1. Hero Section — Style Alan.com 100% Pleine Largeur */}
     <section
       style={{
+        width: '100%',
         paddingTop: 'clamp(56px, 8vw, 96px)',
-        paddingBottom: 'clamp(56px, 8vw, 80px)',
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #DAE3ED',
+        paddingBottom: 'clamp(56px, 8vw, 84px)',
+        backgroundColor: '#D9F2EE',
+        borderBottom: '1px solid #C5E8E2',
       }}
     >
       <Container>
         {/* Breadcrumb */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#465670', marginBottom: '20px' }}>
-            <NavLink href={getLocalizedHref('home', locale)} style={{ color: '#172A46', textDecoration: 'none', fontWeight: 500 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#2C524C', marginBottom: '20px' }}>
+            <NavLink href={getLocalizedHref('home', locale)} style={{ color: '#0A4B3E', textDecoration: 'none', fontWeight: 700 }}>
               {isEn ? 'Home' : 'Accueil'}
             </NavLink>
             <span>/</span>
-            <span style={{ color: '#19B8CD', fontWeight: 600 }}>Services</span>
+            <span style={{ color: '#0E6049', fontWeight: 800 }}>Services</span>
         </div>
 
-        <div style={{ maxWidth: '820px' }}>
+        <div style={{ maxWidth: '840px' }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              padding: '6px 14px',
+              padding: '7px 16px',
               borderRadius: '9999px',
               fontSize: '12px',
-              fontWeight: 700,
+              fontWeight: 800,
               letterSpacing: '0.04em',
               textTransform: 'uppercase',
-              backgroundColor: '#E9F1F7',
-              color: '#172A46',
-              border: '1px solid #DAE3ED',
-              marginBottom: '20px',
+              backgroundColor: '#FFFFFF',
+              color: '#0A4B3E',
+              boxShadow: '0 4px 14px rgba(10, 75, 62, 0.06)',
+              marginBottom: '22px',
               fontFamily: "'Inter', sans-serif",
             }}
           >
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#19B8CD' }} />
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#0E6049' }} />
             {isEn ? 'Engineering Catalog & Transparent Pricing' : 'Catalogue & Tarifs Transparents'}
           </div>
 
@@ -106,7 +107,9 @@ return (
               style={{
                 color: '#0B1730',
                 marginBottom: '20px',
-                lineHeight: 1.15,
+                lineHeight: 1.1,
+                fontWeight: 800,
+                letterSpacing: '-0.03em',
               }}
             >
               {isEn
@@ -115,10 +118,11 @@ return (
             </h1>
 
               <p
-                className="mt-body mt-muted"
+                className="mt-body"
                 style={{
-                  fontSize: '18px',
-                  lineHeight: 1.6,
+                  color: '#1E3A36',
+                  fontSize: '18.5px',
+                  lineHeight: 1.62,
                   marginBottom: '32px',
                 }}
               >
@@ -128,10 +132,10 @@ return (
               </p>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-                  <LinkButton href={getLocalizedHref('quote', locale)} variant="cyan" size="lg" icon={<ArrowUpRight size={18} />}>
+                  <LinkButton href={getLocalizedHref('quote', locale)} variant="primary" size="lg" icon={<ArrowUpRight size={18} />} style={{ borderRadius: '9999px', backgroundColor: '#0B1730', color: '#FFFFFF', paddingLeft: '28px', paddingRight: '28px' }}>
                     {isEn ? 'Request a Proposal' : 'Demander un devis personnalisé'}
                   </LinkButton>
-                  <LinkButton href="#offres" variant="outline" size="lg">
+                  <LinkButton href="#offres" variant="outline" size="lg" style={{ borderRadius: '9999px', backgroundColor: '#FFFFFF', paddingLeft: '26px', paddingRight: '26px' }}>
                     {isEn ? 'Explore the 4 Core Offers' : 'Découvrir les 4 offres'}
                   </LinkButton>
               </div>
@@ -139,13 +143,14 @@ return (
           </Container>
         </section>
 
-          {/* 2. Grille des 4 Offres */}
+          {/* 2. Grille des 4 Offres — Fond Crème Alan */}
           <section
             id="offres"
             className="mt-section"
             style={{
-              backgroundColor: '#F4F7FB',
-              borderBottom: '1px solid #DAE3ED',
+              width: '100%',
+              backgroundColor: '#FAF8F5',
+              borderBottom: '1px solid #EAE6DF',
             }}
           >
             <Container>
@@ -469,11 +474,12 @@ return (
                                                       </Container>
                                                     </section>
 
-                                                      {/* 6. CTA Final vers /devis */}
+                                                      {/* 6. CTA Final vers /devis — Vert Forêt Alan */}
                                                       <section
                                                         style={{
-                                                          padding: 'clamp(56px, 8vw, 88px) 0',
-                                                          backgroundColor: '#0B1730',
+                                                          width: '100%',
+                                                          padding: 'clamp(64px, 8vw, 96px) 0',
+                                                          backgroundColor: '#0E6049',
                                                           color: '#FFFFFF',
                                                           textAlign: 'center',
                                                         }}

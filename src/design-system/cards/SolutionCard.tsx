@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Check } from 'lucide-react';
 import { useRouter } from '../../lib/router';
 
 export interface SolutionCardProps {
@@ -40,11 +40,11 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        borderRadius: '16px',
+        borderRadius: '32px',
         backgroundColor: '#FFFFFF',
-        border: '1px solid #DAE3ED',
-        padding: 'clamp(18px, 3.5vw, 32px) clamp(12px, 2.5vw, 30px)',
-        boxShadow: '0 4px 16px -2px rgba(11, 23, 48, 0.04)',
+        border: '1px solid rgba(11, 23, 48, 0.05)',
+        padding: 'clamp(22px, 3.5vw, 34px)',
+        boxShadow: '0 14px 34px -10px rgba(11, 23, 48, 0.06)',
         transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
     >
@@ -52,11 +52,11 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
           <div
             style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: '12px',
-              backgroundColor: '#E9F1F7',
-              color: '#172A46',
+              width: '48px',
+              height: '48px',
+              borderRadius: '16px',
+              backgroundColor: '#D9F2EE',
+              color: '#0A4B3E',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -67,11 +67,10 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
           <span
             style={{
               fontSize: '12px',
-              fontWeight: 700,
-              color: '#172A46',
-              backgroundColor: '#F4F7FB',
-              border: '1px solid #DAE3ED',
-              padding: '4px 12px',
+              fontWeight: 800,
+              color: '#0A4B3E',
+              backgroundColor: '#D9F2EE',
+              padding: '5px 14px',
               borderRadius: '9999px',
               textTransform: 'uppercase',
               letterSpacing: '0.04em',
@@ -81,23 +80,22 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
           </span>
         </div>
 
-        <h3 className="mt-h3" style={{ marginBottom: '12px', color: '#0B1730' }}>
+        <h3 className="mt-h3" style={{ marginBottom: '12px', color: '#0B1730', fontWeight: 800 }}>
           {title}
         </h3>
 
         <div
           style={{
-            backgroundColor: '#F4F7FB',
-            borderLeft: '3px solid #19B8CD',
-            padding: '12px 14px',
-            borderRadius: '0 8px 8px 0',
+            backgroundColor: '#FAF8F5',
+            padding: '14px 18px',
+            borderRadius: '18px',
             marginBottom: '20px',
             fontSize: '14px',
             color: '#465670',
-            lineHeight: 1.5,
+            lineHeight: 1.55,
           }}
         >
-          <strong style={{ color: '#0B1730', display: 'block', fontSize: '13px', marginBottom: '2px' }}>
+          <strong style={{ color: '#0B1730', display: 'block', fontSize: '12.5px', marginBottom: '4px', textTransform: 'uppercase' }}>
             {isEn ? 'Problem Solved:' : 'Problème résolu :'}
           </strong>
           {problem}
@@ -108,14 +106,18 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
             <span
               key={idx}
               style={{
-                fontSize: '12px',
-                fontWeight: 500,
-                color: '#172A46',
-                backgroundColor: '#E9F1F7',
-                padding: '4px 10px',
-                borderRadius: '6px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                fontSize: '12.5px',
+                fontWeight: 700,
+                color: '#0B1730',
+                backgroundColor: '#EEF6F8',
+                padding: '6px 12px',
+                borderRadius: '9999px',
               }}
             >
+              <Check size={12} color="#0E6049" strokeWidth={3} />
               {feature}
             </span>
           ))}
@@ -129,9 +131,9 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
           display: 'inline-flex',
           alignItems: 'center',
           gap: '6px',
-          color: '#172A46',
-          fontWeight: 600,
-          fontSize: '14px',
+          color: '#0E6049',
+          fontWeight: 800,
+          fontSize: '14.5px',
           textDecoration: 'none',
           padding: '8px 0',
           minHeight: '44px',
@@ -140,9 +142,8 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
         className="mt-solution-link"
       >
         <span>{isEn ? 'Explore This Solution' : 'Consulter cette solution'}</span>
-        <ArrowUpRight size={16} color="#19B8CD" />
+        <ArrowUpRight size={16} color="#0E6049" />
       </a>
     </article>
   );
 };
-

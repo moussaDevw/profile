@@ -1520,7 +1520,7 @@ export const SOLUTIONS_DATA_EN: Record<string, SectorSolutionDetail> = {
 export function getSolutionBySlug(slug: string, locale: string = 'fr'): SectorSolutionDetail | undefined {
   const isEn = locale === 'en';
   const data = isEn ? SOLUTIONS_DATA_EN : SOLUTIONS_DATA_FR;
-  
+
   // Normalisation des slugs bilingues
   const normalized =
     slug === 'real-estate'

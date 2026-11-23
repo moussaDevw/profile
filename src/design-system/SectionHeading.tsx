@@ -25,7 +25,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       className={`mt-section-heading ${className}`}
       style={{
         textAlign: isCenter ? 'center' : 'left',
-        maxWidth: isCenter ? '760px' : '820px',
+        maxWidth: isCenter ? '820px' : '860px',
         marginLeft: isCenter ? 'auto' : 0,
         marginRight: isCenter ? 'auto' : 0,
         marginBottom: 'clamp(36px, 6vw, 56px)',
@@ -37,25 +37,24 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '6px 14px',
+            padding: '7px 16px',
             borderRadius: '9999px',
-            fontSize: '13px',
-            fontWeight: 600,
+            fontSize: '12.5px',
+            fontWeight: 800,
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
-            backgroundColor: isDark ? 'rgba(25, 184, 205, 0.12)' : '#E9F1F7',
-            color: isDark ? '#19B8CD' : '#172A46',
-            border: `1px solid ${isDark ? 'rgba(25, 184, 205, 0.25)' : '#DAE3ED'}`,
-            marginBottom: '16px',
+            backgroundColor: isDark ? 'rgba(255, 255, 255, 0.14)' : '#D9F2EE',
+            color: isDark ? '#A7F3D0' : '#0A4B3E',
+            marginBottom: '18px',
             fontFamily: "'Inter', sans-serif",
           }}
         >
           <span
             style={{
-              width: '6px',
-              height: '6px',
+              width: '7px',
+              height: '7px',
               borderRadius: '50%',
-              backgroundColor: '#19B8CD',
+              backgroundColor: isDark ? '#6EE7B7' : '#0E6049',
             }}
           />
           {tag}
@@ -67,6 +66,9 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         style={{
           color: isDark ? '#FFFFFF' : '#0B1730',
           marginBottom: description ? '16px' : 0,
+          fontWeight: 800,
+          letterSpacing: '-0.025em',
+          lineHeight: 1.14,
         }}
       >
         {title}
@@ -76,10 +78,11 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         <p
           className="mt-body"
           style={{
-            color: isDark ? '#DAE3ED' : '#465670',
-            maxWidth: '640px',
+            color: isDark ? '#D1FAE5' : '#465670',
+            maxWidth: '660px',
             marginLeft: isCenter ? 'auto' : 0,
             marginRight: isCenter ? 'auto' : 0,
+            lineHeight: 1.62,
           }}
         >
           {description}
@@ -88,4 +91,3 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     </div>
   );
 };
-

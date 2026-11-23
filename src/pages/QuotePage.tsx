@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
   Send,
   CheckCircle2,
@@ -7,7 +8,6 @@ import {
   ShieldCheck,
   Phone,
   Mail,
-  Sparkles,
 } from 'lucide-react';
 import { Container } from '../design-system/Container';
 import { FormField } from '../design-system/form/FormField';
@@ -149,7 +149,6 @@ export const QuotePage: React.FC = () => {
     setErrors({});
     setSubmissionResponse(null);
 
-    // Prise en compte robuste des champs auto-remplis par le navigateur (autofill/autocomplete)
     const formEl = e.currentTarget;
     const getDOMValue = (fieldName: string, fallback: string): string => {
       const el = (formEl.elements.namedItem(fieldName) || formEl.querySelector(`[name="${fieldName}"], #${fieldName}`)) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
@@ -173,7 +172,6 @@ export const QuotePage: React.FC = () => {
       description: getDOMValue('description', formData.description),
     };
 
-    // Maintient la synchronisation dans l'état React
     setFormData(payload);
 
     try {
@@ -210,13 +208,14 @@ export const QuotePage: React.FC = () => {
 
   return (
     <div className="mt-page-quote">
-      {/* 1. Hero & Cadrage */}
+      {/* 1. OUVERTURE AÉRÉE & CENTRÉE — STYLE ALAN.COM 100% PLEINE LARGEUR */}
       <section
         style={{
-          paddingTop: 'clamp(56px, 8vw, 96px)',
-          paddingBottom: 'clamp(48px, 6vw, 72px)',
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #DAE3ED',
+          width: '100%',
+          paddingTop: 'clamp(52px, 7vw, 88px)',
+          paddingBottom: 'clamp(44px, 6vw, 68px)',
+          backgroundColor: '#FAF8F5',
+          borderBottom: '1px solid #EAE6DF',
         }}
       >
         <Container>
@@ -225,81 +224,135 @@ export const QuotePage: React.FC = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '8px',
               fontSize: '13px',
               color: '#465670',
-              marginBottom: '20px',
+              marginBottom: '22px',
             }}
           >
-            <NavLink href={getLocalizedHref('home', locale)} style={{ color: '#172A46', textDecoration: 'none', fontWeight: 500 }}>
+            <NavLink href={getLocalizedHref('home', locale)} style={{ color: '#0B1730', textDecoration: 'none', fontWeight: 700 }}>
               {isEn ? 'Home' : 'Accueil'}
             </NavLink>
             <span>/</span>
-            <span style={{ color: '#19B8CD', fontWeight: 600 }}>
+            <span style={{ color: '#0E6049', fontWeight: 800 }}>
               {isEn ? 'Quote Request' : 'Demande de devis'}
             </span>
           </div>
 
-          <div style={{ maxWidth: '820px' }}>
-            <div
+          <div style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '6px 14px',
-                backgroundColor: 'rgba(25, 184, 205, 0.1)',
-                border: '1px solid rgba(25, 184, 205, 0.25)',
-                borderRadius: '100px',
-                fontSize: '12px',
-                fontWeight: 600,
-                color: '#172A46',
-                marginBottom: '20px',
+                padding: '8px 18px',
+                backgroundColor: '#FFFFFF',
+                borderRadius: '9999px',
+                fontSize: '12.5px',
+                fontWeight: 800,
+                color: '#0B1730',
+                boxShadow: '0 4px 14px rgba(11, 23, 48, 0.05)',
+                marginBottom: '22px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.04em',
               }}
             >
-              <Sparkles size={14} color="#19B8CD" />
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#0E6049' }} />
               <span>{isEn ? 'Technical Scoping & Pricing' : 'Chiffrage & Cadrage Technique'}</span>
-            </div>
+            </motion.div>
 
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
               className="mt-h1"
               style={{
                 color: '#0B1730',
-                marginBottom: '16px',
-                lineHeight: 1.15,
+                marginBottom: '18px',
+                lineHeight: 1.08,
+                fontSize: 'clamp(34px, 5vw, 56px)',
+                fontWeight: 800,
+                letterSpacing: '-0.03em',
               }}
             >
               {isEn
                 ? 'Describe your project, receive a clear tailored proposal.'
                 : 'Décrivez votre projet, obtenez une proposition claire.'}
-            </h1>
+            </motion.h1>
 
-            <p
-              className="mt-body mt-muted"
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mt-body"
               style={{
-                fontSize: '17px',
-                lineHeight: 1.6,
-                marginBottom: '28px',
+                color: '#3B4A5E',
+                fontSize: 'clamp(16.5px, 2vw, 19px)',
+                lineHeight: 1.62,
+                maxWidth: '700px',
+                margin: '0 auto 28px',
               }}
             >
               {isEn
                 ? 'Fill in this form to qualify your technical and business requirements. Moussa Diagne will analyze your project scope and deliver a clear proposal within 24 to 48 business hours.'
                 : 'Remplissez ce formulaire pour qualifier votre besoin. Moussa Diagne analysera votre cahier des charges et vous transmettra une proposition technique et tarifaire sur mesure sous 24 à 48 heures ouvrées.'}
-            </p>
+            </motion.p>
 
-            {/* Garanties */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', fontSize: '13px', color: '#172A46' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Clock size={16} color="#19B8CD" />
+            {/* 3 Pilules de Garantie */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  color: '#0B1730',
+                  backgroundColor: '#FFFFFF',
+                  padding: '8px 16px',
+                  borderRadius: '9999px',
+                  boxShadow: '0 2px 8px rgba(11, 23, 48, 0.04)',
+                }}
+              >
+                <Clock size={15} color="#0E6049" />
                 <span>{isEn ? 'Response within 24-48 business hours' : 'Réponse sous 24h ouvrées'}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#19B8CD" />
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  color: '#0B1730',
+                  backgroundColor: '#FFFFFF',
+                  padding: '8px 16px',
+                  borderRadius: '9999px',
+                  boxShadow: '0 2px 8px rgba(11, 23, 48, 0.04)',
+                }}
+              >
+                <ShieldCheck size={15} color="#0E6049" />
                 <span>{isEn ? 'Strict data privacy & confidentiality' : 'Confidentialité et respect de vos données'}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle2 size={16} color="#19B8CD" />
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  color: '#0B1730',
+                  backgroundColor: '#FFFFFF',
+                  padding: '8px 16px',
+                  borderRadius: '9999px',
+                  boxShadow: '0 2px 8px rgba(11, 23, 48, 0.04)',
+                }}
+              >
+                <CheckCircle2 size={15} color="#0E6049" />
                 <span>{isEn ? 'Transparent proposal, no hidden fees' : 'Devis détaillé sans frais cachés'}</span>
               </div>
             </div>
@@ -307,80 +360,89 @@ export const QuotePage: React.FC = () => {
         </Container>
       </section>
 
-      {/* 2. Formulaire & Traitement */}
+      {/* 2. SCÈNE VERT MENTHE PASTEL 100% PLEINE LARGEUR (BORD À BORD) : MOCKUP + FORMULAIRE FLOTTANT */}
       <section
         style={{
-          padding: 'clamp(48px, 6vw, 80px) 0',
-          backgroundColor: '#F4F7FB',
+          width: '100%',
+          padding: 'clamp(52px, 7vw, 96px) 0',
+          backgroundColor: '#D9F2EE',
         }}
       >
         <Container>
-          <div style={{ maxWidth: '840px', margin: '0 auto' }}>
-            {/* Écran de confirmation SUCCESS */}
-            {submissionResponse?.success ? (
+          {/* Écran de confirmation SUCCESS */}
+          {submissionResponse?.success ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              style={{
+                maxWidth: '760px',
+                margin: '0 auto',
+                backgroundColor: '#FFFFFF',
+                borderRadius: '36px',
+                padding: 'clamp(40px, 6vw, 64px) 28px',
+                textAlign: 'center',
+                boxShadow: '0 28px 60px -12px rgba(14, 96, 73, 0.14)',
+              }}
+            >
               <div
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #DAE3ED',
-                  padding: 'clamp(36px, 6vw, 56px) 24px',
-                  textAlign: 'center',
-                  boxShadow: '0 8px 24px rgba(11, 23, 48, 0.05)',
+                  width: '68px',
+                  height: '68px',
+                  borderRadius: '50%',
+                  backgroundColor: '#D9F2EE',
+                  color: '#0E6049',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 22px auto',
                 }}
               >
-                <div
-                  style={{
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(25, 184, 205, 0.15)',
-                    color: '#19B8CD',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 20px auto',
-                  }}
-                >
-                  <CheckCircle2 size={36} />
-                </div>
-
-                <h2 className="mt-h2" style={{ color: '#0B1730', marginBottom: '12px', fontSize: '26px' }}>
-                  {isEn ? 'Quote Request Successfully Submitted!' : 'Demande de devis bien reçue !'}
-                </h2>
-
-                <p className="mt-body mt-muted" style={{ maxWidth: '520px', margin: '0 auto 24px auto', fontSize: '15px' }}>
-                  {submissionResponse.message}
-                </p>
-
-                <div
-                  style={{
-                    padding: '16px',
-                    backgroundColor: '#F4F7FB',
-                    borderRadius: '10px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    fontSize: '14px',
-                    color: '#172A46',
-                  }}
-                >
-                  <Phone size={16} color="#19B8CD" />
-                  <span>
-                    {isEn
-                      ? 'Urgent inquiry? Reach Moussa Diagne directly at +221 78 282 41 75'
-                      : 'Une question urgente ? Joignez directement Moussa Diagne au +221 78 282 41 75'}
-                  </span>
-                </div>
+                <CheckCircle2 size={36} />
               </div>
-            ) : (
-              /* Formulaire actif */
+
+              <h2 className="mt-h2" style={{ color: '#0B1730', marginBottom: '12px', fontSize: '28px', fontWeight: 800 }}>
+                {isEn ? 'Quote Request Successfully Submitted!' : 'Demande de devis bien reçue !'}
+              </h2>
+
+              <p className="mt-body" style={{ maxWidth: '540px', margin: '0 auto 26px auto', fontSize: '16px', color: '#334155' }}>
+                {submissionResponse.message}
+              </p>
+
+              <div
+                style={{
+                  padding: '16px 24px',
+                  backgroundColor: '#FAF8F5',
+                  borderRadius: '9999px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  color: '#0B1730',
+                }}
+              >
+                <Phone size={16} color="#0E6049" />
+                <span>
+                  {isEn
+                    ? 'Urgent inquiry? Reach Moussa Diagne directly at +221 78 282 41 75'
+                    : 'Une question urgente ? Joignez directement Moussa Diagne au +221 78 282 41 75'}
+                </span>
+              </div>
+            </motion.div>
+          ) : (
+            <div
+              style={{
+                maxWidth: '980px',
+                margin: '0 auto',
+              }}
+            >
+              {/* Formulaire Actif en Grande Carte Flottante Blanche Alan Pleine Largeur */}
               <div
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #DAE3ED',
-                  padding: 'clamp(20px, 4vw, 44px) clamp(12px, 2.5vw, 36px)',
-                  boxShadow: '0 8px 24px rgba(11, 23, 48, 0.04)',
+                  borderRadius: '36px',
+                  padding: 'clamp(28px, 4.5vw, 48px)',
+                  boxShadow: '0 24px 56px -12px rgba(11, 23, 48, 0.1)',
                 }}
               >
                 {/* Alerte Erreur Globale / Statut Backend */}
@@ -388,8 +450,8 @@ export const QuotePage: React.FC = () => {
                   <div
                     style={{
                       marginBottom: '28px',
-                      padding: '16px 20px',
-                      borderRadius: '10px',
+                      padding: '18px 22px',
+                      borderRadius: '20px',
                       backgroundColor:
                         submissionResponse.status === 'BACKEND_NOT_READY' ? '#FFFBEB' : '#FEF2F2',
                       border:
@@ -420,10 +482,10 @@ export const QuotePage: React.FC = () => {
                             gap: '6px',
                             backgroundColor: '#10B981',
                             color: '#FFFFFF',
-                            padding: '8px 16px',
-                            borderRadius: '8px',
+                            padding: '8px 18px',
+                            borderRadius: '9999px',
                             fontSize: '13px',
-                            fontWeight: 600,
+                            fontWeight: 700,
                             textDecoration: 'none',
                           }}
                         >
@@ -438,12 +500,12 @@ export const QuotePage: React.FC = () => {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '6px',
-                            backgroundColor: '#172A46',
+                            backgroundColor: '#0B1730',
                             color: '#FFFFFF',
-                            padding: '8px 16px',
-                            borderRadius: '8px',
+                            padding: '8px 18px',
+                            borderRadius: '9999px',
                             fontSize: '13px',
-                            fontWeight: 600,
+                            fontWeight: 700,
                             textDecoration: 'none',
                           }}
                         >
@@ -469,17 +531,23 @@ export const QuotePage: React.FC = () => {
                     />
                   </div>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
                     {/* SECTION 1 : Coordonnées du contact */}
-                    <div>
+                    <div
+                      style={{
+                        backgroundColor: '#FAF8F5',
+                        borderRadius: '26px',
+                        padding: 'clamp(18px, 3vw, 28px)',
+                      }}
+                    >
                       <h2
                         style={{
-                          fontSize: '16px',
-                          fontWeight: 700,
+                          fontSize: '17px',
+                          fontWeight: 800,
                           color: '#0B1730',
-                          marginBottom: '16px',
-                          paddingBottom: '8px',
-                          borderBottom: '1px solid #E2E8F0',
+                          marginBottom: '18px',
+                          paddingBottom: '10px',
+                          borderBottom: '1px solid #EAE6DF',
                         }}
                       >
                         {isEn ? '1. Contact Details' : '1. Vos Coordonnées'}
@@ -488,8 +556,8 @@ export const QuotePage: React.FC = () => {
                       <div
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-                          gap: '20px',
+                          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+                          gap: '16px',
                         }}
                       >
                         <FormField label={isEn ? 'Full Name' : 'Nom complet'} id="fullName" required error={errors.fullName}>
@@ -572,7 +640,13 @@ export const QuotePage: React.FC = () => {
                     </div>
 
                     {/* SECTION 2 : Périmètre du projet */}
-                    <div>
+                    <div
+                      style={{
+                        backgroundColor: '#FAF8F5',
+                        borderRadius: '26px',
+                        padding: 'clamp(18px, 3vw, 28px)',
+                      }}
+                    >
                       <div
                         style={{
                           display: 'flex',
@@ -580,15 +654,15 @@ export const QuotePage: React.FC = () => {
                           alignItems: 'center',
                           justifyContent: 'space-between',
                           gap: '12px',
-                          marginBottom: '16px',
-                          paddingBottom: '8px',
-                          borderBottom: '1px solid #E2E8F0',
+                          marginBottom: '18px',
+                          paddingBottom: '10px',
+                          borderBottom: '1px solid #EAE6DF',
                         }}
                       >
                         <h2
                           style={{
-                            fontSize: '16px',
-                            fontWeight: 700,
+                            fontSize: '17px',
+                            fontWeight: 800,
                             color: '#0B1730',
                             margin: 0,
                           }}
@@ -596,19 +670,19 @@ export const QuotePage: React.FC = () => {
                           {isEn ? '2. Project Scope & Requirements' : '2. Le Projet & Vos Attentes'}
                         </h2>
 
-                        {/* Sélecteur de Devise International */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-                          <span style={{ color: '#64748B' }}>{isEn ? 'Currency:' : 'Devise :'}</span>
+                        {/* Sélecteur de Devise International en Pilules Alan */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px' }}>
+                          <span style={{ color: '#64748B', fontWeight: 600 }}>{isEn ? 'Currency:' : 'Devise :'}</span>
                           {(['XOF', 'EUR', 'USD'] as const).map((cur) => (
                             <button
                               key={cur}
                               type="button"
                               onClick={() => handleCurrencyChange(cur)}
                               style={{
-                                padding: '6px 12px',
-                                minHeight: '36px',
-                                borderRadius: '6px',
-                                border: currencyMode === cur ? '1.5px solid #0B1730' : '1px solid #DAE3ED',
+                                padding: '6px 14px',
+                                minHeight: '34px',
+                                borderRadius: '9999px',
+                                border: currencyMode === cur ? '1.5px solid #0B1730' : '1px solid #E2DDD5',
                                 backgroundColor: currencyMode === cur ? '#0B1730' : '#FFFFFF',
                                 color: currencyMode === cur ? '#FFFFFF' : '#465670',
                                 fontWeight: 700,
@@ -626,9 +700,9 @@ export const QuotePage: React.FC = () => {
                       <div
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-                          gap: '20px',
-                          marginBottom: '20px',
+                          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+                          gap: '16px',
+                          marginBottom: '16px',
                         }}
                       >
                         <FormField label={isEn ? 'Project Type' : 'Type de projet'} id="projectType" required error={errors.projectType}>
@@ -686,7 +760,7 @@ export const QuotePage: React.FC = () => {
                         <Textarea
                           id="description"
                           name="description"
-                          rows={6}
+                          rows={5}
                           placeholder={
                             isEn
                               ? 'Example: We are an international logistics company and need a web application with real-time container tracking, automated PDF invoice generation, and Stripe checkout...'
@@ -701,15 +775,21 @@ export const QuotePage: React.FC = () => {
                     </div>
 
                     {/* SECTION 3 : Consentement & Confidentialité */}
-                    <div style={{ paddingTop: '8px' }}>
+                    <div
+                      style={{
+                        backgroundColor: '#FAF8F5',
+                        padding: '16px 20px',
+                        borderRadius: '20px',
+                      }}
+                    >
                       <label
                         style={{
                           display: 'flex',
                           alignItems: 'flex-start',
-                          gap: '10px',
-                          fontSize: '13px',
-                          color: '#465670',
-                          lineHeight: 1.5,
+                          gap: '12px',
+                          fontSize: '13.5px',
+                          color: '#334155',
+                          lineHeight: 1.55,
                           cursor: 'pointer',
                         }}
                       >
@@ -717,13 +797,13 @@ export const QuotePage: React.FC = () => {
                           type="checkbox"
                           checked={formData.consentPrivacy}
                           onChange={(e) => setFormData({ ...formData, consentPrivacy: e.target.checked })}
-                          style={{ marginTop: '3px', cursor: 'pointer' }}
+                          style={{ marginTop: '3px', cursor: 'pointer', width: '16px', height: '16px' }}
                         />
                         <span>
                           {isEn ? (
                             <>
                               I agree that the submitted information will be processed by MusaTech exclusively to respond to my quote request, in accordance with the{' '}
-                              <NavLink href={getLocalizedHref('privacy', 'en')} style={{ color: '#19B8CD', textDecoration: 'none', fontWeight: 600 }}>
+                              <NavLink href={getLocalizedHref('privacy', 'en')} style={{ color: '#0E6049', textDecoration: 'none', fontWeight: 700 }}>
                                 privacy policy
                               </NavLink>
                               . No personal data is ever sold or shared with third parties. *
@@ -731,7 +811,7 @@ export const QuotePage: React.FC = () => {
                           ) : (
                             <>
                               J’accepte que les données saisies soient traitées par MusaTech dans le cadre de ma demande de devis, conformément à la{' '}
-                              <NavLink href={getLocalizedHref('privacy', 'fr')} style={{ color: '#19B8CD', textDecoration: 'none', fontWeight: 600 }}>
+                              <NavLink href={getLocalizedHref('privacy', 'fr')} style={{ color: '#0E6049', textDecoration: 'none', fontWeight: 700 }}>
                                 politique de confidentialité
                               </NavLink>
                               . Aucune donnée n’est vendue ni cédée à des tiers. *
@@ -740,13 +820,13 @@ export const QuotePage: React.FC = () => {
                         </span>
                       </label>
                       {errors.consentPrivacy && (
-                        <div style={{ color: '#DC2626', fontSize: '12px', marginTop: '6px' }}>
+                        <div style={{ color: '#DC2626', fontSize: '12.5px', fontWeight: 600, marginTop: '6px' }}>
                           {errors.consentPrivacy}
                         </div>
                       )}
                     </div>
 
-                    {/* Bouton de soumission */}
+                    {/* Bouton de soumission Pilule Alan */}
                     <div>
                       <Button
                         type="submit"
@@ -755,6 +835,11 @@ export const QuotePage: React.FC = () => {
                         fullWidth
                         disabled={loading}
                         icon={<Send size={18} />}
+                        style={{
+                          borderRadius: '9999px',
+                          backgroundColor: '#0B1730',
+                          color: '#FFFFFF',
+                        }}
                       >
                         {loading
                           ? (isEn ? 'Validating and submitting...' : 'Traitement et validation en cours...')
@@ -764,7 +849,8 @@ export const QuotePage: React.FC = () => {
                         style={{
                           marginTop: '12px',
                           textAlign: 'center',
-                          fontSize: '12px',
+                          fontSize: '12.5px',
+                          fontWeight: 600,
                           color: '#64748B',
                         }}
                       >
@@ -776,8 +862,8 @@ export const QuotePage: React.FC = () => {
                   </div>
                 </form>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </Container>
       </section>
     </div>

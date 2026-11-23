@@ -140,6 +140,16 @@
 }
 
 /* Section Spacing */
+.mt-hero-section,
+.mt-section {
+  width: 100%;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .mt-section {
   padding-top: var(--mt-section-spacing);
   padding-bottom: var(--mt-section-spacing);
@@ -151,15 +161,33 @@
   outline-offset: 3px !important;
 }
 
-/* Card Hover States */
+/* Card Hover States — Dribbble-inspired smooth elevation */
 .mt-card {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
 }
 
 .mt-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--mt-shadow-lg);
-  border-color: rgba(25, 184, 205, 0.4) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(11, 23, 48, 0.12), 0 4px 16px -2px rgba(25, 184, 205, 0.08);
+  border-color: rgba(25, 184, 205, 0.45) !important;
+}
+
+/* Dribbble-style Shot Preview Zoom */
+.mt-shot-preview {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mt-project-card:hover .mt-shot-preview {
+  transform: scale(1.03);
+}
+
+.mt-filter-pill {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.mt-filter-pill:hover {
+  transform: translateY(-1px);
 }
 
 /* Button Hover & Active States */
