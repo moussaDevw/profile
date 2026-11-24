@@ -24,6 +24,8 @@ import { ContactPage } from './pages/ContactPage';
 import { LegalNoticePage } from './pages/LegalNoticePage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { QuotePage } from './pages/QuotePage';
+import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
+import { PaymentErrorPage } from './pages/PaymentErrorPage';
 
 function AppContent() {
   const { routeInfo, locale } = useRouter();
@@ -124,6 +126,20 @@ function AppContent() {
             return (
               <main>
                 <QuotePage />
+              </main>
+            );
+
+          case 'payment-success':
+            return (
+              <main>
+                <PaymentSuccessPage />
+              </main>
+            );
+
+          case 'payment-error':
+            return (
+              <main>
+                <PaymentErrorPage />
               </main>
             );
 
