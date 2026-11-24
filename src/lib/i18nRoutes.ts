@@ -265,6 +265,45 @@ export function resolveRoute(rawPath: string): RouteResolution {
     };
   }
 
+  // Paiement Réussi / Payment Success (Redirection App Mobile)
+  if (
+    subPath === '/success' ||
+    subPath === '/succes' ||
+    subPath === '/payment/success' ||
+    subPath === '/payment-success' ||
+    subPath === '/paiement/succes' ||
+    subPath === '/paiement-succes'
+  ) {
+    return {
+      locale,
+      routeId: 'payment-success',
+      canonicalPath: locale === 'en' ? '/en/success' : '/fr/success',
+      frPath: '/fr/success',
+      enPath: '/en/success',
+    };
+  }
+
+  // Paiement Échoué ou Annulé / Payment Error (Redirection App Mobile)
+  if (
+    subPath === '/error' ||
+    subPath === '/erreur' ||
+    subPath === '/cancel' ||
+    subPath === '/payment/error' ||
+    subPath === '/payment-error' ||
+    subPath === '/payment/cancel' ||
+    subPath === '/paiement/erreur' ||
+    subPath === '/paiement-erreur' ||
+    subPath === '/paiement/annule'
+  ) {
+    return {
+      locale,
+      routeId: 'payment-error',
+      canonicalPath: locale === 'en' ? '/en/error' : '/fr/error',
+      frPath: '/fr/error',
+      enPath: '/en/error',
+    };
+  }
+
   // Par défaut : Homepage
   return {
     locale,
@@ -287,7 +326,18 @@ export function getEquivalentRoute(currentPath: string, targetLocale: Locale): s
  * Construit un lien localisé à partir d'un identifiant de route
  */
 export function getLocalizedHref(
-  routeId: 'home' | 'services' | 'solutions' | 'projects' | 'about' | 'contact' | 'quote' | 'legal' | 'privacy',
+  routeId:
+    | 'home'
+    | 'services'
+    | 'solutions'
+    | 'projects'
+    | 'about'
+    | 'contact'
+    | 'quote'
+    | 'legal'
+    | 'privacy'
+    | 'payment-success'
+    | 'payment-error',
   locale: Locale,
   slug?: string
 ): string {
@@ -300,6 +350,8 @@ export function getLocalizedHref(
   if (routeId === 'quote') return locale === 'en' ? '/en/quote' : '/fr/devis';
   if (routeId === 'legal') return locale === 'en' ? '/en/legal-notice' : '/fr/mentions-legales';
   if (routeId === 'privacy') return locale === 'en' ? '/en/privacy-policy' : '/fr/confidentialite';
+  if (routeId === 'payment-success') return locale === 'en' ? '/en/success' : '/fr/success';
+  if (routeId === 'payment-error') return locale === 'en' ? '/en/error' : '/fr/error';
 
   return locale === 'en' ? '/en' : '/fr';
 }
